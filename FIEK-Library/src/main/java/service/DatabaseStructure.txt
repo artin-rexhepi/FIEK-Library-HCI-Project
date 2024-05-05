@@ -1,0 +1,172 @@
+create database LibraryManagementSystem;
+
+use LibraryManagementSystem;
+
+CREATE TABLE Author (
+    id INT PRIMARY KEY auto_increment,
+    name VARCHAR(255),
+    description TEXT
+);
+
+CREATE TABLE Book 	(
+    ISBN VARCHAR(20) PRIMARY KEY,
+    title VARCHAR(255),
+    subject VARCHAR(100),
+    publisher VARCHAR(100),
+    publicationDate DATE,
+    language VARCHAR(50),
+    numberOfPages INT,
+    author_id INT,
+    FOREIGN KEY (author_id) REFERENCES Author(id)
+);
+CREATE TABLE Rack (
+    id INT PRIMARY KEY auto_increment,
+    locationIdentifier VARCHAR(255)
+);
+
+CREATE TABLE BookItem (
+    barcode VARCHAR(20) PRIMARY KEY,
+    ISBN VARCHAR(20),
+    isReferenceOnly BOOLEAN,
+    borrowed DATE,
+    dueDate DATE,
+    price DOUBLE,
+    format VARCHAR(50),
+    status VARCHAR(50),
+    dateOfPurchase DATE,
+    rack_id INT,
+    FOREIGN KEY (ISBN) REFERENCES Book(ISBN),
+    FOREIGN KEY (rack_id) REFERENCES Rack(id)
+);
+
+
+
+CREATE TABLE Account (
+    id INT PRIMARY KEY auto_increment,
+    password VARCHAR(255) not null,
+    status VARCHAR(50),
+    person_name VARCHAR(255) not null,
+    email VARCHAR(255) UNIQUE not null,
+    phone VARCHAR(50) not null
+);
+
+CREATE TABLE Member (
+    id INT PRIMARY KEY auto_increment,
+    account_id INT UNIQUE,
+    dateOfMembership DATE,
+    totalBooksCheckedOut INT,
+    FOREIGN KEY (account_id) REFERENCES Account(id)
+);
+
+CREATE TABLE Librarian (
+    id INT PRIMARY KEY auto_increment,
+    account_id INT UNIQUE,
+    FOREIGN KEY (account_id) REFERENCES Account(id)
+);
+
+CREATE TABLE LibraryCard (
+    cardNumber VARCHAR(20) PRIMARY KEY,
+    issuedAt DATE,
+    isActive BOOLEAN,
+    account_id INT,
+    FOREIGN KEY (account_id) REFERENCES Account(id)
+);
+
+CREATE TABLE BookReservation (
+    id INT PRIMARY KEY auto_increment,
+    creationDate DATE,
+    status VARCHAR(50),
+    account_id INT,
+    book_item_barcode VARCHAR(20),
+    FOREIGN KEY (account_id) REFERENCES Account(id),
+    FOREIGN KEY (book_item_barcode) REFERENCES BookItem(barcode)
+);
+
+CREATE TABLE BookLending (
+    id INT PRIMARY KEY auto_increment,
+    creationDate DATE,
+    dueDate DATE,
+    returnDate DATE,
+    book_item_barcode VARCHAR(20),
+    account_id INT,
+    FOREIGN KEY (book_item_barcode) REFERENCES BookItem(barcode),
+    FOREIGN KEY (account_id) REFERENCES Account(id)
+);
+
+CREATE TABLE Fine (
+    id INT PRIMARY KEY auto_increment,
+    amount DOUBLE
+);
+
+
+Explanation of Each Table and Its Columns
+1. Author
+id: A unique identifier for each author. Automatically incremented.
+name: The name of the author.
+description: A textual description or biography of the author.
+
+2. Book
+ISBN: The International Standard Book Number, a unique identifier for books.
+title: The title of the book.
+subject: The subject category of the book.
+publisher: The publisher of the book.
+publicationDate: The date the book was published.
+language: The language in which the book is written.
+numberOfPages: The number of pages in the book.
+author_id: A reference to the Author table, linking a book to its author.
+
+3. BookItem
+barcode: A unique barcode for each copy of a book.
+isReferenceOnly: A Boolean flag to indicate if the book can be taken out of the library or is reference-only.
+ISBN: to connect with the table book fo easier management of copies
+borrowed: The date on which the book was borrowed.
+dueDate: The date by which the book should be returned.
+price: The price of the book.
+format: The format of the book (e.g., hardcover, paperback).
+status: The current status of the book (e.g., available, borrowed).
+dateOfPurchase: The date on which the book was purchased by the library.
+rack_id: A reference to the Rack table to help locate the book physically in the library.
+
+4. Rack
+id: A unique identifier for each rack.
+locationIdentifier: A description or code to identify the location of the rack within the library.
+
+5. Account
+id: A unique identifier for each account.
+password: A password for the account holder.
+status: The status of the account (e.g., active, inactive).
+person_name: The name of the account holder.
+email: The email address of the account holder.
+phone: The phone number of the account holder.
+
+6. Member
+account_id: A unique identifier that also links to the Account table.
+dateOfMembership: The date on which the member joined the library.
+totalBooksCheckedOut: The number of books currently checked out by the member.
+
+7. Librarian
+account_id: Links to the Account table, similar to Member, but for librarians.
+
+8. LibraryCard
+id: A unique identifier for each library card.
+cardNumber: A unique number on the library card.
+issuedAt: The date the card was issued.
+isActive: A Boolean flag indicating if the card is active.
+account_id: Links this card to its owner's account.
+
+9. BookReservation
+id: A unique identifier for each reservation.
+creationDate: The date on which the reservation was made.
+status: The current status of the reservation (e.g., waiting, fulfilled).
+account_id: The account ID of the member making the reservation.
+book_item_barcode: The barcode of the book item that has been reserved.
+10. BookLending
+id: A unique identifier for each lending record.
+creationDate: The date the book was checked out.
+dueDate: The due date for returning the book.
+returnDate: The actual date the book was returned.
+book_item_barcode: The barcode of the book item lent out.
+account_id: The account ID of the member who borrowed the book.
+11. Fine
+id: A unique identifier for each fine.
+amount: The amount of the fine.
