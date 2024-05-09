@@ -6,6 +6,6 @@ module org.example.fieklibrary {
 
     opens org.example.fieklibrary to javafx.fxml;
     exports org.example.fieklibrary;
-    exports controller;
+    exports app;
     opens controller to javafx.fxml;
 }
