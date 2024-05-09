@@ -10,6 +10,8 @@ import java.io.IOException;
 public class Main extends Application {
 
     public void start(Stage stage){
-        Navigator.navigate(stage, Navigator.LOGIN_PAGE);
+
+        Navigator.navigate(stage, Navigator.REGISTER_BOOK_PAGE);
     }
+
 }

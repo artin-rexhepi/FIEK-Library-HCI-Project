@@ -1,0 +1,22 @@
+
+
+.ruaj-button {
+    -fx-background-color: #8B0000; /* Dark red background */
+    -fx-text-fill: white; /* White text color */
+}
+
+.fshij-button {
+    -fx-background-color: white; /* White background */
+    -fx-border-color: #8B0000; /* Dark red border color */
+    -fx-text-fill: #8B0000; /* Dark red text color */
+}
+
+/* Hover effect for Ruaj button */
+.ruaj-button:hover {
+    -fx-background-color: #A52A2A; /* Darker red on hover */
+}
+
+/* Hover effect for Fshij button */
+.fshij-button:hover {
+    -fx-background-color: #FFE4E1; /* Light red on hover */
+}
