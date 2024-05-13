@@ -14,6 +14,7 @@ public class Navigator {
     public final static String HOME_PAGE = "home.fxml";
     public final static String CREATE_ACCOUNT_PAGE = "create_user_form.fxml";
     public final static String REGISTER_BOOK_PAGE = "register-book.fxml";
+    public final static String ADMIN_PAGE = "admin_page.fxml";
 
     public static void navigate(Event event, String form){
         Node eventNode = (Node) event.getSource();

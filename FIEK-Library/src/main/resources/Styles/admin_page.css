@@ -1,0 +1,13 @@
+.btnedito{
+    -fx-background-color: white;
+    -fx-text-fill: black;
+    -fx-border-color: #8b0000;
+    -fx-border-width: 2px;
+    -fx-font-weight: normal;
+    -fx-font-family: 'Berlin Sans FB';
+    -fx-background-insets: 0;
+}
+.btnedito:hover{
+    -fx-cursor: hand;
+    -fx-background-insets: 0;
+}
