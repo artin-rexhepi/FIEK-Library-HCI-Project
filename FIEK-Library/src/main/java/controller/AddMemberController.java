@@ -1,9 +1,12 @@
 package controller;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import model.dto.MemberDto;
 import repository.MemberRepository;
+import app.Navigator;
 
 public class AddMemberController {
 
@@ -65,6 +68,13 @@ public class AddMemberController {
         txtEmail.clear();
         txtGjinia.clear();
         txtNumerTelefon.clear();
+    }
+    @FXML
+    public void handleReturn() {
+        // Get the current stage from any of the text fields
+        Stage stage = (Stage) txtEmri.getScene().getWindow();
+        // Navigate to the CREATE_ACCOUNT_PAGE
+        Navigator.navigate(stage, Navigator.LOGIN_PAGE);
     }
 
     private void showAlert(Alert.AlertType alertType, String title, String message) {
