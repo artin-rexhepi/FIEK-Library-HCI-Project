@@ -12,7 +12,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" stylesheets="@../Styles/RegisterBookStyles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BookRegisterController">
     <children>
-        <Label layoutX="240.0" layoutY="14.0" prefHeight="30.0" prefWidth="129.0" text="Regjistrimi i Librit" textFill="#8B0000">
+        <Label layoutX="230.0" layoutY="14.0" prefHeight="30.0" prefWidth="140.0" text="Regjistrimi i Librit" textFill="#8B0000">
             <font>
                 <Font size="18.0" />
             </font>
@@ -39,8 +39,8 @@
             </children>
         </GridPane>
         <TextField fx:id="txtAuthorId" layoutX="57.0" layoutY="260.0" prefHeight="30.0" prefWidth="238.0" promptText="ID e Autorit" style="-fx-border-color: #8B0000;" />
-        <Button defaultButton="true" layoutX="305.0" layoutY="312.0" mnemonicParsing="false" onAction="#handleBookRegisterSave" prefHeight="30.0" prefWidth="113.0" styleClass="ruaj-button" stylesheets="@../Styles/RegisterBookStyles.css" text="Ruaj" textFill="DARKRED" />
-        <Button cancelButton="true" layoutX="184.0" layoutY="312.0" mnemonicParsing="false" onAction="#handleBookRegisterCancel" prefHeight="30.0" prefWidth="113.0" styleClass="fshij-button" stylesheets="@../Styles/RegisterBookStyles.css" text="Fshij" textFill="#8a0000" />
+        <Button defaultButton="true" layoutX="305.0" layoutY="312.0" mnemonicParsing="false" onAction="#handleBookRegisterSave" prefHeight="30.0" prefWidth="113.0" styleClass="ruaj-button" stylesheets="@../Styles/RegisterBookStyles.css" text="Regjistro librin" textFill="DARKRED" />
+        <Button cancelButton="true" layoutX="184.0" layoutY="312.0" mnemonicParsing="false" onAction="#handleBookRegisterCancel" prefHeight="30.0" prefWidth="113.0" styleClass="fshij-button" stylesheets="@../Styles/RegisterBookStyles.css" text="Fshij të dhënat" textFill="#8a0000" />
           <TextField fx:id="txtISBN" layoutX="305.0" layoutY="261.0" prefHeight="28.0" prefWidth="238.0" promptText="ISBN" style="-fx-border-color: #8B0000;" />
     </children>
 </AnchorPane>
