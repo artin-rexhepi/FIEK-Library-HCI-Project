@@ -13,6 +13,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import repository.AdminRepository;
 import service.DBConnector;
 
 import java.io.IOException;
@@ -21,6 +22,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class AdminPageController {
+    private AdminRepository adminRepository;
     @FXML
     private Text txtAdminPage;
     @FXML
@@ -34,6 +36,9 @@ public class AdminPageController {
     @FXML
     private Button btnEditoPerdorues;
 
+    public AdminPageController(AdminRepository adminRepository) {
+        this.adminRepository = adminRepository;
+    }
     @FXML
     private void editolibra(ActionEvent ae) throws IOException {
         Navigator.navigate(ae, Navigator.REGISTER_BOOK_PAGE);
@@ -46,13 +51,13 @@ public class AdminPageController {
 
     @FXML
     private void initialize() {
-//        if (txtPershendetje != null) {
-//            int loggedInUserId = getLoggedInUserId();
-//            String userName = fetchUserNameFromDatabase(loggedInUserId);
-//            txtPershendetje.setText("Pershendetje " + userName);
-//        } else {
-//            System.err.println("Text objekti 'Pershendetje' eshte null.");
-//        }
+        if (txtPershendetje != null) {
+            int loggedInUserId = adminRepository.getLoggedInUserId();
+            String userName = adminRepository.fetchUserNameFromDatabase(loggedInUserId);
+            txtPershendetje.setText("Pershendetje " + userName);
+        } else {
+            System.err.println("Text objekti 'Pershendetje' eshte null.");
+        }
 
         if (txtHyrja != null) {
             LocalDateTime currentTime = LocalDateTime.now();
