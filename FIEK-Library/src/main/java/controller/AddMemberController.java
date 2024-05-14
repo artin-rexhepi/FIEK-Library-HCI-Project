@@ -1,6 +1,9 @@
+package controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import model.dto.MemberDto;
+import repository.MemberRepository;
 
 public class AddMemberController {
 
@@ -19,42 +22,49 @@ public class AddMemberController {
     @FXML
     private TextField txtGjinia;
 
-    @FXML
-    public void handleFshij() {
-        clearFields();
+    private MemberRepository memberRepository;
+
+    public AddMemberController() {
+        // Instantiate the MemberRepository
+        this.memberRepository = new MemberRepository();
     }
 
     @FXML
-    public void handleRuaj() {
+    private void handleRuaj() {
         // Retrieve member details from UI components
+        String id = txtId.getText();
         String emri = txtEmri.getText();
         String email = txtEmail.getText();
-        String numerTelefon = txtNumerTelefon.getText();
-        String id = txtId.getText();
         String gjinia = txtGjinia.getText();
+        String numerTelefoni = txtNumerTelefon.getText();
 
-        // Create a MemberDTO object with the retrieved data
-        MemberDTO memberDTO = new MemberDTO(emri, email, numerTelefon, id, gjinia);
+        // Create a MemberDto object with the retrieved data
+        MemberDto memberDto = new MemberDto(id, emri, email, gjinia, numerTelefoni);
 
-        // Call the service method to register the member
-        boolean isRegistered = memberService.registerMember(memberDTO);
+        // Call the repository method to save the member
+        boolean isSaved = memberRepository.create(memberDto);
 
-        if (isRegistered) {
-            // Member registration successful, display a success message
-            showAlert(Alert.AlertType.INFORMATION, "Sukses", "Anëtari është regjistruar me sukses!");
+        if (isSaved) {
+            // Member saved successfully, display a success message
+            showAlert(Alert.AlertType.INFORMATION, "Success", "Member saved successfully!");
             clearFields();
         } else {
-            // Member registration failed, display an error message
-            showAlert(Alert.AlertType.ERROR, "Error", "Dështim në regjistrimin e anëtarit");
+            // Saving member failed, display an error message
+            showAlert(Alert.AlertType.ERROR, "Error", "Failed to save member");
         }
     }
 
+    @FXML
+    private void handleFshij() {
+        clearFields();
+    }
+
     private void clearFields() {
+        txtId.clear();
         txtEmri.clear();
         txtEmail.clear();
-        txtNumerTelefon.clear();
-        txtId.clear();
         txtGjinia.clear();
+        txtNumerTelefon.clear();
     }
 
     private void showAlert(Alert.AlertType alertType, String title, String message) {
@@ -65,4 +75,3 @@ public class AddMemberController {
         alert.showAndWait();
     }
 }
-
