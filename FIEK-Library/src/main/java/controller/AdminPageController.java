@@ -41,7 +41,7 @@ public class AdminPageController {
     }
     @FXML
     private void editolibra(ActionEvent ae) throws IOException {
-        Navigator.navigate(ae, Navigator.REGISTER_BOOK_PAGE);
+//        Navigator.navigate(ae, Navigator.REGISTER_BOOK_PAGE);
     }
 
     @FXML

@@ -142,6 +142,7 @@
                </font>
             </Label>
             <Pane prefHeight="143.0" prefWidth="466.0" />
+            <Text fx:id="loginMessage" />
          </children>
       </VBox>
    </children>

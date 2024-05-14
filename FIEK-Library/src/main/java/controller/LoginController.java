@@ -1,11 +1,14 @@
 package controller;
 
-import model.dto.LoginUserDto;
+import app.Navigator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import model.dto.LoginUserDto;
 import service.UserService;
 
 public class LoginController {
@@ -19,14 +22,20 @@ public class LoginController {
     private PasswordField pwdPassword;
 
     @FXML
-    private Text loginMessage;
+    private Text loginMessage;  // Ensure this matches the fx:id in the FXML
 
-    public LoginController(UserService userService) {
+    // Setter for userService, allows injection after FXML loading
+    public void setUserService(UserService userService) {
         this.userService = userService;
     }
 
     @FXML
     public void handleLoginClick(ActionEvent event) {
+        if (userService == null) {
+            loginMessage.setText("Service not initialized.");
+            return;
+        }
+
         String username = txtUsername.getText();
         String password = pwdPassword.getText();
 
@@ -40,7 +49,7 @@ public class LoginController {
 
         if (isAuthenticated) {
             loginMessage.setText("Login successful.");
-            // Navigate to the next screen or dashboard
+            Navigator.navigate((Stage) ((Node) event.getSource()).getScene().getWindow(), Navigator.REGISTER_BOOK_PAGE);
         } else {
             loginMessage.setText("Invalid username or password.");
         }
