@@ -1,27 +1,33 @@
 package model.dto;
 
 import java.time.LocalDate;
+import java.util.Date;
+import java.util.Locale;
 
 public class BookDTO {
     private String ISBN;
     private String title;
     private String subject;
     private String publisher;
-    private String quantity;
-    private String author;
+    private LocalDate publicationDate;
+    private String language;
+    private int numberOfPages;
+    private int authorId;
 
     // Constructors
     public BookDTO() {
         // Default constructor
     }
 
-    public BookDTO(String ISBN, String title, String subject, String publisher, String quantity, String author) {
+    public BookDTO(String ISBN, String title, String subject, String publisher, LocalDate publicationDate, String language, int numberOfPages, int authorId) {
         this.ISBN = ISBN;
         this.title = title;
         this.subject = subject;
         this.publisher = publisher;
-        this.quantity = quantity;
-        this.author = author;
+        this.publicationDate = publicationDate;
+        this.language = language;
+        this.numberOfPages = numberOfPages;
+        this.authorId = authorId;
     }
 
     // Getters and setters
@@ -57,19 +63,35 @@ public class BookDTO {
         this.publisher = publisher;
     }
 
-    public String getQuantity() {
-        return quantity;
+    public LocalDate getPublicationDate() {
+        return publicationDate;
     }
 
-    public void setQuantity(String quantity) {
-        this.quantity = quantity;
+    public void setPublicationDate(LocalDate publicationDate) {
+        this.publicationDate = publicationDate;
     }
 
-    public String getAuthor() {
-        return author;
+    public String getLanguage() {
+        return language;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    public int getNumberOfPages() {
+        return numberOfPages;
+    }
+
+    public void setNumberOfPages(int numberOfPages) {
+        this.numberOfPages = numberOfPages;
+    }
+
+    public int getAuthorId() {
+        return authorId;
+    }
+
+    public void setAuthorId(int authorId) {
+        this.authorId = authorId;
     }
 }

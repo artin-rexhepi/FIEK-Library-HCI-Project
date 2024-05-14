@@ -15,19 +15,19 @@ public class BookRepository {
     public static boolean create(BookDTO bookData){
         Connection conn = DBConnector.getConnection();
         String query = """
-        INSERT INTO Book (ISBN, title, author, publisher, genre, quantity, isAvailable)
-        VALUES (?, ?, ?, ?, ?, ?, ?)
-        """;
-
+                INSERT INTO Book (ISBN, title, subject, publisher, publicationDate, language, numberOfPages, author_id)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                """;
         try{
             PreparedStatement pst = conn.prepareStatement(query);
             pst.setString(1, bookData.getISBN());
             pst.setString(2, bookData.getTitle());
-            pst.setString(3, bookData.getAuthor());
+            pst.setString(3, bookData.getSubject());
             pst.setString(4, bookData.getPublisher());
-            pst.setString(5, bookData.getSubject());
-            pst.setInt(6, Integer.parseInt(bookData.getQuantity())); // Parse quantity to int
-            pst.setBoolean(7, true); // Assuming isAvailable should always be true when adding a new book
+            pst.setDate(5, java.sql.Date.valueOf(bookData.getPublicationDate()));
+            pst.setString(6, bookData.getLanguage());
+            pst.setInt(7, bookData.getNumberOfPages());
+            pst.setInt(8, bookData.getAuthorId());
             pst.executeUpdate();
             pst.close();
             conn.close();
@@ -54,24 +54,21 @@ public class BookRepository {
             return null;
         }
     }
-    private static Book getFromResultSet(ResultSet result) {
-        try {
-            String ISBN = result.getString("isbn");
-            String title = result.getString("title");
-            String author = result.getString("author");
-            String publisher = result.getString("publisher");
-            String genre = result.getString("genre");
-            int quantity = result.getInt("quantity");
-            // Assuming isAvailable is boolean, retrieve as boolean or convert if necessary
-            boolean isAvailable = result.getBoolean("isAvailable");
 
-            // Return a new Book object with retrieved data
-            return new Book(ISBN, title, null, publisher, String.valueOf(quantity), author);
-        } catch (SQLException e) {
+    private static Book getFromResultSet(ResultSet result){
+        try{
+            String ISBN = result.getString("ISBN");
+            String title = result.getString("title");
+            String subject = result.getString("subject");
+            String publisher = result.getString("publisher");
+            LocalDate publicationDate = result.getDate("publicationDate").toLocalDate();
+            String language = result.getString("language");
+            int numberOfPages = result.getInt("numberOfPages");
+            int authorId = result.getInt("author_id");
+            return new Book(ISBN, title, subject, publisher, publicationDate, language, numberOfPages, authorId);
+        }catch (SQLException e){
             e.printStackTrace();
             return null;
         }
     }
-
-    }
-
+}
