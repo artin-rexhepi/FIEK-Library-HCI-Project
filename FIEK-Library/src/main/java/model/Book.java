@@ -1,32 +1,27 @@
 package model;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public class Book {
     private String ISBN;
     private String title;
     private String subject;
     private String publisher;
-    private LocalDate publicationDate;
-    private String language;
-    private int numberOfPages;
-    private int authorId;
+    private String quantity;
+    private String author;
 
     // Constructors
     public Book() {
         // Default constructor
     }
 
-    public Book(String ISBN, String title, String subject, String publisher, LocalDate publicationDate, String language, int numberOfPages, int authorId) {
+    public Book(String ISBN, String title, String subject, String publisher, String quantity, String author) {
         this.ISBN = ISBN;
         this.title = title;
         this.subject = subject;
         this.publisher = publisher;
-        this.publicationDate = publicationDate;
-        this.language = language;
-        this.numberOfPages = numberOfPages;
-        this.authorId = authorId;
+        this.quantity = quantity;
+        this.author = author;
     }
 
     // Getters and setters
@@ -62,35 +57,19 @@ public class Book {
         this.publisher = publisher;
     }
 
-    public LocalDate getPublicationDate() {
-        return publicationDate;
+    public String getQuantity() {
+        return quantity;
     }
 
-    public void setPublicationDate(LocalDate publicationDate) {
-        this.publicationDate = publicationDate;
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
     }
 
-    public String getLanguage() {
-        return language;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setLanguage(String language) {
-        this.language = language;
-    }
-
-    public int getNumberOfPages() {
-        return numberOfPages;
-    }
-
-    public void setNumberOfPages(int numberOfPages) {
-        this.numberOfPages = numberOfPages;
-    }
-
-    public int getAuthorId() {
-        return authorId;
-    }
-
-    public void setAuthorId(int authorId) {
-        this.authorId = authorId;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 }
