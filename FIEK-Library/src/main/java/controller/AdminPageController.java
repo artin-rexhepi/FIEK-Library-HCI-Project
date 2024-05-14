@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -24,29 +25,26 @@ import java.time.format.DateTimeFormatter;
 public class AdminPageController {
     private AdminRepository adminRepository;
     @FXML
-    private Text txtAdminPage;
-    @FXML
     private Text txtPershendetje;
     @FXML
     private Text txtHyrja;
-    @FXML
-    private TableView<String> tabela;
     @FXML
     private Button btnEditoLibra;
     @FXML
     private Button btnEditoPerdorues;
 
-    public AdminPageController(AdminRepository adminRepository) {
-        this.adminRepository = adminRepository;
+
+    public AdminPageController() {
+        this.adminRepository = new AdminRepository();
     }
     @FXML
     private void editolibra(ActionEvent ae) throws IOException {
-//        Navigator.navigate(ae, Navigator.REGISTER_BOOK_PAGE);
+//        Navigator.navigate((Stage) ((Node) ae.getSource()).getScene().getWindow(), Navigator.REGISTER_BOOK_PAGE);
     }
 
     @FXML
     private void editoperdorues(ActionEvent ae) throws IOException{
-//        Navigator.navigate(ae, Navigator.REGISTER_USER_PAGE);
+//        Navigator.navigate((Stage) ((Node) ae.getSource()).getScene().getWindow(), Navigator.CREATE_ACCOUNT_PAGE);
     }
 
     @FXML

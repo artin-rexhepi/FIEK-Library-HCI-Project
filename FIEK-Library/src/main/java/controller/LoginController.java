@@ -49,7 +49,7 @@ public class LoginController {
 
         if (isAuthenticated) {
             loginMessage.setText("Login successful.");
-            Navigator.navigate((Stage) ((Node) event.getSource()).getScene().getWindow(), Navigator.REGISTER_BOOK_PAGE);
+            Navigator.navigate((Stage) ((Node) event.getSource()).getScene().getWindow(), Navigator.ADMIN_PAGE);
         } else {
             loginMessage.setText("Invalid username or password.");
         }
