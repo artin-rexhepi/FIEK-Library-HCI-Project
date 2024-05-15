@@ -16,6 +16,8 @@ public class Navigator {
     public final static String CREATE_ACCOUNT_PAGE = "CreateAccountForm.fxml";
     public final static String REGISTER_BOOK_PAGE = "register-book.fxml";
     public final static String ADMIN_PAGE = "admin_page.fxml";
+    public final static String MANAGE_BOOKS_OPTIONS = "manage_books_options.fxml";
+    public final static String MANAGE_USERS = "manage_users.fxml";
 
     public static void navigate(Stage stage, String form) {
         Pane formPane = loadPane(form);

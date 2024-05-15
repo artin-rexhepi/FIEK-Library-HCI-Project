@@ -1,14 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="app.ManageUsers"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="520.0" prefWidth="913.0" stylesheets="@../Styles/admin_page.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminPageController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DARKRED" height="58.0" stroke="DARKRED" strokeType="INSIDE" width="915.0" />
+      <ImageView fitHeight="49.0" fitWidth="82.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/adminImage.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="txtPershendetje" fill="WHITE" layoutX="208.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paneli i menaxhimit të përdoruesve">
+         <font>
+            <Font name="Yu Gothic Bold" size="30.0" />
+         </font>
+      </Text>
+      <Button layoutX="69.0" layoutY="103.0" mnemonicParsing="false" onAction="#editoperdorues" prefHeight="38.0" prefWidth="122.0" styleClass="btnedito" text="Shfaq Përdoruesit" textFill="DARKRED" />
+      <Button layoutX="216.0" layoutY="103.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="249.0" styleClass="btnedito" text="Shfaq përdoruesit që kanë huazuar libra" textFill="DARKRED" />
+      <Button layoutX="751.0" layoutY="103.0" mnemonicParsing="false" onAction="#regjistroPerdorues" prefHeight="38.0" prefWidth="136.0" styleClass="btnedito" text="Regjistro Përdorues" textFill="DARKRED" />
+      <TableView layoutX="74.0" layoutY="205.0" prefHeight="260.0" prefWidth="784.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+   </children>
 </AnchorPane>

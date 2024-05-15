@@ -39,12 +39,17 @@ public class AdminPageController {
     }
     @FXML
     private void editolibra(ActionEvent ae) throws IOException {
-//        Navigator.navigate((Stage) ((Node) ae.getSource()).getScene().getWindow(), Navigator.REGISTER_BOOK_PAGE);
+        Navigator.navigate((Stage) ((Node) ae.getSource()).getScene().getWindow(), Navigator.MANAGE_BOOKS_OPTIONS);
     }
 
     @FXML
     private void editoperdorues(ActionEvent ae) throws IOException{
-//        Navigator.navigate((Stage) ((Node) ae.getSource()).getScene().getWindow(), Navigator.CREATE_ACCOUNT_PAGE);
+        Navigator.navigate((Stage) ((Node) ae.getSource()).getScene().getWindow(), Navigator.MANAGE_USERS);
+    }
+
+    @FXML
+    private void regjistroPerdorues(ActionEvent ae) throws IOException{
+        Navigator.navigate((Stage) ((Node) ae.getSource()).getScene().getWindow(), Navigator.CREATE_ACCOUNT_PAGE);
     }
 
     @FXML
