@@ -23,14 +23,18 @@
             <Font name="Yu Gothic Bold" size="30.0" />
          </font>
       </Text>
-      <Button layoutX="69.0" layoutY="103.0" mnemonicParsing="false" onAction="#editoperdorues" prefHeight="38.0" prefWidth="122.0" styleClass="btnedito" text="Shfaq Përdoruesit" textFill="DARKRED" />
-      <Button layoutX="216.0" layoutY="103.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="249.0" styleClass="btnedito" text="Shfaq përdoruesit që kanë huazuar libra" textFill="DARKRED" />
-      <Button layoutX="751.0" layoutY="103.0" mnemonicParsing="false" onAction="#regjistroPerdorues" prefHeight="38.0" prefWidth="136.0" styleClass="btnedito" text="Regjistro Përdorues" textFill="DARKRED" />
-      <TableView layoutX="74.0" layoutY="205.0" prefHeight="260.0" prefWidth="784.0">
+      <Button layoutX="62.0" layoutY="227.0" mnemonicParsing="false" onAction="#editoperdorues" prefHeight="38.0" prefWidth="122.0" styleClass="btnedito" text="Shfaq Përdoruesit" textFill="DARKRED" />
+      <Button layoutX="69.0" layoutY="294.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="249.0" styleClass="btnedito" text="Shfaq përdoruesit që kanë huazuar libra" textFill="DARKRED" />
+      <Button layoutX="134.0" layoutY="353.0" mnemonicParsing="false" onAction="#regjistroPerdorues" prefHeight="38.0" prefWidth="136.0" styleClass="btnedito" text="Regjistro Përdorues" textFill="DARKRED" />
+      <TableView layoutX="458.0" layoutY="164.0" prefHeight="260.0" prefWidth="378.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn prefWidth="75.0" text="ID" />
+          <TableColumn prefWidth="75.0" text="Name" />
+            <TableColumn prefWidth="75.0" text="Email" />
+            <TableColumn prefWidth="75.0" text="Phone" />
+            <TableColumn prefWidth="75.0" text="Gender" />
         </columns>
       </TableView>
+      <Button layoutX="209.0" layoutY="227.0" mnemonicParsing="false" onAction="#editoperdorues" prefHeight="38.0" prefWidth="122.0" styleClass="btnedito" text="Filtro" textFill="DARKRED" />
    </children>
 </AnchorPane>
