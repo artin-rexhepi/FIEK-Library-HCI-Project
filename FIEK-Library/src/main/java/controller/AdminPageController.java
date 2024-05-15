@@ -48,6 +48,11 @@ public class AdminPageController {
     }
 
     @FXML
+    private void regjistroLibra(ActionEvent ae) throws IOException{
+        Navigator.navigate((Stage) ((Node) ae.getSource()).getScene().getWindow(), Navigator.REGISTER_BOOK_PAGE);
+    }
+
+    @FXML
     private void initialize() {
         if (txtPershendetje != null) {
             int loggedInUserId = adminRepository.getLoggedInUserId();

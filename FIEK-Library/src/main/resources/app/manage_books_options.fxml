@@ -3,6 +3,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -14,46 +16,80 @@
     <children>
         <TabPane fx:id="tabPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="913.0" stylesheets="@../Styles/admin_page.css" tabClosingPolicy="UNAVAILABLE">
             <tabs>
-                <Tab text="Paneli i Adminit">
+                <Tab text="Paneli i Menaxhimit te Librave">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="501.0" prefWidth="913.0">
                             <children>
                                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DARKRED" height="58.0" stroke="DARKRED" strokeType="INSIDE" width="913.0" />
-                                <ImageView fitHeight="224.0" fitWidth="229.0" layoutX="339.0" layoutY="78.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                <ImageView fitHeight="65.0" fitWidth="91.0" layoutX="834.0" layoutY="67.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                                     <image>
                                         <Image url="@../assets/University_of_Prishtina_logo.png" />
                                     </image>
                                 </ImageView>
-                                <ImageView fitHeight="49.0" fitWidth="82.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../assets/adminImage.png" />
-                                    </image>
-                                </ImageView>
-                                <Text fx:id="txtPershendetje" fill="WHITE" layoutX="130.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pershendetje">
-                                    <font>
-                                        <Font name="Yu Gothic Bold" size="25.0" />
-                                    </font>
-                                </Text>
-                                <Text fx:id="txtHyrja" fill="WHITE" layoutX="563.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hyrja:">
-                                    <font>
-                                        <Font name="Yu Gothic Bold" size="25.0" />
-                                    </font>
-                                </Text>
-                                <Button fx:id="btnEditoLibra" layoutX="209.0" layoutY="399.0" mnemonicParsing="false" onAction="#editolibra" prefHeight="57.0" prefWidth="222.0" styleClass="btnedito" text="Menaxho Librat" textFill="DARKRED">
+                                <Button fx:id="btnEditoLibra" layoutX="209.0" layoutY="399.0" mnemonicParsing="false" onAction="#editolibra" prefHeight="26.0" prefWidth="166.0" styleClass="btnedito" text="Menaxho Librat" textFill="DARKRED">
                                     <font>
                                         <Font size="20.0" />
                                     </font>
                                 </Button>
-                                <Button fx:id="btnEditoPerdorues" layoutX="479.0" layoutY="399.0" mnemonicParsing="false" onAction="#editoperdorues" prefHeight="57.0" prefWidth="224.0" styleClass="btnedito" text="Menaxho Perdoruesit" textFill="DARKRED">
+                                <Button fx:id="btnEditoPerdorues" layoutX="597.0" layoutY="413.0" mnemonicParsing="false" onAction="#editoperdorues" prefHeight="26.0" prefWidth="166.0" styleClass="btnedito" text="Menaxho Perdoruesit" textFill="DARKRED">
                                     <font>
                                         <Font size="20.0" />
                                     </font>
                                 </Button>
-                                <Text layoutX="320.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paneli i Adminit">
+                                <Text fill="WHITE" layoutX="260.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paneli i Menaxhimit të Librave" wrappingWidth="392.8829803466797">
                                     <font>
-                                        <Font name="System Bold" size="35.0" />
+                                        <Font name="System Bold" size="27.0" />
                                     </font>
                                 </Text>
+                        <Button fx:id="btnEditoLibra1" layoutX="37.0" layoutY="67.0" mnemonicParsing="false" onAction="#editolibra" prefHeight="26.0" prefWidth="166.0" styleClass="btnedito" text="Listo të gjithë librat" textFill="DARKRED">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnEditoLibra11" layoutX="37.0" layoutY="124.0" mnemonicParsing="false" onAction="#editolibra" prefHeight="26.0" prefWidth="166.0" styleClass="btnedito" text="Filtro..." textFill="DARKRED">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnEditoLibra12" layoutX="209.0" layoutY="67.0" mnemonicParsing="false" onAction="#editolibra" prefHeight="26.0" prefWidth="166.0" styleClass="btnedito" text="Huazuar" textFill="DARKRED">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnEditoLibra121" layoutX="209.0" layoutY="124.0" mnemonicParsing="false" onAction="#editolibra" prefHeight="26.0" prefWidth="166.0" styleClass="btnedito" text="Nuk e di" textFill="DARKRED">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnEditoLibra1211" layoutX="382.0" layoutY="67.0" mnemonicParsing="false" onAction="#editolibra" prefHeight="26.0" prefWidth="166.0" styleClass="btnedito" text="I qasshëm" textFill="DARKRED">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnEditoLibra1212" layoutX="382.0" layoutY="124.0" mnemonicParsing="false" onAction="#editolibra" prefHeight="26.0" prefWidth="166.0" styleClass="btnedito" text="Nuk e di" textFill="DARKRED">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnEditoLibra12121" layoutX="603.0" layoutY="67.0" mnemonicParsing="false" onAction="#editolibra" prefHeight="26.0" prefWidth="166.0" styleClass="btnedito" text="Shto libra" textFill="DARKRED">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnEditoLibra121211" layoutX="603.0" layoutY="124.0" mnemonicParsing="false" onAction="#editolibra" prefHeight="26.0" prefWidth="166.0" styleClass="btnedito" text="Fshij libra" textFill="DARKRED">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Button>
+                        <TableView layoutX="39.0" layoutY="196.0" prefHeight="200.0" prefWidth="708.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="ISBN" />
+                            <TableColumn prefWidth="75.0" text="Titulli" />
+                              <TableColumn prefWidth="75.0" text="Autori" />
+                              <TableColumn prefWidth="75.0" text="Publikuesi" />
+                              <TableColumn prefWidth="75.0" text="Data e Publikimit" />
+                          </columns>
+                        </TableView>
                             </children>
                         </AnchorPane>
                     </content>
