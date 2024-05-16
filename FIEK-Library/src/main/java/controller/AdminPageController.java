@@ -12,6 +12,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import repository.AdminRepository;
@@ -57,12 +59,14 @@ public class AdminPageController {
         Navigator.navigate((Stage) ((Node) ae.getSource()).getScene().getWindow(), Navigator.REGISTER_BOOK_PAGE);
     }
 
+
+
     @FXML
     private void initialize() {
         if (txtPershendetje != null) {
-            int loggedInUserId = adminRepository.getLoggedInUserId();
-            String userName = adminRepository.fetchUserNameFromDatabase(loggedInUserId);
-            txtPershendetje.setText("Pershendetje " + userName);
+//            String userName = adminRepository.fetchUserNameFromDatabase();
+//            txtPershendetje.setText("Pershendetje " + userName);
+            txtPershendetje.setText("Pershendetje!");
         } else {
             System.err.println("Text objekti 'Pershendetje' eshte null.");
         }

@@ -1,29 +1,56 @@
 package repository;
 
+import controller.AdminPageController;
 import javafx.fxml.FXML;
 import service.DBConnector;
 
 import java.sql.*;
 
 public class AdminRepository {
-    public int getLoggedInUserId() {
-        return 1;
-    }
-    public String fetchUserNameFromDatabase(int userId) {
-        String userName = "";
-        String sql = "SELECT person_name FROM Member WHERE id = ?";
+//    public String username;
+//
+//    public void setUsername(String username) {
+//        this.username = username;
+//    }
+//
+//    public String getUsername() {
+//        return this.username;
+//    }
 
-        try (Connection conn = DBConnector.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setInt(1, userId);
-            try (ResultSet rs = stmt.executeQuery()) {
-                if (rs.next()) {
-                    userName = rs.getString("person_name");
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return userName;
-    }
+//    public String fetchUserNameFromDatabase() {
+//        String userName = "";
+//        Connection con = null;
+//        PreparedStatement ps = null;
+//        ResultSet rs = null;
+//        String query = "SELECT username FROM Users WHERE username = ?";
+//        try {
+//            con = DBConnector.getConnection();
+//            ps = con.prepareStatement(query);
+//            ps.setString(1, getUsername());
+//            rs = ps.executeQuery();
+//            if (rs.next()) {
+//                userName = rs.getString("username");
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        } finally {
+//
+//            try {
+//                if (rs != null) rs.close();
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//            }
+//            try {
+//                if (ps != null) ps.close();
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//            }
+//            try {
+//                if (con != null) con.close();
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//        return userName;
+//    }
 }
