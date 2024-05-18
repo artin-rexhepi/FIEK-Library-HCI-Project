@@ -74,7 +74,7 @@ public class AddMemberController {
         // Get the current stage from any of the text fields
         Stage stage = (Stage) txtEmri.getScene().getWindow();
         // Navigate to the CREATE_ACCOUNT_PAGE
-        Navigator.navigate(stage, Navigator.LOGIN_PAGE);
+        Navigator.navigate(stage, Navigator.MANAGE_USERS);
     }
 
     private void showAlert(Alert.AlertType alertType, String title, String message) {
