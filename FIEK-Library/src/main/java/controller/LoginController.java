@@ -3,18 +3,18 @@ package controller;
 import app.Navigator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.scene.Node;
 import model.dto.LoginUserDto;
-import repository.AdminRepository;
 import service.UserService;
 
 public class LoginController {
 
     private UserService userService;
+
     @FXML
     private TextField txtUsername;
 
@@ -22,15 +22,13 @@ public class LoginController {
     private PasswordField pwdPassword;
 
     @FXML
-    private Text loginMessage;  // Ensure this matches the fx:id in the FXML
-
-    private AdminRepository adminRepository;
+    private Text loginMessage;
 
     // Setter for userService, allows injection after FXML loading
     public void setUserService(UserService userService) {
         this.userService = userService;
     }
-    public void setAdminRepository() {this.adminRepository = new AdminRepository();}
+
     @FXML
     public void handleLoginClick(ActionEvent event) {
         if (userService == null) {
@@ -51,10 +49,6 @@ public class LoginController {
 
         if (isAuthenticated) {
             loginMessage.setText("Login successful.");
-
-//            setAdminRepository();
-//            adminRepository.setUsername(username);
-
             Navigator.navigate((Stage) ((Node) event.getSource()).getScene().getWindow(), Navigator.ADMIN_PAGE);
         } else {
             loginMessage.setText("Invalid username or password.");

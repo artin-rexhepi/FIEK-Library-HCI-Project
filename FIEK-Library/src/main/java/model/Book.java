@@ -1,7 +1,5 @@
 package model;
 
-import java.time.LocalDate;
-
 public class Book {
     private String ISBN;
     private String title;
@@ -11,7 +9,7 @@ public class Book {
     private String author;
 
     // Constructors
-    public Book() {
+    public Book(String ISBN, String title, String genre, String publisher, String s, String author, boolean isAvailable) {
         // Default constructor
     }
 
