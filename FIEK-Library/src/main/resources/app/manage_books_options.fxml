@@ -29,7 +29,7 @@
                                     </image>
                                 </ImageView>
                                 <HBox layoutX="220.0" layoutY="413.0" spacing="20.0">
-                                    <Button fx:id="btnEditoPerdorues" mnemonicParsing="false" onAction="#editoperdorues" prefHeight="26.0" prefWidth="200.0" styleClass="btnedito" text="Menaxho Librat" textFill="DARKRED">
+                                    <Button fx:id="btnEditoLibra" mnemonicParsing="false" onAction="#editolibra" prefHeight="26.0" prefWidth="200.0" styleClass="btnedito" text="Menaxho Librat" textFill="DARKRED">
                                         <font>
                                             <Font size="20.0" />
                                         </font>
@@ -38,14 +38,12 @@
 
                                     <Region HBox.hgrow="ALWAYS" />
 
-                                    <Button fx:id="btnEditoLibra" mnemonicParsing="false" onAction="#editolibra" prefHeight="26.0" prefWidth="200.0" styleClass="btnedito" text="Menaxho Perdoruesit" textFill="DARKRED">
+                                    <Button fx:id="btnEditoPerdorues" mnemonicParsing="false" onAction="#editoperdorues" prefHeight="26.0" prefWidth="200.0" styleClass="btnedito" text="Menaxho Perdoreusit" textFill="DARKRED">
                                         <font>
                                             <Font size="20.0" />
                                         </font>
                                     </Button>
                                 </HBox>
-
-
 
                                 <Text fill="WHITE" layoutX="260.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paneli i Menaxhimit të Librave" wrappingWidth="392.8829803466797">
                                     <font>
