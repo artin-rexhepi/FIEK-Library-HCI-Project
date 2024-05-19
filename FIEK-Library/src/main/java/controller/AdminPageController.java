@@ -55,7 +55,7 @@ public class AdminPageController {
     }
 
     @FXML
-    private void regjistroLibra(ActionEvent ae) throws IOException{
+    private void handleShtoLibra(ActionEvent ae) {
         Navigator.navigate((Stage) ((Node) ae.getSource()).getScene().getWindow(), Navigator.REGISTER_BOOK_PAGE);
     }
 
@@ -80,5 +80,7 @@ public class AdminPageController {
             System.err.println("Text objekti 'Hyrja' eshte null.");
         }
     }
+
+
 
 }

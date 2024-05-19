@@ -45,6 +45,7 @@ public class Navigator {
         }
     }
 
+
     private static Pane loadPane(String form) {
         FXMLLoader loader = new FXMLLoader(Navigator.class.getResource(form));
         try {
@@ -64,4 +65,5 @@ public class Navigator {
             return null;
         }
     }
+
 }

@@ -41,55 +41,56 @@
                                         <Font name="System Bold" size="27.0" />
                                     </font>
                                 </Text>
-                        <Button fx:id="btnEditoLibra1" layoutX="37.0" layoutY="67.0" mnemonicParsing="false" onAction="#editolibra" prefHeight="26.0" prefWidth="166.0" styleClass="btnedito" text="Listo të gjithë librat" textFill="DARKRED">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="btnEditoLibra11" layoutX="37.0" layoutY="124.0" mnemonicParsing="false" onAction="#editolibra" prefHeight="26.0" prefWidth="166.0" styleClass="btnedito" text="Filtro..." textFill="DARKRED">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="btnEditoLibra12" layoutX="209.0" layoutY="67.0" mnemonicParsing="false" onAction="#editolibra" prefHeight="26.0" prefWidth="166.0" styleClass="btnedito" text="Huazuar" textFill="DARKRED">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="btnEditoLibra121" layoutX="209.0" layoutY="124.0" mnemonicParsing="false" onAction="#editolibra" prefHeight="26.0" prefWidth="166.0" styleClass="btnedito" text="Nuk e di" textFill="DARKRED">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="btnEditoLibra1211" layoutX="382.0" layoutY="67.0" mnemonicParsing="false" onAction="#editolibra" prefHeight="26.0" prefWidth="166.0" styleClass="btnedito" text="I qasshëm" textFill="DARKRED">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="btnEditoLibra1212" layoutX="382.0" layoutY="124.0" mnemonicParsing="false" onAction="#editolibra" prefHeight="26.0" prefWidth="166.0" styleClass="btnedito" text="Nuk e di" textFill="DARKRED">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="btnEditoLibra12121" layoutX="603.0" layoutY="67.0" mnemonicParsing="false" onAction="#editolibra" prefHeight="26.0" prefWidth="166.0" styleClass="btnedito" text="Shto libra" textFill="DARKRED">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="btnEditoLibra121211" layoutX="603.0" layoutY="124.0" mnemonicParsing="false" onAction="#editolibra" prefHeight="26.0" prefWidth="166.0" styleClass="btnedito" text="Fshij libra" textFill="DARKRED">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Button>
-                        <TableView layoutX="39.0" layoutY="196.0" prefHeight="200.0" prefWidth="708.0">
-                          <columns>
-                            <TableColumn prefWidth="75.0" text="ISBN" />
-                            <TableColumn prefWidth="75.0" text="Titulli" />
-                              <TableColumn prefWidth="75.0" text="Autori" />
-                              <TableColumn prefWidth="75.0" text="Publikuesi" />
-                              <TableColumn prefWidth="75.0" text="Data e Publikimit" />
-                          </columns>
-                        </TableView>
+                                <Button fx:id="btnEditoLibra1" layoutX="37.0" layoutY="67.0" mnemonicParsing="false" onAction="#editolibra" prefHeight="26.0" prefWidth="166.0" styleClass="btnedito" text="Listo të gjithë librat" textFill="DARKRED">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Button>
+                                <Button fx:id="btnEditoLibra11" layoutX="37.0" layoutY="124.0" mnemonicParsing="false" onAction="#editolibra" prefHeight="26.0" prefWidth="166.0" styleClass="btnedito" text="Filtro..." textFill="DARKRED">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Button>
+                                <Button fx:id="btnEditoLibra12" layoutX="209.0" layoutY="67.0" mnemonicParsing="false" onAction="#editolibra" prefHeight="26.0" prefWidth="166.0" styleClass="btnedito" text="Huazuar" textFill="DARKRED">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Button>
+                                <Button fx:id="btnEditoLibra121" layoutX="209.0" layoutY="124.0" mnemonicParsing="false" onAction="#editolibra" prefHeight="26.0" prefWidth="166.0" styleClass="btnedito" text="Nuk e di" textFill="DARKRED">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Button>
+                                <Button fx:id="btnEditoLibra1211" layoutX="382.0" layoutY="67.0" mnemonicParsing="false" onAction="#editolibra" prefHeight="26.0" prefWidth="166.0" styleClass="btnedito" text="I qasshëm" textFill="DARKRED">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Button>
+                                <Button fx:id="btnEditoLibra1212" layoutX="382.0" layoutY="124.0" mnemonicParsing="false" onAction="#editolibra" prefHeight="26.0" prefWidth="166.0" styleClass="btnedito" text="Nuk e di" textFill="DARKRED">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Button>
+                                <!-- Shto butonin këtu -->
+                                <Button fx:id="btnShtoLibra" layoutX="603.0" layoutY="67.0" mnemonicParsing="false" onAction="#handleShtoLibra" prefHeight="26.0" prefWidth="166.0" styleClass="btnedito" text="Shto libra" textFill="DARKRED">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Button>
+                                <Button fx:id="btnEditoLibra121211" layoutX="603.0" layoutY="124.0" mnemonicParsing="false" onAction="#editolibra" prefHeight="26.0" prefWidth="166.0" styleClass="btnedito" text="Fshij libra" textFill="DARKRED">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Button>
+                                <TableView layoutX="39.0" layoutY="196.0" prefHeight="200.0" prefWidth="708.0">
+                                    <columns>
+                                        <TableColumn prefWidth="75.0" text="ISBN" />
+                                        <TableColumn prefWidth="75.0" text="Titulli" />
+                                        <TableColumn prefWidth="75.0" text="Autori" />
+                                        <TableColumn prefWidth="75.0" text="Publikuesi" />
+                                        <TableColumn prefWidth="75.0" text="Data e Publikimit" />
+                                    </columns>
+                                </TableView>
                             </children>
                         </AnchorPane>
                     </content>

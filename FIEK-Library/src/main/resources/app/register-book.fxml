@@ -28,17 +28,19 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-
                 <TextField fx:id="txtTitle" promptText="Titulli" style="-fx-border-color: #8B0000;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                 <TextField fx:id="txtSubject" promptText="Subjekti" style="-fx-border-color: #8B0000;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                 <TextField fx:id="txtPublisher" promptText="Publikuesi" style="-fx-border-color: #8B0000;" GridPane.rowIndex="2" />
                 <TextField fx:id="txtQuantity" promptText="Sasia" style="-fx-border-color: #8B0000;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-              <TextField fx:id="txtAuthor" prefHeight="30.0" prefWidth="238.0" promptText="Autori" style="-fx-border-color: #8B0000;" GridPane.rowIndex="3" />
+                <TextField fx:id="txtAuthor" prefHeight="30.0" prefWidth="238.0" promptText="Autori" style="-fx-border-color: #8B0000;" GridPane.rowIndex="3" />
                 <TextField fx:id="txtISBN" prefHeight="28.0" prefWidth="238.0" promptText="ISBN" style="-fx-border-color: #8B0000;" GridPane.rowIndex="1" />
             </children>
         </GridPane>
 
         <Button defaultButton="true" layoutX="305.0" layoutY="259.0" mnemonicParsing="false" onAction="#handleBookRegisterSave" prefHeight="30.0" prefWidth="113.0" styleClass="ruaj-button" stylesheets="@../Styles/RegisterBookStyles.css" text="Ruaj" textFill="DARKRED" />
         <Button cancelButton="true" layoutX="184.0" layoutY="259.0" mnemonicParsing="false" onAction="#handleBookRegisterCancel" prefHeight="30.0" prefWidth="113.0" styleClass="fshij-button" stylesheets="@../Styles/RegisterBookStyles.css" text="Fshij" textFill="#8a0000" />
+
+
+
     </children>
 </AnchorPane>
