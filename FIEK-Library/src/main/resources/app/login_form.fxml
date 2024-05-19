@@ -125,6 +125,12 @@
                   <Insets left="50.0" right="50.0" top="30.0" />
                </VBox.margin>
             </HBox>
+
+            <!-- VBox to contain the error message  -->
+            <VBox alignment="CENTER" spacing="20.0">
+               <Text fx:id="loginMessage" fill="RED" />
+            </VBox>
+
             <Button mnemonicParsing="false" onAction="#handleLoginClick" prefHeight="38.0" prefWidth="366.0" styleClass="btn-background" stylesheets="@../style.css" text="Login" textAlignment="CENTER" textFill="WHITE">
                <VBox.margin>
                   <Insets left="50.0" right="50.0" top="30.0" />
@@ -142,7 +148,6 @@
                </font>
             </Label>
             <Pane prefHeight="143.0" prefWidth="466.0" />
-            <Text fx:id="loginMessage" />
          </children>
       </VBox>
    </children>

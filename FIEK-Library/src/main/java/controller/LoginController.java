@@ -5,6 +5,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.Node;
@@ -30,6 +32,25 @@ public class LoginController {
     }
 
     @FXML
+    public void initialize() {
+        // Add key listeners to the text fields
+        txtUsername.setOnKeyPressed(this::handleUsernameKeyPressed);
+        pwdPassword.setOnKeyPressed(this::handlePasswordKeyPressed);
+    }
+
+    private void handleUsernameKeyPressed(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER) {
+            pwdPassword.requestFocus();
+        }
+    }
+
+    private void handlePasswordKeyPressed(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER) {
+            handleLoginClick(null); // Passing null because ActionEvent is not needed here
+        }
+    }
+
+    @FXML
     public void handleLoginClick(ActionEvent event) {
         if (userService == null) {
             loginMessage.setText("Service not initialized.");
@@ -49,7 +70,8 @@ public class LoginController {
 
         if (isAuthenticated) {
             loginMessage.setText("Login successful.");
-            Navigator.navigate((Stage) ((Node) event.getSource()).getScene().getWindow(), Navigator.ADMIN_PAGE);
+            Stage stage = (Stage) (event != null ? ((Node) event.getSource()).getScene().getWindow() : txtUsername.getScene().getWindow());
+            Navigator.navigate(stage, Navigator.ADMIN_PAGE);
         } else {
             loginMessage.setText("Invalid username or password.");
         }
