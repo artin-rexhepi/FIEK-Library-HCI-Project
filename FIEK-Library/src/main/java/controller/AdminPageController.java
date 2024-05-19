@@ -59,6 +59,11 @@ public class AdminPageController {
         Navigator.navigate((Stage) ((Node) ae.getSource()).getScene().getWindow(), Navigator.REGISTER_BOOK_PAGE);
     }
 
+    @FXML
+    private void fshijLibra(ActionEvent ae) throws IOException{
+        Navigator.navigate((Stage) ((Node) ae.getSource()).getScene().getWindow(), Navigator.DELETE_BOOK_PAGE);
+    }
+
 
 
     @FXML

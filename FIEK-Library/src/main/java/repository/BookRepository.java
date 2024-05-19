@@ -34,6 +34,28 @@ public class BookRepository {
         }
     }
 
+    public boolean delete(BookDTO bookData) {
+        String query = """
+        DELETE FROM Book 
+        WHERE ISBN = ? AND title = ? AND author = ? AND publisher = ? AND genre = ?
+        """;
+
+        try (Connection conn = DBConnector.getConnection();
+             PreparedStatement pst = conn.prepareStatement(query)) {
+            pst.setString(1, bookData.getISBN());
+            pst.setString(2, bookData.getTitle());
+            pst.setString(3, bookData.getAuthor());
+            pst.setString(4, bookData.getPublisher());
+            pst.setString(5, bookData.getSubject());
+            int rowsAffected = pst.executeUpdate();
+            return rowsAffected > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+
     public Book getByISBN(String ISBN) {
         String query = "SELECT * FROM Book WHERE ISBN = ? LIMIT 1";
         try (Connection connection = DBConnector.getConnection();

@@ -2,7 +2,6 @@ package service;
 
 import model.dto.BookDTO;
 import repository.BookRepository;
-import java.time.LocalDate;
 
 public class BookService {
 
@@ -20,6 +19,11 @@ public class BookService {
 
         // Call method to save book to database
         return bookRepository.create(bookDTO);
+    }
+
+    public boolean deleteBook(BookDTO bookDTO) {
+        // Call method to delete book from database
+        return bookRepository.delete(bookDTO);
     }
 
     private boolean isValidBook(BookDTO bookDTO) {
