@@ -86,7 +86,7 @@
                                         <Font size="20.0" />
                                     </font>
                                 </Button>
-                                <Button fx:id="btnEditoLibra121211" layoutX="603.0" layoutY="124.0" mnemonicParsing="false" onAction="#editolibra" prefHeight="26.0" prefWidth="166.0" styleClass="btnedito" text="Fshij libra" textFill="DARKRED">
+                                <Button fx:id="btnEditoLibra121211" layoutX="603.0" layoutY="124.0" mnemonicParsing="false" onAction="#fshijLibra" prefHeight="26.0" prefWidth="166.0" styleClass="btnedito" text="Fshij libra" textFill="DARKRED">
                                     <font>
                                         <Font size="20.0" />
                                     </font>
