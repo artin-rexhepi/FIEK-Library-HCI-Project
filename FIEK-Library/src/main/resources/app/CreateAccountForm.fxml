@@ -73,12 +73,19 @@
                         <Image url="@../assets/University_of_Prishtina_logo.png" />
                     </image>
                 </ImageView>
-            <Button layoutX="587.0" layoutY="21.0" mnemonicParsing="false" onAction="#handleReturn" prefHeight="38.0" prefWidth="41.0" style="-fx-border-color: #F4F4F4; -fx-background-color: #F4F4F4;" />
-            <ImageView fitHeight="34.0" fitWidth="40.0" layoutX="591.0" layoutY="23.0" mouseTransparent="true" preserveRatio="true">
-               <image>
-                  <Image url="@../assets/go-back-button_icon-icons.com_53983.png" />
-               </image>
-            </ImageView>
+                <Button layoutX="0.0" layoutY="0.0" mnemonicParsing="false" onAction="#handleReturn" prefHeight="38.0" prefWidth="41.0" style="-fx-border-color: #F4F4F4; -fx-background-color: #F4F4F4;">
+                    <graphic>
+                        <ImageView fitHeight="34.0" fitWidth="40.0" mouseTransparent="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../assets/go-back-button_icon-icons.com_53983.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+
+
+
+
             </children>
         </AnchorPane>
     </children>

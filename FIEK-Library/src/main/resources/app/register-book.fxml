@@ -42,11 +42,15 @@
         <Button defaultButton="true" layoutX="305.0" layoutY="259.0" mnemonicParsing="false" onAction="#handleBookRegisterSave" prefHeight="30.0" prefWidth="113.0" styleClass="ruaj-button" stylesheets="@../Styles/RegisterBookStyles.css" text="Ruaj" textFill="DARKRED" />
         <Button cancelButton="true" layoutX="184.0" layoutY="259.0" mnemonicParsing="false" onAction="#handleBookRegisterCancel" prefHeight="30.0" prefWidth="113.0" styleClass="fshij-button" stylesheets="@../Styles/RegisterBookStyles.css" text="Fshij" textFill="#8a0000" />
 
-        <Button fx:id="btnBack" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleReturn" prefHeight="38.0" prefWidth="41.0" style="-fx-border-color: #F4F4F4; -fx-background-color: #F4F4F4;" />
-        <ImageView fitHeight="34.0" fitWidth="40.0" layoutX="10.0" layoutY="10.0" mouseTransparent="true" preserveRatio="true">
-            <image>
-                <Image url="@../assets/go-back-button_icon-icons.com_53983.png" />
-            </image>
-        </ImageView>
+        <Button fx:id="btnBack" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleReturn" prefHeight="38.0" prefWidth="41.0" style="-fx-background-color: WHITE; -fx-border-color: WHITE;">
+            <graphic>
+                <ImageView fitHeight="34.0" fitWidth="40.0" mouseTransparent="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../assets/go-back-button_icon-icons.com_53983.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+
     </children>
 </AnchorPane>

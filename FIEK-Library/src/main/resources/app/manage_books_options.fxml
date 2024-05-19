@@ -11,9 +11,10 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="913.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminPageController">
     <children>
         <TabPane fx:id="tabPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="913.0" stylesheets="@../Styles/admin_page.css" tabClosingPolicy="UNAVAILABLE">
@@ -34,7 +35,6 @@
                                             <Font size="20.0" />
                                         </font>
                                     </Button>
-
 
                                     <Region HBox.hgrow="ALWAYS" />
 
@@ -100,6 +100,20 @@
                                         <TableColumn prefWidth="75.0" text="Data e Publikimit" />
                                     </columns>
                                 </TableView>
+                                <VBox layoutX="0.0" layoutY="5.0" prefHeight="45.0">
+                                    <Button fx:id="btnBack" mnemonicParsing="false" onAction="#handleReturn1" prefHeight="85.0" prefWidth="41.0" style="-fx-background-color: DARKRED; -fx-border-color: DARKRED;" VBox.vgrow="ALWAYS">
+                                        <graphic>
+                                            <ImageView fitHeight="50.0" fitWidth="40.0" mouseTransparent="true" preserveRatio="true">
+                                                <image>
+                                                    <Image url="@../assets/go-back-button_icon-icons.com_53983.png" />
+                                                </image>
+                                            </ImageView>
+                                        </graphic>
+                                    </Button>
+                                </VBox>
+
+
+
                             </children>
                         </AnchorPane>
                     </content>
