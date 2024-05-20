@@ -37,10 +37,7 @@ public class BookRegisterController {
         this.bookService = new BookService();
     }
 
-    @FXML
-    public void initialize() {
-        btnBack.setOnAction(event -> handleReturn());
-    }
+
 
     @FXML
     private void handleBookRegisterSave() {
@@ -105,4 +102,25 @@ public class BookRegisterController {
     public void handleReturn() {
         goBack();
     }
+
+
+
+    @FXML
+    public void initialize() {
+        btnBack.setOnAction(event -> handleReturn());
+
+        // Shtimi i event handler për kalimin me Enter neper textfielda
+        txtISBN.setOnAction(event -> txtTitle.requestFocus());
+        txtTitle.setOnAction(event -> txtPublisher.requestFocus());
+        txtPublisher.setOnAction(event -> txtSubject.requestFocus());
+        txtSubject.setOnAction(event -> txtAuthor.requestFocus());
+        txtAuthor.setOnAction(event -> txtQuantity.requestFocus());
+        txtQuantity.setOnAction(event -> {
+            handleBookRegisterSave();
+            event.consume(); // Për të parandaluar që shtypja e Enter të shkaktojë një ngjarje të tjera si kalimi në fushën tjetër
+
+
+        });
+    }
+
 }

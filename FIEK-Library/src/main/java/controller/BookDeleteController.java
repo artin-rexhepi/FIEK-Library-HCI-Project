@@ -97,4 +97,26 @@ public class BookDeleteController {
         alert.setContentText(message);
         alert.showAndWait();
     }
+
+
+
+    @FXML
+    public void initialize() {
+
+        // Shtimi i event handler për kalimin me Enter neper textfielda
+        txtISBN.setOnAction(event -> txtTitle.requestFocus());
+        txtTitle.setOnAction(event -> txtPublisher.requestFocus());
+        txtPublisher.setOnAction(event -> txtSubject.requestFocus());
+        txtSubject.setOnAction(event -> txtAuthor.requestFocus());
+        txtAuthor.setOnAction(event -> txtQuantity.requestFocus());
+        txtQuantity.setOnAction(event -> {
+            handleBookDelete();
+            event.consume(); // Për të parandaluar që shtypja e Enter të shkaktojë një ngjarje të tjera si kalimi në fushën tjetër
+
+
+        });
+    }
+
+
+
 }

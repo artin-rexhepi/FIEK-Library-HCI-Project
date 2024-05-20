@@ -84,4 +84,26 @@ public class AddMemberController {
         alert.setContentText(message);
         alert.showAndWait();
     }
+
+
+
+    @FXML
+    public void initialize() {
+
+
+        // Shtimi i event handler për kalimin me Enter neper textfielda
+        txtId.setOnAction(event -> txtEmri.requestFocus());
+        txtEmri.setOnAction(event -> txtEmail.requestFocus());
+        txtEmail.setOnAction(event -> txtGjinia.requestFocus());
+        txtGjinia.setOnAction(event -> txtNumerTelefon.requestFocus());
+        txtNumerTelefon.setOnAction(event -> {
+            handleRuaj();
+            event.consume(); // Për të parandaluar që shtypja e Enter të shkaktojë një ngjarje të tjera si kalimi në fushën tjetër
+
+
+        });
+    }
+
+
+
 }

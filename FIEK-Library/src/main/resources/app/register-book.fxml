@@ -88,7 +88,7 @@
         <TextField fx:id="txtAuthor" layoutX="130.0" layoutY="410.0" prefHeight="44.0" prefWidth="300.0" promptText="Autori" style="-fx-border-color: #8B0000;" />
         <TextField fx:id="txtQuantity" layoutX="450.0" layoutY="410.0" prefHeight="44.0" prefWidth="300.0" promptText="Sasia" style="-fx-border-color: #8B0000;" />
 
-        <Button layoutX="312.0" layoutY="480.0" mnemonicParsing="false" onAction="#handleBookRegisterCancel" prefHeight="44.0" prefWidth="116.0" styleClass="fshij-button" stylesheets="@../Styles/RegisterBookStyles.css" text="Fshij" textFill="#8a0000" />
-        <Button layoutX="452.0" layoutY="480.0" mnemonicParsing="false" onAction="#handleBookRegisterSave" prefHeight="44.0" prefWidth="116.0" styleClass="ruaj-button" stylesheets="@../Styles/RegisterBookStyles.css" text="Ruaj" textFill="DARKRED" />
+        <Button fx:id="btnFshij" layoutX="312.0" layoutY="480.0" mnemonicParsing="false" onAction="#handleBookRegisterCancel" prefHeight="44.0" prefWidth="116.0" styleClass="fshij-button" stylesheets="@../Styles/RegisterBookStyles.css" text="Fshij" textFill="#8a0000" />
+        <Button fx:id="btnRuaj" layoutX="452.0" layoutY="480.0" mnemonicParsing="false" onAction="#handleBookRegisterSave" prefHeight="44.0" prefWidth="116.0" styleClass="ruaj-button" stylesheets="@../Styles/RegisterBookStyles.css" text="Ruaj" textFill="DARKRED" />
     </children>
 </AnchorPane>
