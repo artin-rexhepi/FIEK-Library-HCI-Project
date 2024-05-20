@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddMemberController">
+<VBox prefHeight="600.0" prefWidth="880.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddMemberController">
     <children>
         <MenuBar prefHeight="0.0" prefWidth="563.0" VBox.vgrow="NEVER">
             <menus>
@@ -56,19 +56,19 @@
         </MenuBar>
         <AnchorPane fx:id="textEmail" maxHeight="-1.0" maxWidth="-1.0" prefHeight="263.0" prefWidth="569.0" VBox.vgrow="ALWAYS">
             <children>
-                <Label layoutX="341.0" layoutY="75.0" prefHeight="26.0" prefWidth="196.0" text="Regjistrimi i përdouresëve" textFill="DARKRED">
+                <Label layoutX="342.0" layoutY="188.0" prefHeight="26.0" prefWidth="196.0" text="Regjistrimi i përdouresëve" textFill="DARKRED">
                     <font>
                         <Font size="17.0" />
                     </font>
                 </Label>
-                <TextField fx:id="txtEmri" layoutX="461.0" layoutY="121.0" prefHeight="38.0" prefWidth="166.0" promptText="Emri" style="-fx-border-color: #8B0000;" />
-                <TextField fx:id="txtEmail" layoutX="273.0" layoutY="176.0" prefHeight="38.0" prefWidth="166.0" promptText="E-mail" style="-fx-border-color: #8B0000;" />
-                <TextField fx:id="txtNumerTelefon" layoutX="273.0" layoutY="231.0" prefHeight="38.0" prefWidth="166.0" promptText="Numer telefoni" style="-fx-border-color: #8B0000;" />
-                <Button layoutX="461.0" layoutY="231.0" mnemonicParsing="false" onAction="#handleFshij" prefHeight="38.0" prefWidth="75.0" styleClass="fshij-button" stylesheets="@../Styles/RegisterBookStyles.css" text="Fshij" />
-                <Button layoutX="544.0" layoutY="231.0" mnemonicParsing="false" onAction="#handleRuaj" prefHeight="38.0" prefWidth="81.0" styleClass="ruaj-button" stylesheets="@../Styles/RegisterBookStyles.css" text="Ruaj" />
-                <TextField fx:id="txtId" layoutX="272.0" layoutY="122.0" prefHeight="37.0" prefWidth="166.0" promptText="ID studentore" style="-fx-border-color: #8B0000;" />
-                <TextField fx:id="txtGjinia" layoutX="461.0" layoutY="176.0" prefHeight="38.0" prefWidth="166.0" promptText="Gjinia" style="-fx-border-color: #8B0000;" />
-                <ImageView fitHeight="157.0" fitWidth="166.0" layoutX="55.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
+                <TextField fx:id="txtEmri" layoutX="461.0" layoutY="243.0" prefHeight="44.0" prefWidth="242.0" promptText="Emri" style="-fx-border-color: #8B0000;" />
+                <TextField fx:id="txtEmail" layoutX="159.0" layoutY="315.0" prefHeight="44.0" prefWidth="242.0" promptText="E-mail" style="-fx-border-color: #8B0000;" />
+                <TextField fx:id="txtNumerTelefon" layoutX="159.0" layoutY="394.0" prefHeight="44.0" prefWidth="242.0" promptText="Numer telefoni" style="-fx-border-color: #8B0000;" />
+                <Button layoutX="457.0" layoutY="394.0" mnemonicParsing="false" onAction="#handleFshij" prefHeight="44.0" prefWidth="116.0" styleClass="fshij-button" stylesheets="@../Styles/RegisterBookStyles.css" text="Fshij" />
+                <Button layoutX="587.0" layoutY="394.0" mnemonicParsing="false" onAction="#handleRuaj" prefHeight="44.0" prefWidth="116.0" styleClass="ruaj-button" stylesheets="@../Styles/RegisterBookStyles.css" text="Ruaj" />
+                <TextField fx:id="txtId" layoutX="159.0" layoutY="243.0" prefHeight="44.0" prefWidth="242.0" promptText="ID studentore" style="-fx-border-color: #8B0000;" />
+                <TextField fx:id="txtGjinia" layoutX="461.0" layoutY="315.0" prefHeight="44.0" prefWidth="241.0" promptText="Gjinia" style="-fx-border-color: #8B0000;" />
+                <ImageView fitHeight="150.0" fitWidth="166.0" layoutX="365.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../assets/University_of_Prishtina_logo.png" />
                     </image>
