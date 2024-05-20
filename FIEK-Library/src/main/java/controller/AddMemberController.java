@@ -28,6 +28,7 @@ public class AddMemberController {
     private MemberService memberService;
 
     public AddMemberController() {
+        // Instantiate the MemberService
         this.memberService = new MemberService();
     }
 
@@ -36,11 +37,11 @@ public class AddMemberController {
         String id = txtId.getText();
         String emri = txtEmri.getText();
         String email = txtEmail.getText();
-        String gjinia = txtGjinia.getText();
         String numerTelefoni = txtNumerTelefon.getText();
+        String gjinia = txtGjinia.getText();
 
         // Create a MemberDto object with the retrieved data
-        MemberDto memberDto = new MemberDto(id, emri, email, gjinia, numerTelefoni);
+        MemberDto memberDto = new MemberDto(id, emri, email, numerTelefoni, gjinia);
 
         // Call the service method to save the member
         boolean isSaved = memberService.registerMember(memberDto);
