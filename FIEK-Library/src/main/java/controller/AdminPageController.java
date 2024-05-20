@@ -88,8 +88,6 @@ public class AdminPageController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //            String userName = adminRepository.fetchUserNameFromDatabase();
-//            txtPershendetje.setText("Pershendetje " + userName);
         if (txtPershendetje != null) {
             txtPershendetje.setText("Pershendetje!");
         } else {
@@ -148,6 +146,12 @@ public class AdminPageController implements Initializable {
     }
     @FXML
     public void shfaqPerdoruesHuazuar(ActionEvent event) {
-
+        adminService.setMembers(tablecol_id, "IDstudendore");
+        adminService.setMembers(tablecol_name, "emri");
+        adminService.setMembers(tablecol_email, "email");
+        adminService.setMembers(tablecol_phone, "numerTelefoni");
+        adminService.setMembers(tablecol_gender, "gjinia");
+        memberList = adminService.getIssuedBookMember();
+        tableMenaxhimiPerdoruesve.setItems(memberList);
     }
 }

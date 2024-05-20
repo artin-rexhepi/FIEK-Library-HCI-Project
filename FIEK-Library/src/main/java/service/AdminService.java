@@ -15,4 +15,7 @@ public class AdminService {
         AdminRepository.setMembers(column, columnName);
     }
 
+    public ObservableList<MemberDto> getIssuedBookMember(){
+        return AdminRepository.getIssuedBookMember();
+    }
 }

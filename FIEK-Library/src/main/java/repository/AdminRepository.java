@@ -17,53 +17,6 @@ import java.sql.*;
 import java.util.List;
 
 public class AdminRepository {
-//    public String username;
-//
-//    public void setUsername(String username) {
-//        this.username = username;
-//    }
-//
-//    public String getUsername() {
-//        return this.username;
-//    }
-
-//    public String fetchUserNameFromDatabase() {
-//        String userName = "";
-//        Connection con = null;
-//        PreparedStatement ps = null;
-//        ResultSet rs = null;
-//        String query = "SELECT username FROM Users WHERE username = ?";
-//        try {
-//            con = DBConnector.getConnection();
-//            ps = con.prepareStatement(query);
-//            ps.setString(1, getUsername());
-//            rs = ps.executeQuery();
-//            if (rs.next()) {
-//                userName = rs.getString("username");
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        } finally {
-//
-//            try {
-//                if (rs != null) rs.close();
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-//            try {
-//                if (ps != null) ps.close();
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-//            try {
-//                if (con != null) con.close();
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//        return userName;
-//    }
-
 
     public static void setMembers(TableColumn<MemberDto, String> column, String columnName) {
         if (column == null) {
@@ -111,4 +64,23 @@ public class AdminRepository {
         return list;
     }
 
+    public static ObservableList<MemberDto> getIssuedBookMember(){
+        ObservableList<MemberDto> list = FXCollections.observableArrayList();
+        try(Connection connection = DBConnector.getConnection();){
+            PreparedStatement ps = connection.prepareStatement("SELECT m.memberid, m.name, m.email, m.phone, m.gender FROM Member m JOIN issuedBooks ib ON m.memberid = ib.memberID;");
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+                list.add(new MemberDto(rs.getString("memberid"),
+                        rs.getString("name"),
+                        rs.getString("email"),
+                        rs.getString("phone"),
+                        rs.getString("gender")
+                ));
+            }
+        }catch(SQLException sqle){
+            sqle.printStackTrace();
+        }
+        return list;
+    }
 }
