@@ -10,29 +10,29 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="520.0" prefWidth="913.0" stylesheets="@../Styles/admin_page.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminPageController">
+<AnchorPane prefHeight="521.0" prefWidth="925.0" stylesheets="@../Styles/admin_page.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminPageController">
     <children>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DARKRED" height="58.0" stroke="DARKRED" strokeType="INSIDE" width="915.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DARKRED" height="58.0" stroke="DARKRED" strokeType="INSIDE" width="925.0" />
         <ImageView fitHeight="49.0" fitWidth="82.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../assets/adminImage.png" />
             </image>
         </ImageView>
-        <Text fx:id="txtPershendetje" fill="WHITE" layoutX="208.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paneli i menaxhimit të përdoruesve">
+        <Text fill="WHITE" layoutX="208.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paneli i menaxhimit të përdoruesve">
             <font>
                 <Font name="Yu Gothic Bold" size="30.0" />
             </font>
         </Text>
-        <Button layoutX="62.0" layoutY="227.0" mnemonicParsing="false" onAction="#editoperdorues" prefHeight="38.0" prefWidth="122.0" styleClass="btnedito" text="Shfaq Përdoruesit" textFill="DARKRED" />
-        <Button layoutX="69.0" layoutY="294.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="249.0" styleClass="btnedito" text="Shfaq përdoruesit që kanë huazuar libra" textFill="DARKRED" />
-        <Button layoutX="134.0" layoutY="353.0" mnemonicParsing="false" onAction="#regjistroPerdorues" prefHeight="38.0" prefWidth="136.0" styleClass="btnedito" text="Regjistro Përdorues" textFill="DARKRED" />
-        <TableView layoutX="458.0" layoutY="164.0" prefHeight="260.0" prefWidth="378.0">
+        <Button layoutX="44.0" layoutY="223.0" mnemonicParsing="false" onAction="#shfaqPerdorues" prefHeight="38.0" prefWidth="122.0" styleClass="btnedito" text="Shfaq Përdoruesit" textFill="DARKRED" />
+        <Button layoutX="51.0" layoutY="294.0" mnemonicParsing="false" onAction="#shfaqPerdoruesHuazuar" prefHeight="38.0" prefWidth="249.0" styleClass="btnedito" text="Shfaq përdoruesit që kanë huazuar libra" textFill="DARKRED" />
+        <Button layoutX="108.0" layoutY="348.0" mnemonicParsing="false" onAction="#regjistroPerdorues" prefHeight="38.0" prefWidth="136.0" styleClass="btnedito" text="Regjistro Përdorues" textFill="DARKRED" />
+        <TableView fx:id="tableMenaxhimiPerdoruesve" layoutX="351.0" layoutY="167.0" prefHeight="315.0" prefWidth="552.0">
             <columns>
-                <TableColumn prefWidth="75.0" text="ID" />
-                <TableColumn prefWidth="75.0" text="Name" />
-                <TableColumn prefWidth="75.0" text="Email" />
-                <TableColumn prefWidth="75.0" text="Phone" />
-                <TableColumn prefWidth="75.0" text="Gender" />
+                <TableColumn fx:id="tablecol_id" prefWidth="110.0" text="ID" />
+                <TableColumn fx:id="tablecol_name" prefWidth="110.0" text="Name" />
+                <TableColumn fx:id="tablecol_email" prefWidth="110.0" text="Email" />
+                <TableColumn fx:id="tablecol_phone" prefWidth="110.0" text="Phone" />
+                <TableColumn fx:id="tablecol_gender" prefWidth="110.0" text="Gender" />
             </columns>
         </TableView>
         <Button fx:id="btnBack" layoutX="10.0" layoutY="70.0" mnemonicParsing="false" onAction="#handleReturn" prefHeight="38.0" prefWidth="41.0" style="-fx-border-color: #F4F4F4; -fx-background-color: #F4F4F4;" />
@@ -42,6 +42,11 @@
             </image>
         </ImageView>
 
-        <Button layoutX="209.0" layoutY="227.0" mnemonicParsing="false" onAction="#editoperdorues" prefHeight="38.0" prefWidth="122.0" styleClass="btnedito" text="Filtro" textFill="DARKRED" />
+        <Button layoutX="193.0" layoutY="223.0" mnemonicParsing="false" onAction="#filtroPerdorues" prefHeight="38.0" prefWidth="122.0" styleClass="btnedito" text="Filtro" textFill="DARKRED" />
+      <ImageView fitHeight="71.0" fitWidth="82.0" layoutX="847.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/University_of_Prishtina_logo.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>
