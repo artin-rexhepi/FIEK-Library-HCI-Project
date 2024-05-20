@@ -13,12 +13,12 @@ public class MemberDto {
     public MemberDto(){
     }
 
-    public MemberDto(String IDstudendore, String emri, String email, String gjinia, String numerTelefoni) {
+    public MemberDto(String IDstudendore, String emri, String email, String numerTelefoni, String gjinia) {
         this.IDstudendore = IDstudendore;
         this.emri = emri;
         this.email = email;
-        this.gjinia = gjinia;
         this.numerTelefoni = numerTelefoni;
+        this.gjinia = gjinia;
     }
 
     public String getIDstudendore() {
@@ -33,12 +33,12 @@ public class MemberDto {
         return email;
     }
 
-    public String getGjinia() {
-        return gjinia;
-    }
-
     public String getNumerTelefoni() {
         return numerTelefoni;
+    }
+
+    public String getGjinia() {
+        return gjinia;
     }
 
     public void setIDstudendore(String IDstudendore) {
