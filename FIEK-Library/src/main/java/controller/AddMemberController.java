@@ -1,11 +1,11 @@
 package controller;
+
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.dto.MemberDto;
-import repository.MemberRepository;
+import service.MemberService;
 import app.Navigator;
 
 public class AddMemberController {
@@ -25,16 +25,14 @@ public class AddMemberController {
     @FXML
     private TextField txtGjinia;
 
-    private MemberRepository memberRepository;
+    private MemberService memberService;
 
     public AddMemberController() {
-        // Instantiate the MemberRepository
-        this.memberRepository = new MemberRepository();
+        this.memberService = new MemberService();
     }
 
     @FXML
     private void handleRuaj() {
-        // Retrieve member details from UI components
         String id = txtId.getText();
         String emri = txtEmri.getText();
         String email = txtEmail.getText();
@@ -44,8 +42,8 @@ public class AddMemberController {
         // Create a MemberDto object with the retrieved data
         MemberDto memberDto = new MemberDto(id, emri, email, gjinia, numerTelefoni);
 
-        // Call the repository method to save the member
-        boolean isSaved = memberRepository.create(memberDto);
+        // Call the service method to save the member
+        boolean isSaved = memberService.registerMember(memberDto);
 
         if (isSaved) {
             // Member saved successfully, display a success message
@@ -69,6 +67,7 @@ public class AddMemberController {
         txtGjinia.clear();
         txtNumerTelefon.clear();
     }
+
     @FXML
     public void handleReturn() {
         // Get the current stage from any of the text fields
@@ -84,26 +83,4 @@ public class AddMemberController {
         alert.setContentText(message);
         alert.showAndWait();
     }
-
-
-
-    @FXML
-    public void initialize() {
-
-
-        // Shtimi i event handler për kalimin me Enter neper textfielda
-        txtId.setOnAction(event -> txtEmri.requestFocus());
-        txtEmri.setOnAction(event -> txtEmail.requestFocus());
-        txtEmail.setOnAction(event -> txtGjinia.requestFocus());
-        txtGjinia.setOnAction(event -> txtNumerTelefon.requestFocus());
-        txtNumerTelefon.setOnAction(event -> {
-            handleRuaj();
-            event.consume(); // Për të parandaluar që shtypja e Enter të shkaktojë një ngjarje të tjera si kalimi në fushën tjetër
-
-
-        });
-    }
-
-
-
 }
