@@ -57,6 +57,9 @@ public class AdminPageController implements Initializable {
     private TableColumn<MemberDto, String> tablecol_phone;
 
     private ObservableList<MemberDto> memberList;
+    @FXML
+    private Button btnHuazuar;
+
 
     public AdminPageController(){
         this.adminService=new AdminService();
@@ -115,7 +118,16 @@ public class AdminPageController implements Initializable {
         } else {
             System.err.println("Button 'btnBack' eshte null.");
         }
-
+// Vendosja e veprimit për butonin "Huazuar"
+        if (btnHuazuar != null) {
+            btnHuazuar.setOnAction(event -> {
+                try {
+                    handleHuazuarClick(event);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
+        }
     }
 
     @FXML
@@ -154,4 +166,12 @@ public class AdminPageController implements Initializable {
         memberList = adminService.getIssuedBookMember();
         tableMenaxhimiPerdoruesve.setItems(memberList);
     }
+
+
+    @FXML
+    private void handleHuazuarClick(ActionEvent event) throws IOException {
+        Navigator.navigate((Stage) ((Node) event.getSource()).getScene().getWindow(), Navigator.HUAZUAR_BOOKS_PAGE);
+    }
+
+
 }

@@ -26,6 +26,7 @@ public class LoginController {
     @FXML
     private Text loginMessage;
 
+
     // Setter for userService, allows injection after FXML loading
     public void setUserService(UserService userService) {
         this.userService = userService;
@@ -75,5 +76,6 @@ public class LoginController {
         } else {
             loginMessage.setText("Invalid username or password.");
         }
+
     }
 }

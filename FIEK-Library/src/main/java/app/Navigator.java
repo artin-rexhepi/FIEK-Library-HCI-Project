@@ -19,6 +19,8 @@ public class Navigator {
     public final static String ADMIN_PAGE = "admin_page.fxml";
     public final static String MANAGE_BOOKS_OPTIONS = "manage_books_options.fxml";
     public final static String MANAGE_USERS = "manage_users.fxml";
+    public static final String HUAZUAR_BOOKS_PAGE = "Huazuar_Books.fxml";
+
 
     public static void navigate(Stage stage, String form) {
         Pane formPane = loadPane(form);

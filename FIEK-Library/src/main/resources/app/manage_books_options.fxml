@@ -60,12 +60,12 @@
                                         <Font size="20.0" />
                                     </font>
                                 </Button>
-                                <Button fx:id="btnEditoLibra12" layoutX="209.0" layoutY="67.0" mnemonicParsing="false" onAction="#editolibra" prefHeight="26.0" prefWidth="166.0" styleClass="btnedito" text="Huazuar" textFill="DARKRED">
+                                <Button fx:id="btnHuazuar" layoutX="209.0" layoutY="124.0" mnemonicParsing="false" onAction="#handleHuazuarClick" prefHeight="26.0" prefWidth="166.0" styleClass="btnedito" text="Librat e Huazuar" textFill="DARKRED">
                                     <font>
                                         <Font size="20.0" />
                                     </font>
                                 </Button>
-                                <Button fx:id="btnEditoLibra121" layoutX="209.0" layoutY="124.0" mnemonicParsing="false" onAction="#editolibra" prefHeight="26.0" prefWidth="166.0" styleClass="btnedito" text="Nuk e di" textFill="DARKRED">
+                                <Button fx:id="btnEditoLibra121" layoutX="209.0" layoutY="67.0" mnemonicParsing="false" onAction="#editolibra" prefHeight="26.0" prefWidth="166.0" styleClass="btnedito" text="Nuk e di" textFill="DARKRED">
                                     <font>
                                         <Font size="20.0" />
                                     </font>
@@ -111,9 +111,6 @@
                                         </graphic>
                                     </Button>
                                 </VBox>
-
-
-
                             </children>
                         </AnchorPane>
                     </content>
