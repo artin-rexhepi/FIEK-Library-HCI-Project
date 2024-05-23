@@ -82,10 +82,6 @@
                         </ImageView>
                     </graphic>
                 </Button>
-
-
-
-
             </children>
         </AnchorPane>
     </children>
