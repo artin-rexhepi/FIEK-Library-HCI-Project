@@ -87,4 +87,22 @@ public class BookRepository {
             return null;
         }
     }
+    public int getBookQuantity(String isbn) {
+        String query = "SELECT quantity FROM Book WHERE ISBN = ?";
+        try (Connection conn = DBConnector.getConnection();
+             PreparedStatement pst = conn.prepareStatement(query)) {
+            pst.setString(1, isbn);
+            try (ResultSet rs = pst.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt("quantity");
+                } else {
+                    // No book found with the given ISBN
+                    return 0;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
 }
