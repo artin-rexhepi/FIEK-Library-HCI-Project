@@ -1,6 +1,7 @@
 package controller;
 
 import app.Navigator;
+import app.SessionManager;
 import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,6 +17,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Member;
+import model.User;
 import model.dto.MemberDto;
 import model.filter.MemberFilter;
 import repository.AdminRepository;
@@ -82,7 +84,6 @@ public class AdminPageController implements Initializable {
 
     public AdminPageController(){
         this.adminService=new AdminService();
-
     }
 
     @FXML
@@ -114,19 +115,20 @@ public class AdminPageController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        if (txtPershendetje != null) {
-            txtPershendetje.setText("Pershendetje!");
-        } else {
-            System.err.println("Text objekti 'Pershendetje' eshte null.");
+        User currentUser = SessionManager.getInstance().getCurrentUser();
+        if (currentUser != null) {
+            String username = currentUser.getUsername();
+            if (txtPershendetje != null) {
+                txtPershendetje.setText("Pershendetje, " + username + "!");
+            } else {
+                System.err.println("Text objekti 'txtPershendetje' is null.");
+            }
         }
-
         if (txtHyrja != null) {
             LocalDateTime currentTime = LocalDateTime.now();
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
             String formattedTime = currentTime.format(formatter);
             txtHyrja.setText("Hyrja: " + formattedTime);
-        } else {
-            System.err.println("Text objekti 'Hyrja' eshte null.");
         }
 
         // Lidhja e btnBack me metodën handleReturn

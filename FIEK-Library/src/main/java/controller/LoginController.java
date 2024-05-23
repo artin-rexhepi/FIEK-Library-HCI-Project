@@ -1,8 +1,10 @@
 package controller;
 
+import app.SessionManager;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import app.Navigator;
+import model.User;
 import model.dto.LoginUserDto;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -109,6 +111,10 @@ public class LoginController {
 
         if (isAuthenticated) {
             loginMessage.setText("Login successful.");
+
+            User user = userService.getUserByUsername(username);
+            SessionManager.getInstance().setCurrentUser(user);
+
             Stage stage = (Stage) (event != null ? ((Node) event.getSource()).getScene().getWindow() : txtUsername.getScene().getWindow());
             Navigator.navigate(stage, Navigator.ADMIN_PAGE);
         } else {
