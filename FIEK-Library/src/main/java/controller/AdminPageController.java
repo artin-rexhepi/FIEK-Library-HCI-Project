@@ -107,6 +107,10 @@ public class AdminPageController implements Initializable {
     private void fshijLibra(ActionEvent ae) throws IOException {
         Navigator.navigate((Stage) ((Node) ae.getSource()).getScene().getWindow(), Navigator.DELETE_BOOK_PAGE);
     }
+    @FXML
+    private void handleHuazuarClick(ActionEvent event) throws IOException {
+        Navigator.navigate((Stage) ((Node) event.getSource()).getScene().getWindow(), Navigator.HUAZUAR_BOOKS_PAGE);
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -203,10 +207,12 @@ public class AdminPageController implements Initializable {
     }
 
 
-    @FXML
-    private void handleHuazuarClick(ActionEvent event) throws IOException {
-        Navigator.navigate((Stage) ((Node) event.getSource()).getScene().getWindow(), Navigator.HUAZUAR_BOOKS_PAGE);
     }
 
 
-}
+
+
+
+
+
+
