@@ -17,6 +17,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Member;
 import model.dto.MemberDto;
+import model.filter.MemberFilter;
 import repository.AdminRepository;
 import service.AdminService;
 import service.DBConnector;
@@ -29,12 +30,16 @@ import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class AdminPageController implements Initializable {
+
     private AdminService adminService;
+
+
     @FXML
     private Text txtPershendetje;
 
     @FXML
     private Text txtHyrja;
+
 
     @FXML
     private Button btnBack; // Deklarimi i btnBack
@@ -57,8 +62,22 @@ public class AdminPageController implements Initializable {
     private TableColumn<MemberDto, String> tablecol_phone;
 
     private ObservableList<MemberDto> memberList;
+
+
     @FXML
     private Button btnHuazuar;
+
+
+    @FXML
+    private TextField idFilter;
+    @FXML
+    private TextField emriFilter;
+    @FXML
+    private TextField emailFilter;
+    @FXML
+    private TextField phoneFilter;
+    @FXML
+    private TextField gjiniaFilter;
 
 
     public AdminPageController(){
@@ -142,10 +161,7 @@ public class AdminPageController implements Initializable {
         Navigator.navigate(stage, Navigator.ADMIN_PAGE);
     }
 
-    @FXML
-    public void filtroPerdorues(ActionEvent event) {
 
-    }
     @FXML
     public void shfaqPerdorues(ActionEvent event) {
         adminService.setMembers(tablecol_id, "IDstudendore");
@@ -164,6 +180,25 @@ public class AdminPageController implements Initializable {
         adminService.setMembers(tablecol_phone, "numerTelefoni");
         adminService.setMembers(tablecol_gender, "gjinia");
         memberList = adminService.getIssuedBookMember();
+        tableMenaxhimiPerdoruesve.setItems(memberList);
+    }
+    @FXML
+    public void filtroPerdorues(ActionEvent event) {
+        adminService.setMembers(tablecol_id, "IDstudendore");
+        adminService.setMembers(tablecol_name, "emri");
+        adminService.setMembers(tablecol_email, "email");
+        adminService.setMembers(tablecol_phone, "numerTelefoni");
+        adminService.setMembers(tablecol_gender, "gjinia");
+
+        String id = idFilter.getText();
+        String name = emriFilter.getText();
+        String email = emailFilter.getText();
+        String phone = phoneFilter.getText();
+        String gender = gjiniaFilter.getText();
+
+        MemberFilter memberFilter = new MemberFilter(id, name, email, phone, gender);
+
+        memberList = adminService.filter(memberFilter);
         tableMenaxhimiPerdoruesve.setItems(memberList);
     }
 

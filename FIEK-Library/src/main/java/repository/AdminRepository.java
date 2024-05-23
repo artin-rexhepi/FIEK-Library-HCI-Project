@@ -11,6 +11,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Member;
 import model.dto.MemberDto;
+import model.filter.MemberFilter;
 import service.DBConnector;
 
 import java.sql.*;
@@ -82,5 +83,28 @@ public class AdminRepository {
             sqle.printStackTrace();
         }
         return list;
+    }
+    public static ObservableList<MemberDto> getByFilter(MemberFilter memberFilter){
+        ObservableList<MemberDto> members = FXCollections.observableArrayList();
+
+        String query = "SELECT * FROM Member WHERE 1 = 1";
+        String filterQuery = memberFilter.buildQuery();
+        query += filterQuery;
+        try(Connection connection = DBConnector.getConnection();){
+            PreparedStatement ps = connection.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                members.add(new MemberDto(rs.getString("memberid"),
+                        rs.getString("name"),
+                        rs.getString("email"),
+                        rs.getString("phone"),
+                        rs.getString("gender")
+                ));
+            }
+        }catch(SQLException sqle){
+            sqle.printStackTrace();
+        }
+        return members;
     }
 }
