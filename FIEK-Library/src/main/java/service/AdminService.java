@@ -4,6 +4,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;
 import model.Member;
 import model.dto.MemberDto;
+import model.filter.MemberFilter;
 import repository.AdminRepository;
 
 public class AdminService {
@@ -17,5 +18,9 @@ public class AdminService {
 
     public ObservableList<MemberDto> getIssuedBookMember(){
         return AdminRepository.getIssuedBookMember();
+    }
+
+    public ObservableList<MemberDto> filter(MemberFilter memberFilter){
+        return AdminRepository.getByFilter(memberFilter);
     }
 }
