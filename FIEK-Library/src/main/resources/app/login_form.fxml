@@ -25,7 +25,7 @@
                   <Insets top="50.0" />
                </VBox.margin>
             </ImageView>
-            <Text fill="#ea6e6e" strokeType="OUTSIDE" strokeWidth="0.0" text="BIBLIOTEKA">
+            <Text fx:id="bibliotekaText" fill="#ea6e6e" strokeType="OUTSIDE" strokeWidth="0.0" text="BIBLIOTEKA">
                <font>
                   <Font name="Calibri" size="45.0" />
                </font>
@@ -33,7 +33,7 @@
                   <Insets top="25.0" />
                </VBox.margin>
             </Text>
-            <Text fill="#000000ed" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="FAKULTETI I INXHINIERISE ELEKTRIKE DHE KOMPJUTERIKE" textAlignment="CENTER" wrappingWidth="400.0">
+            <Text fx:id="facultyText" fill="#000000ed" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="FAKULTETI I INXHINIERISE ELEKTRIKE DHE KOMPJUTERIKE" textAlignment="CENTER" wrappingWidth="400.0">
                <font>
                   <Font name="Yu Gothic Regular" size="20.0" />
                </font>
@@ -41,7 +41,7 @@
                   <Insets top="25.0" />
                </VBox.margin>
             </Text>
-            <Text fill="#f70000ec" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="Universiteti i Prishtines &quot;Hasan Prishtina&quot;" textAlignment="CENTER" wrappingWidth="300.0">
+            <Text fx:id="universityText" fill="#f70000ec" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="Universiteti i Prishtines &quot;Hasan Prishtina&quot;" textAlignment="CENTER" wrappingWidth="300.0">
                <font>
                   <Font name="Yu Gothic Bold" size="20.0" />
                </font>
@@ -49,7 +49,7 @@
                   <Insets top="25.0" />
                </VBox.margin>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Prishtinë" textAlignment="CENTER">
+            <Text fx:id="cityText" strokeType="OUTSIDE" strokeWidth="0.0" text="Prishtinë" textAlignment="CENTER">
                <VBox.margin>
                   <Insets top="25.0" />
                </VBox.margin>
@@ -61,7 +61,7 @@
       </VBox>
       <VBox prefHeight="600.0" prefWidth="485.0">
          <children>
-            <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="65.0" prefWidth="480.0">
+            <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="65.0" prefWidth="480.0" spacing="10.0">
                <children>
                   <Button mnemonicParsing="false" styleClass="transparent" stylesheets="@../style.css">
                      <graphic>
@@ -72,7 +72,20 @@
                         </ImageView>
                      </graphic>
                   </Button>
+                  <ImageView fx:id="americanFlag" fitHeight="37.0" fitWidth="55.0">
+                     <image>
+                        <Image url="@../assets/America_Flag.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="albanianFlag" fitHeight="37.0" fitWidth="60.0">
+                     <image>
+                        <Image url="@../assets/Flag_of_Albania.png" />
+                     </image>
+                  </ImageView>
                </children>
+               <HBox.margin>
+                  <Insets right="10.0" top="10.0" />
+               </HBox.margin>
             </HBox>
             <Pane prefHeight="81.0" prefWidth="466.0" />
             <HBox prefHeight="52.0" prefWidth="480.0" styleClass="border" stylesheets="@../style.css">
@@ -125,13 +138,10 @@
                   <Insets left="50.0" right="50.0" top="30.0" />
                </VBox.margin>
             </HBox>
-
-            <!-- VBox to contain the error message  -->
             <VBox alignment="CENTER" spacing="20.0">
                <Text fx:id="loginMessage" fill="RED" />
             </VBox>
-
-            <Button mnemonicParsing="false" onAction="#handleLoginClick" prefHeight="38.0" prefWidth="366.0" styleClass="btn-background" stylesheets="@../style.css" text="Login" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="logIn" mnemonicParsing="false" onAction="#handleLoginClick" prefHeight="38.0" prefWidth="366.0" styleClass="btn-background" stylesheets="@../style.css" text="Login" textAlignment="CENTER" textFill="WHITE">
                <VBox.margin>
                   <Insets left="50.0" right="50.0" top="30.0" />
                </VBox.margin>
@@ -139,7 +149,7 @@
                   <Font name="Yu Gothic Bold" size="18.0" />
                </font>
             </Button>
-            <Label alignment="CENTER" graphicTextGap="6.0" prefHeight="18.0" prefWidth="383.0" text="Forgot Password" textAlignment="CENTER" textFill="#ea6e6e" underline="true">
+            <Label fx:id="forgotPasswordLabel" alignment="CENTER" graphicTextGap="6.0" prefHeight="18.0" prefWidth="383.0" text="Forgot Password" textAlignment="CENTER" textFill="#ea6e6e" underline="true">
                <VBox.margin>
                   <Insets left="50.0" right="50.0" top="21.0" />
                </VBox.margin>

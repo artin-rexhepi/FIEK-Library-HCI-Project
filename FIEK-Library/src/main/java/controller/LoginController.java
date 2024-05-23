@@ -1,17 +1,24 @@
 package controller;
 
-import app.Navigator;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import app.Navigator;
+import model.dto.LoginUserDto;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.scene.Node;
-import model.dto.LoginUserDto;
 import service.UserService;
+
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class LoginController {
 
@@ -26,6 +33,29 @@ public class LoginController {
     @FXML
     private Text loginMessage;
 
+    @FXML
+    private Button logIn;
+
+    @FXML
+    private ImageView albanianFlag;
+
+    @FXML
+    private ImageView americanFlag;
+
+    @FXML
+    private Text bibliotekaText;
+
+    @FXML
+    private Text facultyText;
+
+    @FXML
+    private Text universityText;
+
+    @FXML
+    private Text cityText;
+
+    @FXML
+    private Label forgotPasswordLabel;
 
     // Setter for userService, allows injection after FXML loading
     public void setUserService(UserService userService) {
@@ -37,6 +67,14 @@ public class LoginController {
         // Add key listeners to the text fields
         txtUsername.setOnKeyPressed(this::handleUsernameKeyPressed);
         pwdPassword.setOnKeyPressed(this::handlePasswordKeyPressed);
+
+        // Set initial locale to Albanian
+        Locale.setDefault(new Locale("sq"));
+        translateAlbanian();
+
+        // Set flag click event handlers
+        albanianFlag.setOnMouseClicked(e -> translateAlbanian());
+        americanFlag.setOnMouseClicked(e -> translateEnglish());
     }
 
     private void handleUsernameKeyPressed(KeyEvent event) {
@@ -76,6 +114,29 @@ public class LoginController {
         } else {
             loginMessage.setText("Invalid username or password.");
         }
+    }
 
+    @FXML
+    void translateEnglish() {
+        Locale currentLocale = new Locale("en");
+        ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
+        logIn.setText(translate.getString("button.logIn"));
+        bibliotekaText.setText(translate.getString("text.biblioteka"));
+        facultyText.setText(translate.getString("text.faculty"));
+        universityText.setText(translate.getString("text.university"));
+        cityText.setText(translate.getString("text.city"));
+        forgotPasswordLabel.setText(translate.getString("label.forgotPassword"));
+    }
+
+    @FXML
+    void translateAlbanian() {
+        Locale currentLocale = new Locale("sq");
+        ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
+        logIn.setText(translate.getString("button.logIn"));
+        bibliotekaText.setText(translate.getString("text.biblioteka"));
+        facultyText.setText(translate.getString("text.faculty"));
+        universityText.setText(translate.getString("text.university"));
+        cityText.setText(translate.getString("text.city"));
+        forgotPasswordLabel.setText(translate.getString("label.forgotPassword"));
     }
 }
