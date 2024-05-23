@@ -184,6 +184,12 @@ public class AdminPageController implements Initializable {
     }
     @FXML
     public void filtroPerdorues(ActionEvent event) {
+        adminService.setMembers(tablecol_id, "IDstudendore");
+        adminService.setMembers(tablecol_name, "emri");
+        adminService.setMembers(tablecol_email, "email");
+        adminService.setMembers(tablecol_phone, "numerTelefoni");
+        adminService.setMembers(tablecol_gender, "gjinia");
+
         String id = idFilter.getText();
         String name = emriFilter.getText();
         String email = emailFilter.getText();
