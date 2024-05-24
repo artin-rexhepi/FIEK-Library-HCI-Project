@@ -16,51 +16,21 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-
 <AnchorPane prefHeight="600.0" prefWidth="880.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HuazuarBooksController">
     <children>
-        <MenuBar layoutX="0.0" layoutY="0.0" prefHeight="25.0" prefWidth="880.0">
-            <menus>
-                <Menu mnemonicParsing="false" text="File">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="New" />
-                        <MenuItem mnemonicParsing="false" text="Open…" />
-                        <Menu mnemonicParsing="false" text="Open Recent" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Close" />
-                        <MenuItem mnemonicParsing="false" text="Save" />
-                        <MenuItem mnemonicParsing="false" text="Save As…" />
-                        <MenuItem mnemonicParsing="false" text="Revert" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Preferences…" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Quit" />
-                    </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Edit">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Undo" />
-                        <MenuItem mnemonicParsing="false" text="Redo" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Cut" />
-                        <MenuItem mnemonicParsing="false" text="Copy" />
-                        <MenuItem mnemonicParsing="false" text="Paste" />
-                        <MenuItem mnemonicParsing="false" text="Delete" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Select All" />
-                        <MenuItem mnemonicParsing="false" text="Unselect All" />
-                    </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Help">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
-                    </items>
-                </Menu>
-            </menus>
-        </MenuBar>
+        <ImageView fx:id="albanianFlag" fitHeight="37.0" fitWidth="55.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="25.0">
+            <image>
+                <Image url="@../assets/Flag_of_Albania.png" />
+            </image>
+        </ImageView>
 
-        <Button fx:id="btnBack" layoutX="0.0" layoutY="25.0" mnemonicParsing="false" onAction="#handleReturn" prefHeight="34.0" prefWidth="40.0" style="-fx-background-color: transparent; -fx-border-color: transparent;">
+        <ImageView fx:id="americanFlag" fitHeight="37.0" fitWidth="55.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="25.0">
+            <image>
+                <Image url="@../assets/America_Flag.png" />
+            </image>
+        </ImageView>
+
+        <Button fx:id="btnBack" layoutX="0.0" layoutY="25.0" mnemonicParsing="false" onAction="#handleReturn" prefHeight="34.0" prefWidth="40.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" AnchorPane.topAnchor="25.0">
             <graphic>
                 <ImageView fitHeight="34.0" fitWidth="40.0" preserveRatio="true">
                     <image>
@@ -69,7 +39,6 @@
                 </ImageView>
             </graphic>
         </Button>
-
 
         <TableView fx:id="tableViewHuazuar" layoutX="40.0" layoutY="120.0" prefHeight="440.0" prefWidth="800.0" AnchorPane.topAnchor="120.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
             <columns>
@@ -83,9 +52,9 @@
             </columns>
         </TableView>
 
-        <HBox alignment="CENTER" prefHeight="60.0" prefWidth="880.0" AnchorPane.topAnchor="50.0">
+        <HBox alignment="CENTER" prefHeight="60.0" prefWidth="880.0" AnchorPane.topAnchor="70.0">
             <children>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Librat e Huazuar" wrappingWidth="150.0" >
+                <Text fx:id="Tabela" strokeType="OUTSIDE" strokeWidth="0.0" text="Librat e Huazuara" wrappingWidth="150.0" >
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
