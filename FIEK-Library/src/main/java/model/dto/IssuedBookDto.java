@@ -7,6 +7,9 @@ public class IssuedBookDto {
     private String memberID;
     private Timestamp issueTime;
     private int renewCount;
+    public IssuedBookDto() {
+    }
+
 
     public IssuedBookDto(String isbn, String memberID, Timestamp issueTime, int renewCount) {
         this.isbn = isbn;
