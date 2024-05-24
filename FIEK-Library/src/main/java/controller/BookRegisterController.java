@@ -4,9 +4,14 @@ import app.Navigator;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import model.dto.BookDTO;
 import service.BookService;
+
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class BookRegisterController {
 
@@ -14,6 +19,8 @@ public class BookRegisterController {
 
     @FXML
     private TextField txtISBN;
+    @FXML
+    private Label regjistrimi;
 
     @FXML
     private TextField txtTitle;
@@ -32,6 +39,17 @@ public class BookRegisterController {
 
     @FXML
     private Button btnBack;
+    @FXML
+    private ImageView albanianFlag;
+
+    @FXML
+    private ImageView americanFlag;
+    @FXML
+    private Button btnRuaj;
+    @FXML
+    private Button btnFshij;
+
+
 
     public BookRegisterController() {
         this.bookService = new BookService();
@@ -95,7 +113,7 @@ public class BookRegisterController {
     }
 
     private void goBack() {
-        Navigator.navigate(btnBack, Navigator.MANAGE_BOOKS_OPTIONS);  // Përdorni konstantën e deklaruar për rrugën e saktë
+        Navigator.navigate(btnBack, Navigator.MANAGE_BOOKS_OPTIONS);
     }
 
     @FXML
@@ -121,6 +139,45 @@ public class BookRegisterController {
 
 
         });
+        // Set initial locale to Albanian
+        Locale.setDefault(new Locale("sq"));
+        translateAlbanian();
+
+        // Set flag click event handlers
+        albanianFlag.setOnMouseClicked(e -> translateAlbanian());
+        americanFlag.setOnMouseClicked(e -> translateEnglish());
+    }
+    @FXML
+    void translateEnglish() {
+        Locale currentLocale = new Locale("en");
+        ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
+
+        regjistrimi.setText(translate.getString("text.regjistrimi"));
+        txtISBN.setPromptText(translate.getString("label.isbn"));
+        txtTitle.setPromptText(translate.getString("label.title"));
+        txtPublisher.setPromptText(translate.getString("label.publisher"));
+        txtSubject.setPromptText(translate.getString("label.subject"));
+        txtAuthor.setPromptText(translate.getString("label.author"));
+        txtQuantity.setPromptText(translate.getString("label.quantity"));
+        btnFshij.setText(translate.getString("button.cancel"));
+        btnRuaj.setText(translate.getString("button.save"));
+    }
+
+    @FXML
+    void translateAlbanian() {
+        Locale currentLocale = new Locale("sq");
+        ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
+
+
+        regjistrimi.setText(translate.getString("text.regjistrimi"));
+        txtISBN.setPromptText(translate.getString("label.isbn"));
+        txtTitle.setPromptText(translate.getString("label.title"));
+        txtPublisher.setPromptText(translate.getString("label.publisher"));
+        txtSubject.setPromptText(translate.getString("label.subject"));
+        txtAuthor.setPromptText(translate.getString("label.author"));
+        txtQuantity.setPromptText(translate.getString("label.quantity"));
+        btnFshij.setText(translate.getString("button.cancel"));
+        btnRuaj.setText(translate.getString("button.save"));
     }
 
 }

@@ -55,7 +55,7 @@
             </menus>
         </MenuBar>
 
-        <Button fx:id="btnBack" layoutX="2.0" layoutY="35.0" mnemonicParsing="false" onAction="#handleReturn" prefHeight="38.0" prefWidth="41.0" style="-fx-border-color: WHITE; -fx-background-color: WHITE;">
+        <Button fx:id="btnBack" layoutX="0.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleReturn" prefHeight="38.0" prefWidth="41.0" style="-fx-border-color: WHITE; -fx-background-color: WHITE;">
             <graphic>
                 <ImageView fitHeight="34.0" fitWidth="40.0" mouseTransparent="true" preserveRatio="true">
                     <image>
@@ -64,7 +64,17 @@
                 </ImageView>
             </graphic>
         </Button>
+        <ImageView fx:id="albanianFlag" fitHeight="37.0" fitWidth="55.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="35.0">
+            <image>
+                <Image url="@../assets/Flag_of_Albania.png" />
+            </image>
+        </ImageView>
 
+        <ImageView fx:id="americanFlag" fitHeight="37.0" fitWidth="55.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="35.0">
+            <image>
+                <Image url="@../assets/America_Flag.png" />
+            </image>
+        </ImageView>
 
         <ImageView fitHeight="150.0" fitWidth="166.0" layoutX="367.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -73,7 +83,7 @@
         </ImageView>
 
 
-        <Label layoutX="347.0" layoutY="220.0" prefHeight="26.0" prefWidth="196.0" text="Regjistrimi i Librit" textFill="DARKRED">
+        <Label fx:id="regjistrimi" layoutX="347.0" layoutY="220.0" prefHeight="26.0" prefWidth="196.0" text="Regjistrimi i Librit" textFill="DARKRED">
             <font>
                 <Font size="25.0" />
             </font>
