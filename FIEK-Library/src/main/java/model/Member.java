@@ -10,9 +10,6 @@ public class Member {
     private String gjinia;
     private String numerTelefoni;
 
-    public Member(){
-    }
-
     public Member(String IDstudendore, String emri, String email, String gjinia, String numerTelefoni) {
         this.IDstudendore = IDstudendore;
         this.emri = emri;

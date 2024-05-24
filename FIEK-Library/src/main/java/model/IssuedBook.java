@@ -1,14 +1,14 @@
-package model.dto;
+package model;
 
 import java.sql.Timestamp;
 
-public class IssuedBookDto {
+public class IssuedBook {
     private String isbn;
     private String memberID;
     private Timestamp issueTime;
     private int renewCount;
 
-    public IssuedBookDto(String isbn, String memberID, Timestamp issueTime, int renewCount) {
+    public IssuedBook(String isbn, String memberID, Timestamp issueTime, int renewCount) {
         this.isbn = isbn;
         this.memberID = memberID;
         this.issueTime = issueTime;
