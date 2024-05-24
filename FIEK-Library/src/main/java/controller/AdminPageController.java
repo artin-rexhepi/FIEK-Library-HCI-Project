@@ -90,7 +90,10 @@ public class AdminPageController implements Initializable {
     private void editolibra(ActionEvent ae) throws IOException {
         Navigator.navigate((Stage) ((Node) ae.getSource()).getScene().getWindow(), Navigator.MANAGE_BOOKS_OPTIONS);
     }
-
+    @FXML
+    private void editolibra1(ActionEvent ae) throws IOException {
+        Navigator.navigate((Stage) ((Node) ae.getSource()).getScene().getWindow(), Navigator.HUAZO_LIBRIN);
+    }
     @FXML
     private void editoperdorues(ActionEvent ae) throws IOException {
         Navigator.navigate((Stage) ((Node) ae.getSource()).getScene().getWindow(), Navigator.MANAGE_USERS);
