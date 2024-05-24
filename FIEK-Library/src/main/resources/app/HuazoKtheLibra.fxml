@@ -58,7 +58,7 @@
         </MenuBar>
         <TabPane prefHeight="600.0" prefWidth="880.0" VBox.vgrow="ALWAYS">
             <tabs>
-                <Tab text="Tab 1">
+                <Tab text="Huazimi">
                     <content>
                         <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
                             <children>
@@ -80,7 +80,7 @@
                         </AnchorPane>
                     </content>
                 </Tab>
-                <Tab text="Tab 2">
+                <Tab text="Rikthimi">
                     <content>
                         <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
                             <children>
@@ -96,8 +96,8 @@
                                         <Font size="24.0" />
                                     </font>
                                 </Label>
-                                <Button layoutX="464.0" layoutY="399.0" mnemonicParsing="false"  prefHeight="43.0" prefWidth="70.0" styleClass="fshij-button" stylesheets="@../Styles/RegisterBookStyles.css" text="Fshij" />
-                                <Button layoutX="573.0" layoutY="399.0" mnemonicParsing="false"  prefHeight="43.0" prefWidth="70.0" styleClass="ruaj-button" stylesheets="@../Styles/RegisterBookStyles.css" text="Ruaj" />
+                                <Button layoutX="464.0" layoutY="399.0" mnemonicParsing="false" onAction="#handleFshij1" prefHeight="43.0" prefWidth="70.0" styleClass="fshij-button" stylesheets="@../Styles/RegisterBookStyles.css" text="Fshij" />
+                                <Button layoutX="573.0" layoutY="399.0" mnemonicParsing="false" onAction="#handleRuaj1" prefHeight="43.0" prefWidth="70.0" styleClass="ruaj-button" stylesheets="@../Styles/RegisterBookStyles.css" text="Ruaj" />
                             </children>
                         </AnchorPane>
                     </content>

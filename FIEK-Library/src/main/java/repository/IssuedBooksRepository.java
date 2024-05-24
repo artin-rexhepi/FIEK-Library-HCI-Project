@@ -75,4 +75,30 @@ public class IssuedBooksRepository {
             return false;
         }
     }
+    public boolean incrementBookQuantity(String isbn) {
+        String query = "UPDATE Book SET quantity = quantity + 1 WHERE isbn = ?";
+        try (Connection conn = DBConnector.getConnection();
+             PreparedStatement pst = conn.prepareStatement(query)) {
+            pst.setString(1, isbn);
+            int affectedRows = pst.executeUpdate();
+            return affectedRows > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean resetRenewCount(String isbn, String memberID) {
+        String query = "UPDATE issuedBooks SET renew_count = 0 WHERE isbn = ? AND memberID = ?";
+        try (Connection conn = DBConnector.getConnection();
+             PreparedStatement pst = conn.prepareStatement(query)) {
+            pst.setString(1, isbn);
+            pst.setString(2, memberID);
+            int affectedRows = pst.executeUpdate();
+            return affectedRows > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

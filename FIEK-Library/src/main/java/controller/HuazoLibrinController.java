@@ -59,6 +59,46 @@ public class HuazoLibrinController {
     }
 
     @FXML
+    private TextField txtIDStudentore1;
+
+    @FXML
+    private TextField txtIDLibrit1;
+
+    // Existing methods...
+
+    @FXML
+    private void handleRuaj1() {
+        String memberId = txtIDStudentore1.getText();
+        String isbn = txtIDLibrit1.getText();
+        Timestamp issueTime = new Timestamp(System.currentTimeMillis());
+        int renewCount = 0;  // Reset renew count
+
+        // Create an IssuedBookDto object with the retrieved data
+        IssuedBookDto issuedBookDto = new IssuedBookDto(isbn, memberId, issueTime, renewCount);
+
+        // Call the service method to return the book
+        boolean isReturned = issuedBooksService.returnBook(issuedBookDto);
+
+        if (isReturned) {
+            // Book returned successfully, display a success message
+            showAlert(Alert.AlertType.INFORMATION, "Success", "Book returned successfully!");
+            clearReturnFields();
+        } else {
+            // Returning book failed, display an error message
+            showAlert(Alert.AlertType.ERROR, "Error", "Failed to return book");
+        }
+    }
+
+    private void clearReturnFields() {
+        txtIDStudentore1.clear();
+        txtIDLibrit1.clear();
+    }
+    @FXML
+    private void handleFshij1() {
+        clearReturnFields();
+    }
+
+    @FXML
     public void handleReturn() {
         // Get the current stage from any of the text fields
         Stage stage = (Stage) txtIDStudentore.getScene().getWindow();

@@ -62,4 +62,18 @@ public class IssuedBooksService {
         List<IssuedBookDto> existingIssuedBooks = issuedBooksRepository.getAllIssuedBooks();
         return existingIssuedBooks.stream().noneMatch(book -> book.getIsbn().equals(isbn) && book.getMemberID().equals(memberID));
     }
+
+    public boolean returnBook(IssuedBookDto issuedBookDto) {
+        // Increment the book quantity
+        if (!issuedBooksRepository.incrementBookQuantity(issuedBookDto.getIsbn())) {
+            return false;  // Failed to increment quantity
+        }
+
+        // Reset the renew count
+        if (!issuedBooksRepository.resetRenewCount(issuedBookDto.getIsbn(), issuedBookDto.getMemberID())) {
+            return false;  // Failed to reset renew count
+        }
+
+        return true;  // Successfully returned the book
+    }
 }
