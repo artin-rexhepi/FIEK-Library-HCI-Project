@@ -290,12 +290,19 @@ private Button btnEditoPerdorues2;
     void translateEnglish() {
         Locale currentLocale = new Locale("en");
         ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
-//Duhet te rishikohet
+    //Duhet te rishikohet
 
+        User currentUser = SessionManager.getInstance().getCurrentUser();
+        String username = currentUser.getUsername();
         //Adminpage
-        txtPershendetje.setText(translate.getString("text.txtPershendetje"));
-        //txtHyrja.setText(translate.getString("text.txtHyrja"));
-        txtPaneliAdminit.setText(translate.getString("text.txtPaneliAdminit"));
+        txtPershendetje.setText(translate.getString("text.txtPershendetje") +" "+ username + "!");
+
+        LocalDateTime currentTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        String formattedTime = currentTime.format(formatter);
+        txtHyrja.setText(translate.getString("text.txtHyrja") +" "+ formattedTime);
+
+        txtPaneliAdminit.setText("   " + translate.getString("text.txtPaneliAdminit"));
 
         // Përkthimet për butonat
         btnEditoLibra1.setText(translate.getString("button.btnEditoLibra1"));
@@ -340,9 +347,17 @@ private Button btnEditoPerdorues2;
         Locale currentLocale = new Locale("sq");
         ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
 
+        User currentUser = SessionManager.getInstance().getCurrentUser();
+        String username = currentUser.getUsername();
+
         //Adminpage
-        txtPershendetje.setText(translate.getString("text.txtPershendetje"));
-        //txtHyrja.setText(translate.getString("text.txtHyrja"));
+        txtPershendetje.setText(translate.getString("text.txtPershendetje") +" "+username + "!");
+
+        LocalDateTime currentTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        String formattedTime = currentTime.format(formatter);
+        txtHyrja.setText(translate.getString("text.txtHyrja") +" "+ formattedTime);
+
         txtPaneliAdminit.setText(translate.getString("text.txtPaneliAdminit"));
 
         // Përkthimet për butonat
