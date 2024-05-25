@@ -10,10 +10,7 @@ public class BookDTO {
     private String quantity;
     private String author;
 
-    // Constructors
-    public BookDTO() {
-        // Default constructor
-    }
+
 
     public BookDTO(String ISBN, String title, String subject, String publisher, String quantity, String author) {
         this.ISBN = ISBN;

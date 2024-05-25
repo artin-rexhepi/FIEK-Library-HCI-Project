@@ -101,4 +101,21 @@ public class IssuedBooksRepository {
             return false;
         }
     }
+
+    public int getRenewCount(String isbn, String memberID) {
+        String query = "SELECT renew_count FROM issuedBooks WHERE isbn = ? AND memberID = ?";
+        try (Connection conn = DBConnector.getConnection();
+             PreparedStatement pst = conn.prepareStatement(query)) {
+            pst.setString(1, isbn);
+            pst.setString(2, memberID);
+            try (ResultSet rs = pst.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt("renew_count");
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1; // Return -1 if renew count is not found or there's an error
+    }
 }

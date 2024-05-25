@@ -7,7 +7,9 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -21,10 +23,13 @@ import model.Member;
 import model.User;
 import model.dto.BookDTO;
 import model.dto.MemberDto;
+import model.filter.BookFilter;
 import model.filter.MemberFilter;
 import repository.AdminRepository;
 import service.AdminService;
 import service.DBConnector;
+import service.IssuedBooksService;
+
 import java.io.IOException;
 import java.net.URL;
 import java.text.CollationElementIterator;
@@ -37,10 +42,8 @@ public class AdminPageController implements Initializable {
 
     private AdminService adminService;
 
-
     @FXML
     private Text txtPershendetje;
-
     @FXML
     private Text txtHyrja;
     @FXML
@@ -69,10 +72,8 @@ public class AdminPageController implements Initializable {
 
     private ObservableList<MemberDto> memberList;
 
-
     @FXML
     private Button btnHuazuar;
-
 
     @FXML
     private TextField idFilter;
@@ -87,8 +88,9 @@ public class AdminPageController implements Initializable {
 
      @FXML
     private Text title_management_panel_books;
-@FXML
-private Button btnEditoPerdorues2;
+
+     @FXML
+    private Button btnEditoPerdorues2;
 
     @FXML
     private Button btnEditoLibra;
@@ -106,7 +108,7 @@ private Button btnEditoPerdorues2;
     private Button btnEditoLibra121;
 
     @FXML
-    private Button btnEditoLibra1211;
+    private Button btnAllLibrat;
 
     @FXML
     private Button btnShtoLibra;
@@ -126,10 +128,17 @@ private Button btnEditoPerdorues2;
     private Button filtro;
 
     @FXML
+    private Button btnFiltro;
+
+    @FXML
     private ImageView albanianFlag;
 
     @FXML
     private ImageView americanFlag;
+
+    @FXML
+    private TableView<BookDTO> tableMenaxhimiLibrave;
+
     @FXML
     private TableColumn<BookDTO, String> colAutori;
     @FXML
@@ -139,7 +148,21 @@ private Button btnEditoPerdorues2;
     @FXML
     private TableColumn<BookDTO, String> colPublikuesi;
     @FXML
-    private TableColumn<BookDTO, String> colDataPublikimit;
+    private TableColumn<BookDTO, String> colSubjekti;
+    @FXML
+    private TableColumn<BookDTO, String> colSasia;
+
+    @FXML
+    private TextField isbnFilter;
+    @FXML
+    private TextField titulliFilter;
+    @FXML
+    private TextField autoriFilter;
+    @FXML
+    private TextField publikuesiFilter;
+
+    @FXML
+    private TextField subjektiFilter;
 
     @FXML
     private Text idTextFilter;
@@ -151,6 +174,18 @@ private Button btnEditoPerdorues2;
     private Text emailTextFilter;
     @FXML
     private Text gjiniaTextFilter;
+
+    @FXML
+    private void generatePieChart(ActionEvent event) {
+        IssuedBooksService issuedBooksService = new IssuedBooksService();
+        PieChart pieChart = issuedBooksService.generatePieChart();
+
+        // Display the PieChart in a new Stage
+        Stage stage = new Stage();
+        stage.setScene(new Scene(new Group(pieChart), 500, 500));
+        stage.show();
+    }
+
 
 
     public AdminPageController(){
@@ -184,7 +219,14 @@ private Button btnEditoPerdorues2;
     }
     @FXML
     private void handleHuazuarClick(ActionEvent event) throws IOException {
-        Navigator.navigate((Stage) ((Node) event.getSource()).getScene().getWindow(), Navigator.HUAZUAR_BOOKS_PAGE);
+        adminService.setBooks(colISBN, "ISBN");
+        adminService.setBooks(colTitulli, "title");
+        adminService.setBooks(colSubjekti, "subject");
+        adminService.setBooks(colPublikuesi, "publisher");
+        adminService.setBooks(colSasia, "quantity");
+        adminService.setBooks(colAutori, "author");
+        bookList = adminService.getIssuedBooks();
+        tableMenaxhimiLibrave.setItems(bookList);
     }
 
     @Override
@@ -193,7 +235,7 @@ private Button btnEditoPerdorues2;
 
             // Set initial locale to Albanian
             Locale.setDefault(new Locale("sq"));
-            translateAlbanian();
+//            translateAlbanian();
 
             // Set flag click event handlers
             albanianFlag.setOnMouseClicked(e -> translateAlbanian());
@@ -237,6 +279,8 @@ private Button btnEditoPerdorues2;
 
     }
 
+
+
     @FXML
     public void handleReturn() {
         Stage stage = (Stage) btnBack.getScene().getWindow();
@@ -270,6 +314,28 @@ private Button btnEditoPerdorues2;
         memberList = adminService.getIssuedBookMember();
         tableMenaxhimiPerdoruesve.setItems(memberList);
     }
+
+    @FXML
+    public void filtroLibra (ActionEvent ae) {
+        adminService.setBooks(colISBN, "ISBN");
+        adminService.setBooks(colTitulli, "title");
+        adminService.setBooks(colSubjekti, "subject");
+        adminService.setBooks(colPublikuesi, "publisher");
+        adminService.setBooks(colSasia, "quantity");
+        adminService.setBooks(colAutori, "author");
+
+        String isbn = isbnFilter.getText();
+        String autori = autoriFilter.getText();
+        String publikuesi = publikuesiFilter.getText();
+        String titulli = titulliFilter.getText();
+        String subjekti = subjektiFilter.getText();
+
+        BookFilter bookFilter = new BookFilter(isbn, titulli, autori, publikuesi, subjekti);
+
+        bookList = adminService.getBookByFilter(bookFilter);
+        tableMenaxhimiLibrave.setItems(bookList);
+    }
+
     @FXML
     public void filtroPerdorues(ActionEvent event) {
         adminService.setMembers(tablecol_id, "IDstudendore");
@@ -289,6 +355,34 @@ private Button btnEditoPerdorues2;
         memberList = adminService.filter(memberFilter);
         tableMenaxhimiPerdoruesve.setItems(memberList);
     }
+
+    private ObservableList<BookDTO> bookList;
+    @FXML
+    public void handleAllLibrat(ActionEvent ae) {
+        adminService.setBooks(colISBN, "ISBN");
+        adminService.setBooks(colTitulli, "title");
+        adminService.setBooks(colSubjekti, "subject");
+        adminService.setBooks(colSasia, "quantity");
+        adminService.setBooks(colPublikuesi, "publisher");
+        adminService.setBooks(colAutori, "author");
+        bookList = adminService.getBookData();
+        tableMenaxhimiLibrave.setItems(bookList);
+
+    }
+
+    @FXML
+    public void handleDispozicion(ActionEvent ae) {
+        adminService.setBooks(colISBN, "ISBN");
+        adminService.setBooks(colTitulli, "title");
+        adminService.setBooks(colSubjekti, "subject");
+        adminService.setBooks(colSasia, "quantity");
+        adminService.setBooks(colPublikuesi, "publisher");
+        adminService.setBooks(colAutori, "author");
+        bookList = adminService.getAvailableBooks();
+        tableMenaxhimiLibrave.setItems(bookList);
+    }
+
+
 
     @FXML
     void translateEnglish() {
@@ -323,14 +417,15 @@ private Button btnEditoPerdorues2;
 
 
         // Përditëso tekst për tabelën
-        if(colISBN != null && colTitulli != null && colAutori != null && colPublikuesi != null && colDataPublikimit != null){
+        if(colISBN != null && colTitulli != null && colAutori != null && colPublikuesi != null && colSasia != null && colSubjekti != null){
             colISBN.setText(translate.getString("column.colISBN"));
             colTitulli.setText(translate.getString("column.colTitulli"));
             colAutori.setText(translate.getString("column.colAutori"));
             colPublikuesi.setText(translate.getString("column.colPublikuesi"));
-            colDataPublikimit.setText(translate.getString("column.colDataPublikimit"));
+            colSasia.setText(translate.getString("column.colSasia"));
+            colSubjekti.setText(translate.getString("column.colSubjekti"));
         }
-        if(title_management_panel_books != null && btnEditoLibra != null && btnEditoPerdorues != null && btnEditoLibra1 != null && btnEditoLibra11 != null && btnHuazuar != null && btnEditoLibra121 != null && btnEditoLibra1211 != null && btnShtoLibra != null && btnEditoLibra121211 != null){
+        if(title_management_panel_books != null && btnEditoLibra != null && btnEditoPerdorues != null && btnEditoLibra1 != null && btnEditoLibra11 != null && btnHuazuar != null && btnEditoLibra121 != null && btnFiltro != null && btnShtoLibra != null && btnEditoLibra121211 != null){
             title_management_panel_books.setText(translate.getString("text.title_management_panel_books"));
             btnEditoLibra.setText(translate.getString("button.btnEditoLibra_manage_books"));
             btnEditoPerdorues.setText(translate.getString("button.btnEditoPerdorues_manage_users"));
@@ -338,7 +433,6 @@ private Button btnEditoPerdorues2;
             btnEditoLibra11.setText(translate.getString("button.btnEditoLibra11_filter"));
             btnHuazuar.setText(translate.getString("button.btnHuazuar"));
             btnEditoLibra121.setText(translate.getString("button.btnEditoLibra121"));
-            btnEditoLibra1211.setText(translate.getString("button.btnEditoLibra1211"));
             btnShtoLibra.setText(translate.getString("button.btnShtoLibra"));
             btnEditoLibra121211.setText(translate.getString("button.btnEditoLibra121211"));
         }
@@ -402,24 +496,28 @@ private Button btnEditoPerdorues2;
 
 
         // Përditëso tekst për tabelën
-        if(colISBN != null && colTitulli != null && colAutori != null && colPublikuesi != null && colDataPublikimit != null){
+        if(colISBN != null && colTitulli != null && colAutori != null && colPublikuesi != null && colSasia != null){
             colISBN.setText(translate.getString("column.colISBN"));
             colTitulli.setText(translate.getString("column.colTitulli"));
             colAutori.setText(translate.getString("column.colAutori"));
             colPublikuesi.setText(translate.getString("column.colPublikuesi"));
-            colDataPublikimit.setText(translate.getString("column.colDataPublikimit"));
+            colSasia.setText(translate.getString("column.colSasia"));
         }
-        if(title_management_panel_books != null && btnEditoLibra != null && btnEditoPerdorues != null && btnEditoLibra1 != null && btnEditoLibra11 != null && btnHuazuar != null && btnEditoLibra121 != null && btnEditoLibra1211 != null && btnShtoLibra != null && btnEditoLibra121211 != null){
+
+        if(title_management_panel_books != null && btnEditoLibra != null && btnEditoPerdorues != null && btnEditoLibra1 != null && btnEditoLibra11 != null && btnHuazuar != null && btnEditoLibra121 != null && btnFiltro != null && btnShtoLibra != null && btnEditoLibra121211 != null){
             title_management_panel_books.setText(translate.getString("text.title_management_panel_books"));
+            btnAllLibrat.setText(translate.getString("button.btnAllLibrat"));
+            btnShtoLibra.setText(translate.getString("button.btnShtoLibra"));
+            btnHuazuar.setText(translate.getString("button.btnHuazuar"));
+
             btnEditoLibra.setText(translate.getString("button.btnEditoLibra_manage_books"));
             btnEditoPerdorues.setText(translate.getString("button.btnEditoPerdorues_manage_users"));
             btnEditoLibra1.setText(translate.getString("button.btnEditoLibra1_list_all_books"));
             btnEditoLibra11.setText(translate.getString("button.btnEditoLibra11_filter"));
-            btnHuazuar.setText(translate.getString("button.btnHuazuar"));
             btnEditoLibra121.setText(translate.getString("button.btnEditoLibra121"));
-            btnEditoLibra1211.setText(translate.getString("button.btnEditoLibra1211"));
-            btnShtoLibra.setText(translate.getString("button.btnShtoLibra"));
             btnEditoLibra121211.setText(translate.getString("button.btnEditoLibra121211"));
+
+            btnFiltro.setText(translate.getString("button.btnFiltro"));
         }
 
 
@@ -448,12 +546,3 @@ private Button btnEditoPerdorues2;
         }
     }
 }
-
-
-
-
-
-
-
-
-

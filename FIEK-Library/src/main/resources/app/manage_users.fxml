@@ -24,9 +24,9 @@
                 <Font name="Yu Gothic Bold" size="30.0" />
             </font>
         </Text>
-        <Button fx:id="shfaq" layoutX="402.0" layoutY="76.0" mnemonicParsing="false" onAction="#shfaqPerdorues" prefHeight="38.0" prefWidth="122.0" styleClass="btnedito" text="Shfaq Përdoruesit" textFill="DARKRED" />
-        <Button fx:id="shfaqhuazuar" layoutX="402.0" layoutY="121.0" mnemonicParsing="false" onAction="#shfaqPerdoruesHuazuar" prefHeight="38.0" prefWidth="269.0" styleClass="btnedito" text="Shfaq përdoruesit që kanë huazuar libra" textFill="DARKRED" />
-        <Button fx:id="regjistroperdorues" layoutX="535.0" layoutY="76.0" mnemonicParsing="false" onAction="#regjistroPerdorues" prefHeight="38.0" prefWidth="136.0" styleClass="btnedito" text="Regjistro Përdorues" textFill="DARKRED" />
+        <Button fx:id="shfaq" layoutX="402.0" layoutY="76.0" mnemonicParsing="false" onAction="#shfaqPerdorues" prefHeight="40.0" prefWidth="125.0" styleClass="fshij-button" stylesheets="@../Styles/RegisterBookStyles.css" text="Shfaq Përdoruesit" textFill="DARKRED" />
+        <Button fx:id="shfaqhuazuar" layoutX="402.0" layoutY="121.0" mnemonicParsing="false" onAction="#shfaqPerdoruesHuazuar" prefHeight="40.0" prefWidth="270.0" styleClass="fshij-button" stylesheets="@../Styles/RegisterBookStyles.css" text="Shfaq përdoruesit që kanë huazuar libra" textFill="DARKRED" />
+        <Button fx:id="regjistroperdorues" layoutX="537.0" layoutY="76.0" mnemonicParsing="false" onAction="#regjistroPerdorues" prefHeight="40.0" prefWidth="135.0" styleClass="fshij-button" stylesheets="@../Styles/RegisterBookStyles.css" text="Regjistro Përdorues" textFill="DARKRED" />
         <TableView fx:id="tableMenaxhimiPerdoruesve" layoutX="352.0" layoutY="182.0" prefHeight="315.0" prefWidth="552.0">
             <columns>
                 <TableColumn fx:id="tablecol_id" prefWidth="110.0" text="ID" />
@@ -43,7 +43,7 @@
             </image>
         </ImageView>
 
-        <Button fx:id="filtro" layoutX="184.0" layoutY="416.0" mnemonicParsing="false" onAction="#filtroPerdorues" prefHeight="33.0" prefWidth="101.0" styleClass="btnedito" text="Filtro" textFill="DARKRED" />
+        <Button fx:id="filtro" layoutX="184.0" layoutY="416.0" mnemonicParsing="false" onAction="#filtroPerdorues" prefHeight="40.0" prefWidth="100.0" styleClass="ruaj-button" stylesheets="@../Styles/RegisterBookStyles.css" text="Filtro" textFill="DARKRED" />
         <ImageView fitHeight="50.0" fitWidth="81.0" layoutX="834.0" layoutY="4.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../assets/University_of_Prishtina_logo.png" />
@@ -60,16 +60,16 @@
                 <Image url="@../assets/America_Flag.png" />
             </image>
         </ImageView>
-      <TextField fx:id="idFilter" layoutX="93.0" layoutY="155.0" prefHeight="34.0" prefWidth="192.0" />
+      <TextField fx:id="idFilter" layoutX="93.0" layoutY="155.0" prefHeight="35.0" prefWidth="190.0" />
       <Text fx:id="idTextFilter" fill="DARKRED" layoutX="21.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Text>
-      <TextField fx:id="gjiniaFilter" layoutX="93.0" layoutY="368.0" prefHeight="34.0" prefWidth="192.0" />
-      <TextField fx:id="phoneFilter" layoutX="93.0" layoutY="313.0" prefHeight="34.0" prefWidth="192.0" />
-      <TextField fx:id="emailFilter" layoutX="93.0" layoutY="263.0" prefHeight="34.0" prefWidth="192.0" />
-      <TextField fx:id="emriFilter" layoutX="93.0" layoutY="208.0" prefHeight="34.0" prefWidth="192.0" />
+      <TextField fx:id="gjiniaFilter" layoutX="93.0" layoutY="368.0" prefHeight="35.0" prefWidth="190.0" />
+      <TextField fx:id="phoneFilter" layoutX="93.0" layoutY="313.0" prefHeight="35.0" prefWidth="190.0" />
+      <TextField fx:id="emailFilter" layoutX="93.0" layoutY="263.0" prefHeight="35.0" prefWidth="190.0" />
+      <TextField fx:id="emriFilter" layoutX="93.0" layoutY="208.0" prefHeight="35.0" prefWidth="190.0" />
       <Text fx:id="gjiniaTextFilter" fill="DARKRED" layoutX="22.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gjinia">
          <font>
             <Font name="System Bold" size="14.0" />

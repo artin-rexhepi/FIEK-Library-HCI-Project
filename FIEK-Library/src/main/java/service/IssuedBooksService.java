@@ -1,5 +1,8 @@
 package service;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.chart.PieChart;
 import model.dto.IssuedBookDto;
 import repository.BookRepository;
 import repository.IssuedBooksRepository;
@@ -75,5 +78,34 @@ public class IssuedBooksService {
         }
 
         return true;  // Successfully returned the book
+    }
+
+    public PieChart generatePieChart() {
+        // Fetch all issued books
+        List<IssuedBookDto> issuedBooks = issuedBooksRepository.getAllIssuedBooks();
+
+        // Count the number of borrowed and returned books
+        int borrowedCount = 0;
+        int returnedCount = 0;
+        for (IssuedBookDto issuedBook : issuedBooks) {
+            int renewCount = issuedBooksRepository.getRenewCount(issuedBook.getIsbn(), issuedBook.getMemberID());
+            if (renewCount > 0) {
+                borrowedCount++;
+            } else {
+                returnedCount++;
+            }
+        }
+
+        // Create the PieChart
+        PieChart.Data borrowedData = new PieChart.Data("Borrowed: " + borrowedCount, borrowedCount);
+        PieChart.Data returnedData = new PieChart.Data("Returned: " + returnedCount, returnedCount);
+        ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(borrowedData, returnedData);
+        PieChart pieChart = new PieChart(pieChartData);
+        pieChart.setTitle("Books Status");
+        return pieChart;
+    }
+
+    public List<IssuedBookDto> getAllIssuedBooks() {
+        return issuedBooksRepository.getAllIssuedBooks();
     }
 }

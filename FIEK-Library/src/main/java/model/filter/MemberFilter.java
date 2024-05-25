@@ -1,9 +1,6 @@
 package model.filter;
 
 
-abstract  class Filter {
-    public abstract String buildQuery();
-}
 
 public class MemberFilter extends Filter{
     private String id;
