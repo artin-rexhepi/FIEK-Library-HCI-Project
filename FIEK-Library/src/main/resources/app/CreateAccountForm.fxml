@@ -56,35 +56,24 @@
         </MenuBar>
         <AnchorPane fx:id="textEmail" maxHeight="-1.0" maxWidth="-1.0" prefHeight="263.0" prefWidth="569.0" VBox.vgrow="ALWAYS">
             <children>
-                <Label layoutX="342.0" layoutY="188.0" prefHeight="26.0" prefWidth="196.0" text="Regjistrimi i përdouresëve" textFill="DARKRED">
+                <Label fx:id="Regjistrimi" layoutX="342.0" layoutY="188.0" prefHeight="26.0" prefWidth="296.0" text="Regjistrimi i Përdoruesve" textFill="DARKRED">
                     <font>
-                        <Font size="17.0" />
+                        <Font size="20.0" />
                     </font>
                 </Label>
                 <TextField fx:id="txtEmri" layoutX="461.0" layoutY="243.0" prefHeight="44.0" prefWidth="242.0" promptText="Emri" style="-fx-border-color: #8B0000;" />
-                <TextField fx:id="txtEmail" layoutX="159.0" layoutY="315.0" prefHeight="44.0" prefWidth="242.0" promptText="E-mail" style="-fx-border-color: #8B0000;" />
-                <TextField fx:id="txtNumerTelefon" layoutX="159.0" layoutY="394.0" prefHeight="44.0" prefWidth="242.0" promptText="Numer telefoni" style="-fx-border-color: #8B0000;" />
-                <Button layoutX="457.0" layoutY="394.0" mnemonicParsing="false" onAction="#handleFshij" prefHeight="44.0" prefWidth="116.0" styleClass="fshij-button" stylesheets="@../Styles/RegisterBookStyles.css" text="Fshij" />
-                <Button layoutX="587.0" layoutY="394.0" mnemonicParsing="false" onAction="#handleRuaj" prefHeight="44.0" prefWidth="116.0" styleClass="ruaj-button" stylesheets="@../Styles/RegisterBookStyles.css" text="Ruaj" />
-                <TextField fx:id="txtId" layoutX="159.0" layoutY="243.0" prefHeight="44.0" prefWidth="242.0" promptText="ID studentore" style="-fx-border-color: #8B0000;" />
+                <TextField fx:id="txtEmail" layoutX="159.0" layoutY="315.0" prefHeight="44.0" prefWidth="242.0" promptText="Email" style="-fx-border-color: #8B0000;" />
+                <TextField fx:id="txtNumerTelefon" layoutX="159.0" layoutY="394.0" prefHeight="44.0" prefWidth="242.0" promptText="Telefoni" style="-fx-border-color: #8B0000;" />
+                <Button fx:id="buttonFshij" layoutX="457.0" layoutY="394.0" mnemonicParsing="false" onAction="#handleFshij" prefHeight="44.0" prefWidth="116.0" styleClass="fshij-button"  stylesheets="@../Styles/RegisterBookStyles.css"   text="Fshij" textFill="#8a0000" />
+                <Button fx:id="buttonRuaj" layoutX="587.0" layoutY="394.0" mnemonicParsing="false" onAction="#handleRuaj" prefHeight="44.0" prefWidth="116.0" styleClass="ruaj-button"  stylesheets="@../Styles/RegisterBookStyles.css"   text="Ruaj" textFill="DARKRED" />
+                <TextField fx:id="txtId" layoutX="159.0" layoutY="243.0" prefHeight="44.0" prefWidth="242.0" promptText="ID" style="-fx-border-color: #8B0000;" />
                 <TextField fx:id="txtGjinia" layoutX="461.0" layoutY="315.0" prefHeight="44.0" prefWidth="241.0" promptText="Gjinia" style="-fx-border-color: #8B0000;" />
                 <ImageView fitHeight="150.0" fitWidth="166.0" layoutX="365.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../assets/University_of_Prishtina_logo.png" />
                     </image>
                 </ImageView>
-                <ImageView fx:id="albanianFlag" fitHeight="37.0" fitWidth="55.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="25.0">
-                    <image>
-                        <Image url="@../assets/Flag_of_Albania.png" />
-                    </image>
-                </ImageView>
-
-                <ImageView fx:id="americanFlag" fitHeight="37.0" fitWidth="55.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="25.0">
-                    <image>
-                        <Image url="@../assets/America_Flag.png" />
-                    </image>
-                </ImageView>
-                <Button layoutX="0.0" layoutY="0.0" mnemonicParsing="false" onAction="#handleReturn" prefHeight="38.0" prefWidth="41.0" style="-fx-border-color: #F4F4F4; -fx-background-color: #F4F4F4;">
+                <Button fx:id="btnBack" layoutX="0.0" layoutY="0.0" mnemonicParsing="false" onAction="#handleReturn" prefHeight="38.0" prefWidth="41.0" style="-fx-border-color: #F4F4F4; -fx-background-color: #F4F4F4;">
                     <graphic>
                         <ImageView fitHeight="34.0" fitWidth="40.0" mouseTransparent="true" preserveRatio="true">
                             <image>
@@ -93,6 +82,19 @@
                         </ImageView>
                     </graphic>
                 </Button>
+
+                <ImageView fx:id="albanianFlag" fitHeight="37.0" fitWidth="55.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="10.0">
+                    <image>
+                        <Image url="@../assets/Flag_of_Albania.png" />
+                    </image>
+                </ImageView>
+
+                <ImageView fx:id="americanFlag" fitHeight="37.0" fitWidth="55.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="10.0">
+                    <image>
+                        <Image url="@../assets/America_Flag.png" />
+                    </image>
+                </ImageView>
+
             </children>
         </AnchorPane>
     </children>

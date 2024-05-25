@@ -2,13 +2,22 @@ package controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import model.dto.MemberDto;
 import service.MemberService;
 import app.Navigator;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
+
 public class AddMemberController {
+
+    @FXML
+    private Label Regjistrimi;
 
     @FXML
     private TextField txtEmri;
@@ -24,6 +33,17 @@ public class AddMemberController {
 
     @FXML
     private TextField txtGjinia;
+    @FXML
+    private Button btnBack;
+    @FXML
+    private Button buttonFshij;
+    @FXML
+    private Button buttonRuaj;
+    @FXML
+    private ImageView albanianFlag;
+
+    @FXML
+    private ImageView americanFlag;
 
     private MemberService memberService;
 
@@ -68,13 +88,16 @@ public class AddMemberController {
         txtGjinia.clear();
         txtNumerTelefon.clear();
     }
-
+    private void goBack() {
+        Navigator.navigate(btnBack, Navigator.MANAGE_USERS);
+    }
     @FXML
     public void handleReturn() {
         // Get the current stage from any of the text fields
         Stage stage = (Stage) txtEmri.getScene().getWindow();
         // Navigate to the CREATE_ACCOUNT_PAGE
         Navigator.navigate(stage, Navigator.MANAGE_USERS);
+        goBack();
     }
 
     private void showAlert(Alert.AlertType alertType, String title, String message) {
@@ -84,6 +107,11 @@ public class AddMemberController {
         alert.setContentText(message);
         alert.showAndWait();
     }
+
+
+
+
+
     @FXML
     public void initialize() {
 
@@ -97,6 +125,54 @@ public class AddMemberController {
             event.consume(); // Për të parandaluar që shtypja e Enter të shkaktojë një ngjarje të tjera si kalimi në fushën tjetër
 
         });
+        // Set initial locale to Albanian
+        Locale.setDefault(new Locale("sq"));
+        translateAlbanian();
+
+        // Set flag click event handlers
+        albanianFlag.setOnMouseClicked(e -> translateAlbanian());
+        americanFlag.setOnMouseClicked(e -> translateEnglish());
+
     }
+    @FXML
+    void translateEnglish() {
+        Locale currentLocale = new Locale("en");
+        ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
+
+        // Vendosja e tekstit të përkthyer për label
+        Regjistrimi.setText(translate.getString("text.Regjistrimi"));
+
+        // Vendosja e tekstit të përkthyer për TextField Prompts
+        txtEmri.setPromptText(translate.getString("label.txtEmri"));
+        txtEmail.setPromptText(translate.getString("label.txtEmail"));
+        txtNumerTelefon.setPromptText(translate.getString("label.txtNumerTelefon"));
+        txtId.setPromptText(translate.getString("label.txtId"));
+        txtGjinia.setPromptText(translate.getString("label.txtGjinia"));
+
+        // Vendosja e tekstit të përkthyer për butonat
+        buttonFshij.setText(translate.getString("button.buttonFshij"));
+        buttonRuaj.setText(translate.getString("button.buttonRuaj"));
+    }
+
+    @FXML
+    void translateAlbanian() {
+        Locale currentLocale = new Locale("sq");
+        ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
+
+        // Vendosja e tekstit të përkthyer për label
+        Regjistrimi.setText(translate.getString("text.Regjistrimi"));
+
+        // Vendosja e tekstit të përkthyer për TextField Prompts
+        txtEmri.setPromptText(translate.getString("label.txtEmri"));
+        txtEmail.setPromptText(translate.getString("label.txtEmail"));
+        txtNumerTelefon.setPromptText(translate.getString("label.txtNumerTelefon"));
+        txtId.setPromptText(translate.getString("label.txtId"));
+        txtGjinia.setPromptText(translate.getString("label.txtGjinia"));
+
+        // Vendosja e tekstit të përkthyer për butonat
+        buttonFshij.setText(translate.getString("button.buttonFshij"));
+        buttonRuaj.setText(translate.getString("button.buttonRuaj"));
+    }
+
 
 }
