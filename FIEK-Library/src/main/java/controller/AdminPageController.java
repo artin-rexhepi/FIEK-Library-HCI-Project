@@ -204,7 +204,7 @@ private Button btnEditoPerdorues2;
         if (currentUser != null) {
             String username = currentUser.getUsername();
             if (txtPershendetje != null) {
-                txtPershendetje.setText("Pershendetje, " + username + "!");
+                txtPershendetje.setText("Mirë se vini, " + username + "!");
             }
         }
         if (txtHyrja != null) {
