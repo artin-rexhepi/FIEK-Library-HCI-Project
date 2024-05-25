@@ -73,6 +73,17 @@
                         <Image url="@../assets/University_of_Prishtina_logo.png" />
                     </image>
                 </ImageView>
+                <ImageView fx:id="albanianFlag" fitHeight="37.0" fitWidth="55.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="25.0">
+                    <image>
+                        <Image url="@../assets/Flag_of_Albania.png" />
+                    </image>
+                </ImageView>
+
+                <ImageView fx:id="americanFlag" fitHeight="37.0" fitWidth="55.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="25.0">
+                    <image>
+                        <Image url="@../assets/America_Flag.png" />
+                    </image>
+                </ImageView>
                 <Button layoutX="0.0" layoutY="0.0" mnemonicParsing="false" onAction="#handleReturn" prefHeight="38.0" prefWidth="41.0" style="-fx-border-color: #F4F4F4; -fx-background-color: #F4F4F4;">
                     <graphic>
                         <ImageView fitHeight="34.0" fitWidth="40.0" mouseTransparent="true" preserveRatio="true">

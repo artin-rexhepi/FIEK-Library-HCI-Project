@@ -19,12 +19,13 @@
     <children>
         <TabPane fx:id="tabPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="913.0" stylesheets="@../Styles/admin_page.css" tabClosingPolicy="UNAVAILABLE">
             <tabs>
-                <Tab text="Paneli i Menaxhimit te Librave">
+                <Tab>
+                    <Text fx:id="title_management_panel_books" text="Paneli i Menaxhimit te Librave" />
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="501.0" prefWidth="913.0">
                             <children>
                                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DARKRED" height="58.0" stroke="DARKRED" strokeType="INSIDE" width="913.0" />
-                                <ImageView fitHeight="65.0" fitWidth="91.0" layoutX="834.0" layoutY="67.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                <ImageView fitHeight="50.0" fitWidth="81.0" layoutX="834.0" layoutY="4.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                                     <image>
                                         <Image url="@../assets/University_of_Prishtina_logo.png" />
                                     </image>
@@ -93,13 +94,24 @@
                                 </Button>
                                 <TableView layoutX="39.0" layoutY="196.0" prefHeight="200.0" prefWidth="708.0">
                                     <columns>
-                                        <TableColumn prefWidth="75.0" text="ISBN" />
-                                        <TableColumn prefWidth="75.0" text="Titulli" />
-                                        <TableColumn prefWidth="75.0" text="Autori" />
-                                        <TableColumn prefWidth="75.0" text="Publikuesi" />
-                                        <TableColumn prefWidth="75.0" text="Data e Publikimit" />
+                                        <TableColumn fx:id="colISBN" prefWidth="75.0" text="ISBN" />
+                                        <TableColumn fx:id="colTitulli" prefWidth="75.0" text="Titulli" />
+                                        <TableColumn fx:id="colAutori" prefWidth="75.0" text="Autori" />
+                                        <TableColumn fx:id="colPublikuesi" prefWidth="75.0" text="Publikuesi" />
+                                        <TableColumn fx:id="colDataPublikimit" prefWidth="75.0" text="Data e Publikimit" />
                                     </columns>
                                 </TableView>
+                                <ImageView fx:id="albanianFlag" fitHeight="37.0" fitWidth="55.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="67.0">
+                                    <image>
+                                        <Image url="@../assets/Flag_of_Albania.png" />
+                                    </image>
+                                </ImageView>
+
+                                <ImageView fx:id="americanFlag" fitHeight="37.0" fitWidth="55.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="67.0">
+                                    <image>
+                                        <Image url="@../assets/America_Flag.png" />
+                                    </image>
+                                </ImageView>
                                 <VBox layoutX="0.0" layoutY="5.0" prefHeight="45.0">
                                     <Button fx:id="btnBack" mnemonicParsing="false" onAction="#handleReturn1" prefHeight="85.0" prefWidth="41.0" style="-fx-background-color: DARKRED; -fx-border-color: DARKRED;" VBox.vgrow="ALWAYS">
                                         <graphic>

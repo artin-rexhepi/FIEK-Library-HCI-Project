@@ -62,20 +62,40 @@
                     <content>
                         <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
                             <children>
-                                <ImageView fitHeight="168.0" fitWidth="180.0" layoutX="341.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+                                <Button fx:id="btnBack1" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleReturn" prefHeight="38.0" prefWidth="41.0" styleClass="transparent-background">
+                                    <graphic>
+                                        <ImageView fitHeight="34.0" fitWidth="40.0" mouseTransparent="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../assets/go-back-button_icon-icons.com_53983.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                <ImageView fitHeight="168.0" fitWidth="180.0" layoutX="341.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
                                         <Image url="@../assets/University_of_Prishtina_logo.png" />
                                     </image>
                                 </ImageView>
                                 <TextField fx:id="txtIDStudentore" layoutX="215.0" layoutY="312.0" prefHeight="43.0" prefWidth="180.0" promptText="ID Studentore" style="-fx-border-color: #8B0000;" />
                                 <TextField fx:id="txtIDLibrit" layoutX="464.0" layoutY="312.0" prefHeight="43.0" prefWidth="180.0" promptText="ID i librit" style="-fx-border-color: #8B0000;" />
-                                <Label layoutX="335.0" layoutY="232.0" prefHeight="43.0" prefWidth="180.0" text="Huazimi i librave" textFill="DARKRED">
+                                <Label fx:id="Huazimi" layoutX="335.0" layoutY="232.0" prefHeight="43.0" prefWidth="280.0" text="Huazimi i librave" textFill="DARKRED">
                                     <font>
                                         <Font size="24.0" />
                                     </font>
                                 </Label>
-                                <Button layoutX="464.0" layoutY="399.0" mnemonicParsing="false" onAction="#handleFshij" prefHeight="43.0" prefWidth="70.0" styleClass="fshij-button" stylesheets="@../Styles/RegisterBookStyles.css" text="Fshij" />
-                                <Button layoutX="573.0" layoutY="399.0" mnemonicParsing="false" onAction="#handleRuaj" prefHeight="43.0" prefWidth="70.0" styleClass="ruaj-button" stylesheets="@../Styles/RegisterBookStyles.css" text="Ruaj" />
+                                <ImageView fx:id="albanianFlag" fitHeight="37.0" fitWidth="55.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="17.0">
+                                    <image>
+                                        <Image url="@../assets/Flag_of_Albania.png" />
+                                    </image>
+                                </ImageView>
+
+                                <ImageView fx:id="americanFlag" fitHeight="37.0" fitWidth="55.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="17.0">
+                                    <image>
+                                        <Image url="@../assets/America_Flag.png" />
+                                    </image>
+                                </ImageView>
+                                <Button fx:id="btnFshij1" layoutX="464.0" layoutY="399.0" mnemonicParsing="false" onAction="#handleFshij" prefHeight="43.0" prefWidth="70.0" styleClass="fshij-button" stylesheets="@../Styles/RegisterBookStyles.css" text="Fshij" />
+                                <Button fx:id="btnRuaj1" layoutX="573.0" layoutY="399.0" mnemonicParsing="false" onAction="#handleRuaj" prefHeight="43.0" prefWidth="70.0" styleClass="ruaj-button" stylesheets="@../Styles/RegisterBookStyles.css" text="Ruaj" />
                             </children>
                         </AnchorPane>
                     </content>
@@ -84,20 +104,40 @@
                     <content>
                         <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
                             <children>
-                                <ImageView fitHeight="168.0" fitWidth="180.0" layoutX="341.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+                                <Button fx:id="btnBack" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleReturn" prefHeight="38.0" prefWidth="41.0" styleClass="transparent-background">
+                                    <graphic>
+                                        <ImageView fitHeight="34.0" fitWidth="40.0" mouseTransparent="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../assets/go-back-button_icon-icons.com_53983.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                <ImageView fitHeight="168.0" fitWidth="180.0" layoutX="341.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
                                         <Image url="@../assets/University_of_Prishtina_logo.png" />
                                     </image>
                                 </ImageView>
                                 <TextField fx:id="txtIDStudentore1" layoutX="215.0" layoutY="312.0" prefHeight="43.0" prefWidth="180.0" promptText="ID Studentore" style="-fx-border-color: #8B0000;" />
                                 <TextField fx:id="txtIDLibrit1" layoutX="464.0" layoutY="312.0" prefHeight="43.0" prefWidth="180.0" promptText="ID i librit" style="-fx-border-color: #8B0000;" />
-                                <Label layoutX="345.0" layoutY="232.0" prefHeight="43.0" prefWidth="159.0" text="Kthimi i librave" textFill="DARKRED">
+                                <Label fx:id="Kthelibra" layoutX="345.0" layoutY="232.0" prefHeight="43.0" prefWidth="259.0" text="Kthimi i librave" textFill="DARKRED">
                                     <font>
                                         <Font size="24.0" />
                                     </font>
                                 </Label>
-                                <Button layoutX="464.0" layoutY="399.0" mnemonicParsing="false" onAction="#handleFshij1" prefHeight="43.0" prefWidth="70.0" styleClass="fshij-button" stylesheets="@../Styles/RegisterBookStyles.css" text="Fshij" />
-                                <Button layoutX="573.0" layoutY="399.0" mnemonicParsing="false" onAction="#handleRuaj1" prefHeight="43.0" prefWidth="70.0" styleClass="ruaj-button" stylesheets="@../Styles/RegisterBookStyles.css" text="Ruaj" />
+                                <ImageView fx:id="albanianFlag1" fitHeight="37.0" fitWidth="55.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="17.0">
+                                    <image>
+                                        <Image url="@../assets/Flag_of_Albania.png" />
+                                    </image>
+                                </ImageView>
+
+                                <ImageView fx:id="americanFlag1" fitHeight="37.0" fitWidth="55.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="17.0">
+                                    <image>
+                                        <Image url="@../assets/America_Flag.png" />
+                                    </image>
+                                </ImageView>
+                                <Button fx:id="btnFshij" layoutX="464.0" layoutY="399.0" mnemonicParsing="false" onAction="#handleFshij1" prefHeight="43.0" prefWidth="70.0" styleClass="fshij-button" stylesheets="@../Styles/RegisterBookStyles.css" text="Fshij" />
+                                <Button fx:id="btnRuaj" layoutX="573.0" layoutY="399.0" mnemonicParsing="false" onAction="#handleRuaj1" prefHeight="43.0" prefWidth="70.0" styleClass="ruaj-button" stylesheets="@../Styles/RegisterBookStyles.css" text="Ruaj" />
                             </children>
                         </AnchorPane>
                     </content>

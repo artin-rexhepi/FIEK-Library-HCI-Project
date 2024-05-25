@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.Parent;
@@ -18,17 +19,18 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Member;
 import model.User;
+import model.dto.BookDTO;
 import model.dto.MemberDto;
 import model.filter.MemberFilter;
 import repository.AdminRepository;
 import service.AdminService;
 import service.DBConnector;
-
-
 import java.io.IOException;
 import java.net.URL;
+import java.text.CollationElementIterator;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class AdminPageController implements Initializable {
@@ -81,6 +83,53 @@ public class AdminPageController implements Initializable {
     @FXML
     private TextField gjiniaFilter;
 
+     @FXML
+    private Text title_management_panel_books;
+
+
+    @FXML
+    private Button btnEditoLibra;
+
+    @FXML
+    private Button btnEditoPerdorues;
+
+    @FXML
+    private Button btnEditoLibra1;
+
+    @FXML
+    private Button btnEditoLibra11;
+
+    @FXML
+    private Button btnEditoLibra121;
+
+    @FXML
+    private Button btnEditoLibra1211;
+
+    @FXML
+    private Button btnShtoLibra;
+
+    @FXML
+    private Button btnEditoLibra121211;
+
+
+    @FXML
+    private ImageView albanianFlag;
+
+    @FXML
+    private ImageView americanFlag;
+    @FXML
+    private TableColumn<BookDTO, String> colAutori;
+    @FXML
+    private TableColumn<BookDTO, String> colISBN;
+    @FXML
+    private TableColumn<BookDTO, String> colTitulli;
+    @FXML
+    private TableColumn<BookDTO, String> colPublikuesi;
+    @FXML
+    private TableColumn<BookDTO, String> colDataPublikimit;
+
+
+
 
     public AdminPageController(){
         this.adminService=new AdminService();
@@ -118,6 +167,17 @@ public class AdminPageController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        {
+
+            // Set initial locale to Albanian
+            Locale.setDefault(new Locale("sq"));
+           // translateAlbanian();
+
+            // Set flag click event handlers
+           // albanianFlag.setOnMouseClicked(e -> translateAlbanian());
+            //americanFlag.setOnMouseClicked(e -> translateEnglish());
+        }
+
         User currentUser = SessionManager.getInstance().getCurrentUser();
         if (currentUser != null) {
             String username = currentUser.getUsername();
@@ -146,6 +206,7 @@ public class AdminPageController implements Initializable {
         } else {
             System.err.println("Button 'btnBack' eshte null.");
         }
+
 // Vendosja e veprimit për butonin "Huazuar"
         if (btnHuazuar != null) {
             btnHuazuar.setOnAction(event -> {
@@ -156,6 +217,7 @@ public class AdminPageController implements Initializable {
                 }
             });
         }
+
     }
 
     @FXML
@@ -211,8 +273,58 @@ public class AdminPageController implements Initializable {
         tableMenaxhimiPerdoruesve.setItems(memberList);
     }
 
+    @FXML
+    void translateEnglish() {
+        Locale currentLocale = new Locale("en");
+        ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
+//Duhet te rishikohet
+//        // Përditëso tekst për tabelën
+//        colISBN.setText(translate.getString("column.colISBN"));
+//        colTitulli.setText(translate.getString("column.colTitulli"));
+//        colAutori.setText(translate.getString("column.colAutori"));
+//        colPublikuesi.setText(translate.getString("column.colPublikuesi"));
+//        colDataPublikimit.setText(translate.getString("column.colDataPublikimit"));
+
+//        title_management_panel_books.setText(translate.getString("text.title_management_panel_books"));
+//        btnEditoLibra.setText(translate.getString("button.btnEditoLibra_manage_books"));
+//        btnEditoPerdorues.setText(translate.getString("button.btnEditoPerdorues_manage_users"));
+//        btnEditoLibra1.setText(translate.getString("button.btnEditoLibra1_list_all_books"));
+//        btnEditoLibra11.setText(translate.getString("button.btnEditoLibra11_filter"));
+//        btnHuazuar.setText(translate.getString("button.btnHuazuar"));
+//        btnEditoLibra121.setText(translate.getString("button.btnEditoLibra121"));
+//        btnEditoLibra1211.setText(translate.getString("button.btnEditoLibra1211"));
+//        btnShtoLibra.setText(translate.getString("button.btnShtoLibra"));
+//        btnEditoLibra121211.setText(translate.getString("button.btnEditoLibra121211"));
+//
+//    }
+//    @FXML
+//    void translateAlbanian() {
+//        Locale currentLocale = new Locale("sq");
+//        ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
+////
+////        colISBN.setText(translate.getString("column.colISBN"));
+////        colTitulli.setText(translate.getString("column.colTitulli"));
+////        colAutori.setText(translate.getString("column.colAutori"));
+////        colPublikuesi.setText(translate.getString("column.colPublikuesi"));
+////        colDataPublikimit.setText(translate.getString("column.colDataPublikimit"));
+//
+//
+//
+//        // Përditëso tekst për butonat
+//        title_management_panel_books.setText(translate.getString("text.title_management_panel_books"));
+//        btnEditoLibra.setText(translate.getString("button.btnEditoLibra_manage_books"));
+//        btnEditoPerdorues.setText(translate.getString("button.btnEditoPerdorues_manage_users"));
+//        btnEditoLibra1.setText(translate.getString("button.btnEditoLibra1_list_all_books"));
+//        btnEditoLibra11.setText(translate.getString("button.btnEditoLibra11_filter"));
+//        btnHuazuar.setText(translate.getString("button.btnHuazuar"));
+//        btnEditoLibra121.setText(translate.getString("button.btnEditoLibra121"));
+//        btnEditoLibra1211.setText(translate.getString("button.btnEditoLibra1211"));
+//        btnShtoLibra.setText(translate.getString("button.btnShtoLibra"));
+//        btnEditoLibra121211.setText(translate.getString("button.btnEditoLibra121211"));
 
     }
+    }
+
 
 
 
