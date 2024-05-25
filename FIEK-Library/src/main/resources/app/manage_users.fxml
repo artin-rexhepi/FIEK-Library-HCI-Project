@@ -61,7 +61,7 @@
             </image>
         </ImageView>
       <TextField fx:id="idFilter" layoutX="93.0" layoutY="155.0" prefHeight="34.0" prefWidth="192.0" />
-      <Text fill="DARKRED" layoutX="21.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID">
+      <Text fx:id="idTextFilter" fill="DARKRED" layoutX="21.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -70,22 +70,22 @@
       <TextField fx:id="phoneFilter" layoutX="93.0" layoutY="313.0" prefHeight="34.0" prefWidth="192.0" />
       <TextField fx:id="emailFilter" layoutX="93.0" layoutY="263.0" prefHeight="34.0" prefWidth="192.0" />
       <TextField fx:id="emriFilter" layoutX="93.0" layoutY="208.0" prefHeight="34.0" prefWidth="192.0" />
-      <Text fx:id="Gjinia" fill="DARKRED" layoutX="22.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gjinia">
+      <Text fx:id="gjiniaTextFilter" fill="DARKRED" layoutX="22.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gjinia">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Text>
-      <Text fx:id="telefoni" fill="DARKRED" layoutX="19.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefoni">
+      <Text fx:id="telTextFilter" fill="DARKRED" layoutX="19.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefoni">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Text>
-      <Text fx:id="Email" fill="DARKRED" layoutX="19.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
+      <Text fx:id="emailTextFilter" fill="DARKRED" layoutX="19.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Text>
-      <Text fx:id="Emri" fill="DARKRED" layoutX="21.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Emri">
+      <Text fx:id="emriTextFilter" fill="DARKRED" layoutX="21.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Emri">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

@@ -141,7 +141,16 @@ private Button btnEditoPerdorues2;
     @FXML
     private TableColumn<BookDTO, String> colDataPublikimit;
 
-
+    @FXML
+    private Text idTextFilter;
+    @FXML
+    private Text emriTextFilter;
+    @FXML
+    private Text telTextFilter;
+    @FXML
+    private Text emailTextFilter;
+    @FXML
+    private Text gjiniaTextFilter;
 
 
     public AdminPageController(){
@@ -196,8 +205,6 @@ private Button btnEditoPerdorues2;
             String username = currentUser.getUsername();
             if (txtPershendetje != null) {
                 txtPershendetje.setText("Pershendetje, " + username + "!");
-            } else {
-                System.err.println("Text objekti 'txtPershendetje' is null.");
             }
         }
         if (txtHyrja != null) {
@@ -210,14 +217,10 @@ private Button btnEditoPerdorues2;
         // Lidhja e btnBack me metodën handleReturn
         if (btnBack != null) {
             btnBack.setOnAction(event -> handleReturn());
-        } else {
-            System.err.println("Button 'btnBack' eshte null.");
         }
         // Lidhja e btnBack me metodën handleReturn
         if (btnBack != null) {
             btnBack.setOnAction(event -> handleReturn1());
-        } else {
-            System.err.println("Button 'btnBack' eshte null.");
         }
 
 // Vendosja e veprimit për butonin "Huazuar"
@@ -292,116 +295,158 @@ private Button btnEditoPerdorues2;
         ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
     //Duhet te rishikohet
 
+
+        //Adminpage
         User currentUser = SessionManager.getInstance().getCurrentUser();
         String username = currentUser.getUsername();
-        //Adminpage
-        txtPershendetje.setText(translate.getString("text.txtPershendetje") +" "+ username + "!");
+        if(txtPershendetje != null){
+            txtPershendetje.setText(translate.getString("text.txtPershendetje") +" "+ username + "!");
+        }
 
         LocalDateTime currentTime = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         String formattedTime = currentTime.format(formatter);
-        txtHyrja.setText(translate.getString("text.txtHyrja") +" "+ formattedTime);
-
-        txtPaneliAdminit.setText("   " + translate.getString("text.txtPaneliAdminit"));
+        if(txtHyrja != null){
+            txtHyrja.setText(translate.getString("text.txtHyrja") +" "+ formattedTime);
+        }
+        if(txtPaneliAdminit != null){
+            txtPaneliAdminit.setText("   " + translate.getString("text.txtPaneliAdminit"));
+        }
 
         // Përkthimet për butonat
-        btnEditoLibra1.setText(translate.getString("button.btnEditoLibra1"));
-        btnEditoPerdorues2.setText(translate.getString("button.btnEditoPerdorues2"));
+        if(btnEditoLibra1 != null && btnEditoPerdorues2 != null){
+            btnEditoLibra1.setText(translate.getString("button.btnEditoLibra1"));
+            btnEditoPerdorues2.setText(translate.getString("button.btnEditoPerdorues2"));
+        }
+
 
 
         // Përditëso tekst për tabelën
-        colISBN.setText(translate.getString("column.colISBN"));
-        colTitulli.setText(translate.getString("column.colTitulli"));
-        colAutori.setText(translate.getString("column.colAutori"));
-        colPublikuesi.setText(translate.getString("column.colPublikuesi"));
-        colDataPublikimit.setText(translate.getString("column.colDataPublikimit"));
+        if(colISBN != null && colTitulli != null && colAutori != null && colPublikuesi != null && colDataPublikimit != null){
+            colISBN.setText(translate.getString("column.colISBN"));
+            colTitulli.setText(translate.getString("column.colTitulli"));
+            colAutori.setText(translate.getString("column.colAutori"));
+            colPublikuesi.setText(translate.getString("column.colPublikuesi"));
+            colDataPublikimit.setText(translate.getString("column.colDataPublikimit"));
+        }
+        if(title_management_panel_books != null && btnEditoLibra != null && btnEditoPerdorues != null && btnEditoLibra1 != null && btnEditoLibra11 != null && btnHuazuar != null && btnEditoLibra121 != null && btnEditoLibra1211 != null && btnShtoLibra != null && btnEditoLibra121211 != null){
+            title_management_panel_books.setText(translate.getString("text.title_management_panel_books"));
+            btnEditoLibra.setText(translate.getString("button.btnEditoLibra_manage_books"));
+            btnEditoPerdorues.setText(translate.getString("button.btnEditoPerdorues_manage_users"));
+            btnEditoLibra1.setText(translate.getString("button.btnEditoLibra1_list_all_books"));
+            btnEditoLibra11.setText(translate.getString("button.btnEditoLibra11_filter"));
+            btnHuazuar.setText(translate.getString("button.btnHuazuar"));
+            btnEditoLibra121.setText(translate.getString("button.btnEditoLibra121"));
+            btnEditoLibra1211.setText(translate.getString("button.btnEditoLibra1211"));
+            btnShtoLibra.setText(translate.getString("button.btnShtoLibra"));
+            btnEditoLibra121211.setText(translate.getString("button.btnEditoLibra121211"));
+        }
 
-        title_management_panel_books.setText(translate.getString("text.title_management_panel_books"));
-        btnEditoLibra.setText(translate.getString("button.btnEditoLibra_manage_books"));
-        btnEditoPerdorues.setText(translate.getString("button.btnEditoPerdorues_manage_users"));
-        btnEditoLibra1.setText(translate.getString("button.btnEditoLibra1_list_all_books"));
-        btnEditoLibra11.setText(translate.getString("button.btnEditoLibra11_filter"));
-        btnHuazuar.setText(translate.getString("button.btnHuazuar"));
-        btnEditoLibra121.setText(translate.getString("button.btnEditoLibra121"));
-        btnEditoLibra1211.setText(translate.getString("button.btnEditoLibra1211"));
-        btnShtoLibra.setText(translate.getString("button.btnShtoLibra"));
-        btnEditoLibra121211.setText(translate.getString("button.btnEditoLibra121211"));
 
         //manageusers column
-        tablecol_id.setText(translate.getString("column.tablecol_id"));
-        tablecol_name.setText(translate.getString("column.tablecol_name"));
-        tablecol_email.setText(translate.getString("column.tablecol_email"));
-        tablecol_phone.setText(translate.getString("column.tablecol_phone"));
-        tablecol_gender.setText(translate.getString("column.tablecol_gender"));
+        if(tablecol_id != null && tablecol_name != null && tablecol_email != null && tablecol_phone != null && tablecol_gender != null){
+            tablecol_id.setText(translate.getString("column.tablecol_id"));
+            tablecol_name.setText(translate.getString("column.tablecol_name"));
+            tablecol_email.setText(translate.getString("column.tablecol_email"));
+            tablecol_phone.setText(translate.getString("column.tablecol_phone"));
+            tablecol_gender.setText(translate.getString("column.tablecol_gender"));
+        }
+        if(Paneli != null && shfaq != null && shfaqhuazuar != null && regjistroperdorues != null && filtro != null){
+            Paneli.setText(translate.getString("text.Paneli"));
+            shfaq.setText(translate.getString("button.shfaq"));
+            shfaqhuazuar.setText(translate.getString("button.shfaqhuazuar"));
+            regjistroperdorues.setText(translate.getString("button.regjistroperdorues"));
+            filtro.setText(translate.getString("button.filtro"));
+        }
 
-        Paneli.setText(translate.getString("text.paneli"));
-        shfaq.setText(translate.getString("button.shfaq"));
-        shfaqhuazuar.setText(translate.getString("button.shfaqhuazuar"));
-        regjistroperdorues.setText(translate.getString("button.regjistroperdorues"));
-        filtro.setText(translate.getString("button.filtro"));
 
+        if(idTextFilter != null && emriTextFilter != null && emailTextFilter != null && telTextFilter != null && gjiniaTextFilter != null){
+            idTextFilter.setText(translate.getString("text.idTextFilter"));
+            emriTextFilter.setText(translate.getString("text.emriTextFilter"));
+            emailTextFilter.setText(translate.getString("text.emailTextFilter"));
+            telTextFilter.setText(translate.getString("text.telTextFilter"));
+            gjiniaTextFilter.setText(translate.getString("text.gjiniaTextFilter"));
+        }
 
     }
     @FXML
-    void translateAlbanian() {
-        Locale currentLocale = new Locale("sq");
-        ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
+    void translateAlbanian(){
+            Locale currentLocale = new Locale("sq");
+            ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
 
-        User currentUser = SessionManager.getInstance().getCurrentUser();
-        String username = currentUser.getUsername();
+            User currentUser = SessionManager.getInstance().getCurrentUser();
+            String username = currentUser.getUsername();
 
-        //Adminpage
-        txtPershendetje.setText(translate.getString("text.txtPershendetje") +" "+username + "!");
+            //Adminpage
+        if(txtPershendetje != null){
+            txtPershendetje.setText(translate.getString("text.txtPershendetje") +" "+ username + "!");
+        }
 
         LocalDateTime currentTime = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         String formattedTime = currentTime.format(formatter);
-        txtHyrja.setText(translate.getString("text.txtHyrja") +" "+ formattedTime);
-
-        txtPaneliAdminit.setText(translate.getString("text.txtPaneliAdminit"));
+        if(txtHyrja != null){
+            txtHyrja.setText(translate.getString("text.txtHyrja") +" "+ formattedTime);
+        }
+        if(txtPaneliAdminit != null){
+            txtPaneliAdminit.setText(translate.getString("text.txtPaneliAdminit"));
+        }
 
         // Përkthimet për butonat
-        btnEditoLibra1.setText(translate.getString("button.btnEditoLibra1"));
-        btnEditoPerdorues2.setText(translate.getString("button.btnEditoPerdorues2"));
-
-
-        //Mangebooks
-        colISBN.setText(translate.getString("column.colISBN"));
-        colTitulli.setText(translate.getString("column.colTitulli"));
-        colAutori.setText(translate.getString("column.colAutori"));
-        colPublikuesi.setText(translate.getString("column.colPublikuesi"));
-        colDataPublikimit.setText(translate.getString("column.colDataPublikimit"));
+        if(btnEditoLibra1 != null && btnEditoPerdorues2 != null){
+            btnEditoLibra1.setText(translate.getString("button.btnEditoLibra1"));
+            btnEditoPerdorues2.setText(translate.getString("button.btnEditoPerdorues2"));
+        }
 
 
 
-        // Përditëso tekst për butonat
-        title_management_panel_books.setText(translate.getString("text.title_management_panel_books"));
-        btnEditoLibra.setText(translate.getString("button.btnEditoLibra_manage_books"));
-        btnEditoPerdorues.setText(translate.getString("button.btnEditoPerdorues_manage_users"));
-        btnEditoLibra1.setText(translate.getString("button.btnEditoLibra1_list_all_books"));
-        btnEditoLibra11.setText(translate.getString("button.btnEditoLibra11_filter"));
-        btnHuazuar.setText(translate.getString("button.btnHuazuar"));
-        btnEditoLibra121.setText(translate.getString("button.btnEditoLibra121"));
-        btnEditoLibra1211.setText(translate.getString("button.btnEditoLibra1211"));
-        btnShtoLibra.setText(translate.getString("button.btnShtoLibra"));
-        btnEditoLibra121211.setText(translate.getString("button.btnEditoLibra121211"));
+        // Përditëso tekst për tabelën
+        if(colISBN != null && colTitulli != null && colAutori != null && colPublikuesi != null && colDataPublikimit != null){
+            colISBN.setText(translate.getString("column.colISBN"));
+            colTitulli.setText(translate.getString("column.colTitulli"));
+            colAutori.setText(translate.getString("column.colAutori"));
+            colPublikuesi.setText(translate.getString("column.colPublikuesi"));
+            colDataPublikimit.setText(translate.getString("column.colDataPublikimit"));
+        }
+        if(title_management_panel_books != null && btnEditoLibra != null && btnEditoPerdorues != null && btnEditoLibra1 != null && btnEditoLibra11 != null && btnHuazuar != null && btnEditoLibra121 != null && btnEditoLibra1211 != null && btnShtoLibra != null && btnEditoLibra121211 != null){
+            title_management_panel_books.setText(translate.getString("text.title_management_panel_books"));
+            btnEditoLibra.setText(translate.getString("button.btnEditoLibra_manage_books"));
+            btnEditoPerdorues.setText(translate.getString("button.btnEditoPerdorues_manage_users"));
+            btnEditoLibra1.setText(translate.getString("button.btnEditoLibra1_list_all_books"));
+            btnEditoLibra11.setText(translate.getString("button.btnEditoLibra11_filter"));
+            btnHuazuar.setText(translate.getString("button.btnHuazuar"));
+            btnEditoLibra121.setText(translate.getString("button.btnEditoLibra121"));
+            btnEditoLibra1211.setText(translate.getString("button.btnEditoLibra1211"));
+            btnShtoLibra.setText(translate.getString("button.btnShtoLibra"));
+            btnEditoLibra121211.setText(translate.getString("button.btnEditoLibra121211"));
+        }
 
 
         //manageusers column
-        tablecol_id.setText(translate.getString("column.tablecol_id"));
-        tablecol_name.setText(translate.getString("column.tablecol_name"));
-        tablecol_email.setText(translate.getString("column.tablecol_email"));
-        tablecol_phone.setText(translate.getString("column.tablecol_phone"));
-        tablecol_gender.setText(translate.getString("column.tablecol_gender"));
+        if(tablecol_id != null && tablecol_name != null && tablecol_email != null && tablecol_phone != null && tablecol_gender != null){
+            tablecol_id.setText(translate.getString("column.tablecol_id"));
+            tablecol_name.setText(translate.getString("column.tablecol_name"));
+            tablecol_email.setText(translate.getString("column.tablecol_email"));
+            tablecol_phone.setText(translate.getString("column.tablecol_phone"));
+            tablecol_gender.setText(translate.getString("column.tablecol_gender"));
+        }
+        if(Paneli != null && shfaq != null && shfaqhuazuar != null && regjistroperdorues != null && filtro != null){
+            Paneli.setText(translate.getString("text.Paneli"));
+            shfaq.setText(translate.getString("button.shfaq"));
+            shfaqhuazuar.setText(translate.getString("button.shfaqhuazuar"));
+            regjistroperdorues.setText(translate.getString("button.regjistroperdorues"));
+            filtro.setText(translate.getString("button.filtro"));
+        }
 
-        Paneli.setText(translate.getString("text.paneli"));
-        shfaq.setText(translate.getString("button.shfaq"));
-        shfaqhuazuar.setText(translate.getString("button.shfaqhuazuar"));
-        regjistroperdorues.setText(translate.getString("button.regjistroperdorues"));
-        filtro.setText(translate.getString("button.filtro"));
-
+        if(idTextFilter != null && emriTextFilter != null && emailTextFilter != null && telTextFilter != null && gjiniaTextFilter != null){
+            idTextFilter.setText(translate.getString("text.idTextFilter"));
+            emriTextFilter.setText(translate.getString("text.emriTextFilter"));
+            emailTextFilter.setText(translate.getString("text.emailTextFilter"));
+            telTextFilter.setText(translate.getString("text.telTextFilter"));
+            gjiniaTextFilter.setText(translate.getString("text.gjiniaTextFilter"));
+        }
     }
-    }
+}
 
 
 
