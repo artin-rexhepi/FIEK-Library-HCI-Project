@@ -62,15 +62,7 @@
          <children>
             <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="65.0" prefWidth="480.0" spacing="10.0">
                <children>
-                  <Button mnemonicParsing="false" styleClass="transparent" stylesheets="@../style.css">
-                     <graphic>
-                        <ImageView fitHeight="36.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../assets/close_button.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
+                  <Button mnemonicParsing="false" styleClass="transparent" stylesheets="@../style.css" />
                   <ImageView fx:id="americanFlag" fitHeight="37.0" fitWidth="55.0">
                      <image>
                         <Image url="@../assets/America_Flag.png" />
