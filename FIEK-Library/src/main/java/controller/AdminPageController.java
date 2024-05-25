@@ -43,8 +43,10 @@ public class AdminPageController implements Initializable {
 
     @FXML
     private Text txtHyrja;
-
-
+    @FXML
+    private Text Paneli;
+    @FXML
+    private Text txtPaneliAdminit;
     @FXML
     private Button btnBack; // Deklarimi i btnBack
     @FXML
@@ -85,7 +87,8 @@ public class AdminPageController implements Initializable {
 
      @FXML
     private Text title_management_panel_books;
-
+@FXML
+private Button btnEditoPerdorues2;
 
     @FXML
     private Button btnEditoLibra;
@@ -110,7 +113,17 @@ public class AdminPageController implements Initializable {
 
     @FXML
     private Button btnEditoLibra121211;
+    @FXML
+    private Button shfaq;
 
+    @FXML
+    private Button shfaqhuazuar;
+
+    @FXML
+    private Button regjistroperdorues;
+
+    @FXML
+    private Button filtro;
 
     @FXML
     private ImageView albanianFlag;
@@ -174,8 +187,8 @@ public class AdminPageController implements Initializable {
            // translateAlbanian();
 
             // Set flag click event handlers
-           // albanianFlag.setOnMouseClicked(e -> translateAlbanian());
-            //americanFlag.setOnMouseClicked(e -> translateEnglish());
+            albanianFlag.setOnMouseClicked(e -> translateAlbanian());
+            americanFlag.setOnMouseClicked(e -> translateEnglish());
         }
 
         User currentUser = SessionManager.getInstance().getCurrentUser();
@@ -278,49 +291,99 @@ public class AdminPageController implements Initializable {
         Locale currentLocale = new Locale("en");
         ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
 //Duhet te rishikohet
-//        // Përditëso tekst për tabelën
-//        colISBN.setText(translate.getString("column.colISBN"));
-//        colTitulli.setText(translate.getString("column.colTitulli"));
-//        colAutori.setText(translate.getString("column.colAutori"));
-//        colPublikuesi.setText(translate.getString("column.colPublikuesi"));
-//        colDataPublikimit.setText(translate.getString("column.colDataPublikimit"));
 
-//        title_management_panel_books.setText(translate.getString("text.title_management_panel_books"));
-//        btnEditoLibra.setText(translate.getString("button.btnEditoLibra_manage_books"));
-//        btnEditoPerdorues.setText(translate.getString("button.btnEditoPerdorues_manage_users"));
-//        btnEditoLibra1.setText(translate.getString("button.btnEditoLibra1_list_all_books"));
-//        btnEditoLibra11.setText(translate.getString("button.btnEditoLibra11_filter"));
-//        btnHuazuar.setText(translate.getString("button.btnHuazuar"));
-//        btnEditoLibra121.setText(translate.getString("button.btnEditoLibra121"));
-//        btnEditoLibra1211.setText(translate.getString("button.btnEditoLibra1211"));
-//        btnShtoLibra.setText(translate.getString("button.btnShtoLibra"));
-//        btnEditoLibra121211.setText(translate.getString("button.btnEditoLibra121211"));
-//
-//    }
-//    @FXML
-//    void translateAlbanian() {
-//        Locale currentLocale = new Locale("sq");
-//        ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
-////
-////        colISBN.setText(translate.getString("column.colISBN"));
-////        colTitulli.setText(translate.getString("column.colTitulli"));
-////        colAutori.setText(translate.getString("column.colAutori"));
-////        colPublikuesi.setText(translate.getString("column.colPublikuesi"));
-////        colDataPublikimit.setText(translate.getString("column.colDataPublikimit"));
-//
-//
-//
-//        // Përditëso tekst për butonat
-//        title_management_panel_books.setText(translate.getString("text.title_management_panel_books"));
-//        btnEditoLibra.setText(translate.getString("button.btnEditoLibra_manage_books"));
-//        btnEditoPerdorues.setText(translate.getString("button.btnEditoPerdorues_manage_users"));
-//        btnEditoLibra1.setText(translate.getString("button.btnEditoLibra1_list_all_books"));
-//        btnEditoLibra11.setText(translate.getString("button.btnEditoLibra11_filter"));
-//        btnHuazuar.setText(translate.getString("button.btnHuazuar"));
-//        btnEditoLibra121.setText(translate.getString("button.btnEditoLibra121"));
-//        btnEditoLibra1211.setText(translate.getString("button.btnEditoLibra1211"));
-//        btnShtoLibra.setText(translate.getString("button.btnShtoLibra"));
-//        btnEditoLibra121211.setText(translate.getString("button.btnEditoLibra121211"));
+        //Adminpage
+        txtPershendetje.setText(translate.getString("text.txtPershendetje"));
+        //txtHyrja.setText(translate.getString("text.txtHyrja"));
+        txtPaneliAdminit.setText(translate.getString("text.txtPaneliAdminit"));
+
+        // Përkthimet për butonat
+        btnEditoLibra1.setText(translate.getString("button.btnEditoLibra1"));
+        btnEditoPerdorues2.setText(translate.getString("button.btnEditoPerdorues2"));
+
+
+        // Përditëso tekst për tabelën
+        colISBN.setText(translate.getString("column.colISBN"));
+        colTitulli.setText(translate.getString("column.colTitulli"));
+        colAutori.setText(translate.getString("column.colAutori"));
+        colPublikuesi.setText(translate.getString("column.colPublikuesi"));
+        colDataPublikimit.setText(translate.getString("column.colDataPublikimit"));
+
+        title_management_panel_books.setText(translate.getString("text.title_management_panel_books"));
+        btnEditoLibra.setText(translate.getString("button.btnEditoLibra_manage_books"));
+        btnEditoPerdorues.setText(translate.getString("button.btnEditoPerdorues_manage_users"));
+        btnEditoLibra1.setText(translate.getString("button.btnEditoLibra1_list_all_books"));
+        btnEditoLibra11.setText(translate.getString("button.btnEditoLibra11_filter"));
+        btnHuazuar.setText(translate.getString("button.btnHuazuar"));
+        btnEditoLibra121.setText(translate.getString("button.btnEditoLibra121"));
+        btnEditoLibra1211.setText(translate.getString("button.btnEditoLibra1211"));
+        btnShtoLibra.setText(translate.getString("button.btnShtoLibra"));
+        btnEditoLibra121211.setText(translate.getString("button.btnEditoLibra121211"));
+
+        //manageusers column
+        tablecol_id.setText(translate.getString("column.tablecol_id"));
+        tablecol_name.setText(translate.getString("column.tablecol_name"));
+        tablecol_email.setText(translate.getString("column.tablecol_email"));
+        tablecol_phone.setText(translate.getString("column.tablecol_phone"));
+        tablecol_gender.setText(translate.getString("column.tablecol_gender"));
+
+        Paneli.setText(translate.getString("text.paneli"));
+        shfaq.setText(translate.getString("button.shfaq"));
+        shfaqhuazuar.setText(translate.getString("button.shfaqhuazuar"));
+        regjistroperdorues.setText(translate.getString("button.regjistroperdorues"));
+        filtro.setText(translate.getString("button.filtro"));
+
+
+    }
+    @FXML
+    void translateAlbanian() {
+        Locale currentLocale = new Locale("sq");
+        ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
+
+        //Adminpage
+        txtPershendetje.setText(translate.getString("text.txtPershendetje"));
+        //txtHyrja.setText(translate.getString("text.txtHyrja"));
+        txtPaneliAdminit.setText(translate.getString("text.txtPaneliAdminit"));
+
+        // Përkthimet për butonat
+        btnEditoLibra1.setText(translate.getString("button.btnEditoLibra1"));
+        btnEditoPerdorues2.setText(translate.getString("button.btnEditoPerdorues2"));
+
+
+        //Mangebooks
+        colISBN.setText(translate.getString("column.colISBN"));
+        colTitulli.setText(translate.getString("column.colTitulli"));
+        colAutori.setText(translate.getString("column.colAutori"));
+        colPublikuesi.setText(translate.getString("column.colPublikuesi"));
+        colDataPublikimit.setText(translate.getString("column.colDataPublikimit"));
+
+
+
+        // Përditëso tekst për butonat
+        title_management_panel_books.setText(translate.getString("text.title_management_panel_books"));
+        btnEditoLibra.setText(translate.getString("button.btnEditoLibra_manage_books"));
+        btnEditoPerdorues.setText(translate.getString("button.btnEditoPerdorues_manage_users"));
+        btnEditoLibra1.setText(translate.getString("button.btnEditoLibra1_list_all_books"));
+        btnEditoLibra11.setText(translate.getString("button.btnEditoLibra11_filter"));
+        btnHuazuar.setText(translate.getString("button.btnHuazuar"));
+        btnEditoLibra121.setText(translate.getString("button.btnEditoLibra121"));
+        btnEditoLibra1211.setText(translate.getString("button.btnEditoLibra1211"));
+        btnShtoLibra.setText(translate.getString("button.btnShtoLibra"));
+        btnEditoLibra121211.setText(translate.getString("button.btnEditoLibra121211"));
+
+
+        //manageusers column
+        tablecol_id.setText(translate.getString("column.tablecol_id"));
+        tablecol_name.setText(translate.getString("column.tablecol_name"));
+        tablecol_email.setText(translate.getString("column.tablecol_email"));
+        tablecol_phone.setText(translate.getString("column.tablecol_phone"));
+        tablecol_gender.setText(translate.getString("column.tablecol_gender"));
+
+        Paneli.setText(translate.getString("text.paneli"));
+        shfaq.setText(translate.getString("button.shfaq"));
+        shfaqhuazuar.setText(translate.getString("button.shfaqhuazuar"));
+        regjistroperdorues.setText(translate.getString("button.regjistroperdorues"));
+        filtro.setText(translate.getString("button.filtro"));
 
     }
     }
