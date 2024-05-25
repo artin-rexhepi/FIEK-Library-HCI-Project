@@ -1,10 +1,17 @@
 package controller;
 
+import app.Navigator;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import model.dto.BookDTO;
 import service.BookService;
+
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class BookDeleteController {
 
@@ -32,6 +39,21 @@ public class BookDeleteController {
 
     @FXML
     private TextField txtAuthor;
+    @FXML
+    private Button btnBack;
+    @FXML
+    private ImageView albanianFlag;
+
+    @FXML
+    private ImageView americanFlag;
+    @FXML
+    private Label fshirja;
+    @FXML
+    private Button btnRuaj;
+    @FXML
+    private Button btnFshij;
+
+
 
     @FXML
     private void handleBookDelete() {
@@ -63,6 +85,7 @@ public class BookDeleteController {
             showAlert(Alert.AlertType.ERROR, "Error", "Failed to delete the book");
         }
     }
+
 
     @FXML
     private void handleBookDeleteCancel() {
@@ -99,7 +122,14 @@ public class BookDeleteController {
     }
 
 
+    private void goBack() {
+        Navigator.navigate(btnBack, Navigator.MANAGE_BOOKS_OPTIONS);
+    }
 
+    @FXML
+    public void handleReturn() {
+        goBack();
+    }
     @FXML
     public void initialize() {
 
@@ -115,8 +145,46 @@ public class BookDeleteController {
 
 
         });
+        // Set initial locale to Albanian
+        Locale.setDefault(new Locale("sq"));
+        translateAlbanian();
+
+        // Set flag click event handlers
+        albanianFlag.setOnMouseClicked(e -> translateAlbanian());
+        americanFlag.setOnMouseClicked(e -> translateEnglish());
+    }
+    @FXML
+    void translateEnglish() {
+        Locale currentLocale = new Locale("en");
+        ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
+
+        fshirja.setText(translate.getString("text.fshirja"));
+        txtISBN.setPromptText(translate.getString("label.isbn"));
+        txtTitle.setPromptText(translate.getString("label.title"));
+        txtPublisher.setPromptText(translate.getString("label.publisher"));
+        txtSubject.setPromptText(translate.getString("label.subject"));
+        txtAuthor.setPromptText(translate.getString("label.author"));
+        txtQuantity.setPromptText(translate.getString("label.quantity"));
+        btnFshij.setText(translate.getString("button.cancel"));
+        btnRuaj.setText(translate.getString("button.save"));
     }
 
+    @FXML
+    void translateAlbanian() {
+        Locale currentLocale = new Locale("sq");
+        ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
+
+
+        fshirja.setText(translate.getString("text.fshirja"));
+        txtISBN.setPromptText(translate.getString("label.isbn"));
+        txtTitle.setPromptText(translate.getString("label.title"));
+        txtPublisher.setPromptText(translate.getString("label.publisher"));
+        txtSubject.setPromptText(translate.getString("label.subject"));
+        txtAuthor.setPromptText(translate.getString("label.author"));
+        txtQuantity.setPromptText(translate.getString("label.quantity"));
+        btnFshij.setText(translate.getString("button.cancel"));
+        btnRuaj.setText(translate.getString("button.save"));
+    }
 
 
 }
