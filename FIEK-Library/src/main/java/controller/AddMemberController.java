@@ -88,9 +88,11 @@ public class AddMemberController {
         txtGjinia.clear();
         txtNumerTelefon.clear();
     }
+
     private void goBack() {
         Navigator.navigate(btnBack, Navigator.MANAGE_USERS);
     }
+
     @FXML
     public void handleReturn() {
         // Get the current stage from any of the text fields
@@ -108,13 +110,8 @@ public class AddMemberController {
         alert.showAndWait();
     }
 
-
-
-
-
     @FXML
     public void initialize() {
-
         // Shtimi i event handler për kalimin me Enter neper textfielda
         txtId.setOnAction(event -> txtEmri.requestFocus());
         txtEmri.setOnAction(event -> txtEmail.requestFocus());
@@ -123,8 +120,8 @@ public class AddMemberController {
         txtNumerTelefon.setOnAction(event -> {
             handleRuaj();
             event.consume(); // Për të parandaluar që shtypja e Enter të shkaktojë një ngjarje të tjera si kalimi në fushën tjetër
-
         });
+
         // Set initial locale to Albanian
         Locale.setDefault(new Locale("sq"));
         translateAlbanian();
@@ -132,25 +129,20 @@ public class AddMemberController {
         // Set flag click event handlers
         albanianFlag.setOnMouseClicked(e -> translateAlbanian());
         americanFlag.setOnMouseClicked(e -> translateEnglish());
+    }
 
-    }@FXML
+    @FXML
     void translateEnglish() {
-        // Verifikimi i ekzistencës së elementeve të GUI-së
-            Locale currentLocale = new Locale("en");
-            ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
+        Locale currentLocale = new Locale("en");
+        ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
 
         if (Regjistrimi != null && txtEmri != null && txtEmail != null && txtNumerTelefon != null && txtId != null && txtGjinia != null && buttonFshij != null && buttonRuaj != null) {
-            // Vendosja e tekstit të përkthyer për label
             Regjistrimi.setText(translate.getString("text.Regjistrimi"));
-
-            // Vendosja e tekstit të përkthyer për TextField Prompts
             txtEmri.setPromptText(translate.getString("label.txtEmri"));
             txtEmail.setPromptText(translate.getString("label.txtEmail"));
             txtNumerTelefon.setPromptText(translate.getString("label.txtNumerTelefon"));
             txtId.setPromptText(translate.getString("label.txtId"));
             txtGjinia.setPromptText(translate.getString("label.txtGjinia"));
-
-            // Vendosja e tekstit të përkthyer për butonat
             buttonFshij.setText(translate.getString("button.buttonFshij"));
             buttonRuaj.setText(translate.getString("button.buttonRuaj"));
         }
@@ -158,27 +150,18 @@ public class AddMemberController {
 
     @FXML
     void translateAlbanian() {
-        // Verifikimi i ekzistencës së elementeve të GUI-së
-        Locale currentLocale = new Locale("en");
+        Locale currentLocale = new Locale("sq");
         ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
 
         if (Regjistrimi != null && txtEmri != null && txtEmail != null && txtNumerTelefon != null && txtId != null && txtGjinia != null && buttonFshij != null && buttonRuaj != null) {
-            // Vendosja e tekstit të përkthyer për label
             Regjistrimi.setText(translate.getString("text.Regjistrimi"));
-
-            // Vendosja e tekstit të përkthyer për TextField Prompts
             txtEmri.setPromptText(translate.getString("label.txtEmri"));
             txtEmail.setPromptText(translate.getString("label.txtEmail"));
             txtNumerTelefon.setPromptText(translate.getString("label.txtNumerTelefon"));
             txtId.setPromptText(translate.getString("label.txtId"));
             txtGjinia.setPromptText(translate.getString("label.txtGjinia"));
-
-            // Vendosja e tekstit të përkthyer për butonat
             buttonFshij.setText(translate.getString("button.buttonFshij"));
             buttonRuaj.setText(translate.getString("button.buttonRuaj"));
         }
     }
-
-
-
 }

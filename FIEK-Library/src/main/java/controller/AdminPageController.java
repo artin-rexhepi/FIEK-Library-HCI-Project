@@ -193,7 +193,7 @@ private Button btnEditoPerdorues2;
 
             // Set initial locale to Albanian
             Locale.setDefault(new Locale("sq"));
-           // translateAlbanian();
+            translateAlbanian();
 
             // Set flag click event handlers
             albanianFlag.setOnMouseClicked(e -> translateAlbanian());
@@ -233,6 +233,7 @@ private Button btnEditoPerdorues2;
                 }
             });
         }
+
 
     }
 
