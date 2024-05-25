@@ -158,15 +158,17 @@ public class BookDeleteController {
         Locale currentLocale = new Locale("en");
         ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
 
-        fshirja.setText(translate.getString("text.fshirja"));
-        txtISBN.setPromptText(translate.getString("label.isbn"));
-        txtTitle.setPromptText(translate.getString("label.title"));
-        txtPublisher.setPromptText(translate.getString("label.publisher"));
-        txtSubject.setPromptText(translate.getString("label.subject"));
-        txtAuthor.setPromptText(translate.getString("label.author"));
-        txtQuantity.setPromptText(translate.getString("label.quantity"));
-        btnFshij.setText(translate.getString("button.cancel"));
-        btnRuaj.setText(translate.getString("button.save"));
+        if (fshirja != null && txtISBN != null && txtTitle != null && txtPublisher != null && txtSubject != null && txtAuthor != null && txtQuantity != null && btnFshij != null && btnRuaj != null) {
+            fshirja.setText(translate.getString("text.fshirja"));
+            txtISBN.setPromptText(translate.getString("label.isbn"));
+            txtTitle.setPromptText(translate.getString("label.title"));
+            txtPublisher.setPromptText(translate.getString("label.publisher"));
+            txtSubject.setPromptText(translate.getString("label.subject"));
+            txtAuthor.setPromptText(translate.getString("label.author"));
+            txtQuantity.setPromptText(translate.getString("label.quantity"));
+            btnFshij.setText(translate.getString("button.cancel"));
+            btnRuaj.setText(translate.getString("button.save"));
+        }
     }
 
     @FXML
@@ -174,17 +176,19 @@ public class BookDeleteController {
         Locale currentLocale = new Locale("sq");
         ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
 
-
-        fshirja.setText(translate.getString("text.fshirja"));
-        txtISBN.setPromptText(translate.getString("label.isbn"));
-        txtTitle.setPromptText(translate.getString("label.title"));
-        txtPublisher.setPromptText(translate.getString("label.publisher"));
-        txtSubject.setPromptText(translate.getString("label.subject"));
-        txtAuthor.setPromptText(translate.getString("label.author"));
-        txtQuantity.setPromptText(translate.getString("label.quantity"));
-        btnFshij.setText(translate.getString("button.cancel"));
-        btnRuaj.setText(translate.getString("button.save"));
+        if (fshirja != null && txtISBN != null && txtTitle != null && txtPublisher != null && txtSubject != null && txtAuthor != null && txtQuantity != null && btnFshij != null && btnRuaj != null) {
+            fshirja.setText(translate.getString("text.fshirja"));
+            txtISBN.setPromptText(translate.getString("label.isbn"));
+            txtTitle.setPromptText(translate.getString("label.title"));
+            txtPublisher.setPromptText(translate.getString("label.publisher"));
+            txtSubject.setPromptText(translate.getString("label.subject"));
+            txtAuthor.setPromptText(translate.getString("label.author"));
+            txtQuantity.setPromptText(translate.getString("label.quantity"));
+            btnFshij.setText(translate.getString("button.cancel"));
+            btnRuaj.setText(translate.getString("button.save"));
+        }
     }
+
 
 
 }

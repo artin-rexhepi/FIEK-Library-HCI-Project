@@ -133,46 +133,52 @@ public class AddMemberController {
         albanianFlag.setOnMouseClicked(e -> translateAlbanian());
         americanFlag.setOnMouseClicked(e -> translateEnglish());
 
-    }
-    @FXML
+    }@FXML
     void translateEnglish() {
-        Locale currentLocale = new Locale("en");
-        ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
+        // Verifikimi i ekzistencës së elementeve të GUI-së
+            Locale currentLocale = new Locale("en");
+            ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
 
-        // Vendosja e tekstit të përkthyer për label
-        Regjistrimi.setText(translate.getString("text.Regjistrimi"));
+        if (Regjistrimi != null && txtEmri != null && txtEmail != null && txtNumerTelefon != null && txtId != null && txtGjinia != null && buttonFshij != null && buttonRuaj != null) {
+            // Vendosja e tekstit të përkthyer për label
+            Regjistrimi.setText(translate.getString("text.Regjistrimi"));
 
-        // Vendosja e tekstit të përkthyer për TextField Prompts
-        txtEmri.setPromptText(translate.getString("label.txtEmri"));
-        txtEmail.setPromptText(translate.getString("label.txtEmail"));
-        txtNumerTelefon.setPromptText(translate.getString("label.txtNumerTelefon"));
-        txtId.setPromptText(translate.getString("label.txtId"));
-        txtGjinia.setPromptText(translate.getString("label.txtGjinia"));
+            // Vendosja e tekstit të përkthyer për TextField Prompts
+            txtEmri.setPromptText(translate.getString("label.txtEmri"));
+            txtEmail.setPromptText(translate.getString("label.txtEmail"));
+            txtNumerTelefon.setPromptText(translate.getString("label.txtNumerTelefon"));
+            txtId.setPromptText(translate.getString("label.txtId"));
+            txtGjinia.setPromptText(translate.getString("label.txtGjinia"));
 
-        // Vendosja e tekstit të përkthyer për butonat
-        buttonFshij.setText(translate.getString("button.buttonFshij"));
-        buttonRuaj.setText(translate.getString("button.buttonRuaj"));
+            // Vendosja e tekstit të përkthyer për butonat
+            buttonFshij.setText(translate.getString("button.buttonFshij"));
+            buttonRuaj.setText(translate.getString("button.buttonRuaj"));
+        }
     }
 
     @FXML
     void translateAlbanian() {
-        Locale currentLocale = new Locale("sq");
+        // Verifikimi i ekzistencës së elementeve të GUI-së
+        Locale currentLocale = new Locale("en");
         ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
 
-        // Vendosja e tekstit të përkthyer për label
-        Regjistrimi.setText(translate.getString("text.Regjistrimi"));
+        if (Regjistrimi != null && txtEmri != null && txtEmail != null && txtNumerTelefon != null && txtId != null && txtGjinia != null && buttonFshij != null && buttonRuaj != null) {
+            // Vendosja e tekstit të përkthyer për label
+            Regjistrimi.setText(translate.getString("text.Regjistrimi"));
 
-        // Vendosja e tekstit të përkthyer për TextField Prompts
-        txtEmri.setPromptText(translate.getString("label.txtEmri"));
-        txtEmail.setPromptText(translate.getString("label.txtEmail"));
-        txtNumerTelefon.setPromptText(translate.getString("label.txtNumerTelefon"));
-        txtId.setPromptText(translate.getString("label.txtId"));
-        txtGjinia.setPromptText(translate.getString("label.txtGjinia"));
+            // Vendosja e tekstit të përkthyer për TextField Prompts
+            txtEmri.setPromptText(translate.getString("label.txtEmri"));
+            txtEmail.setPromptText(translate.getString("label.txtEmail"));
+            txtNumerTelefon.setPromptText(translate.getString("label.txtNumerTelefon"));
+            txtId.setPromptText(translate.getString("label.txtId"));
+            txtGjinia.setPromptText(translate.getString("label.txtGjinia"));
 
-        // Vendosja e tekstit të përkthyer për butonat
-        buttonFshij.setText(translate.getString("button.buttonFshij"));
-        buttonRuaj.setText(translate.getString("button.buttonRuaj"));
+            // Vendosja e tekstit të përkthyer për butonat
+            buttonFshij.setText(translate.getString("button.buttonFshij"));
+            buttonRuaj.setText(translate.getString("button.buttonRuaj"));
+        }
     }
+
 
 
 }

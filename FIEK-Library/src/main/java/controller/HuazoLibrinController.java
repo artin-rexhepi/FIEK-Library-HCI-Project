@@ -139,15 +139,18 @@ public class HuazoLibrinController {
 
     @FXML
     public void handleReturn() {
-        // Get the current stage from any of the text fields
-        Stage stage = (Stage) txtIDStudentore.getScene().getWindow();
-        // Navigate to the MANAGE_USERS page
-        Navigator.navigate(stage, Navigator.MANAGE_BOOKS_OPTIONS);
-        goBack();
-        goBack1();
+        // Kontrolloni për null në txtIDStudentore
+        if (txtIDStudentore != null) {
+            // Merrni dritaren aktuale të skenës nga një nga fushat e tekst
+            Stage stage = (Stage) txtIDStudentore.getScene().getWindow();
+            // Navigoni në faqen MANAGE_BOOKS_OPTIONS
+            Navigator.navigate(stage, Navigator.MANAGE_BOOKS_OPTIONS);
+            goBack();
+            goBack1();
+        }
     }
 
-    private void showAlert(Alert.AlertType alertType, String title, String message) {
+        private void showAlert(Alert.AlertType alertType, String title, String message) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);
         alert.setHeaderText(null);
@@ -174,24 +177,33 @@ public class HuazoLibrinController {
         americanFlag.setOnMouseClicked(e -> translateEnglish());
         albanianFlag1.setOnMouseClicked(e -> translateAlbanian());
         americanFlag1.setOnMouseClicked(e -> translateEnglish());
-    }
-    @FXML
+
+        // Lidhja e btnBack me metodën handleReturn
+        if (btnBack != null) {
+            btnBack.setOnAction(event -> handleReturn());
+        }
+    }@FXML
     void translateEnglish() {
         Locale currentLocale = new Locale("en");
         ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
 
-        btnFshij.setText(translate.getString("button.btnFshij"));
-        btnRuaj.setText(translate.getString("button.btnRuaj"));
-        btnFshij1.setText(translate.getString("button.btnFshij1"));
-        btnRuaj1.setText(translate.getString("button.btnRuaj1"));
+        if (btnFshij != null && btnRuaj != null && btnFshij1 != null && btnRuaj1 != null &&
+                txtIDStudentore != null && txtIDLibrit != null && txtIDStudentore1 != null &&
+                txtIDLibrit1 != null && Huazimi != null && Kthelibra != null) {
 
-        txtIDStudentore.setPromptText(translate.getString("textfield.txtIDStudentore"));
-        txtIDLibrit.setPromptText(translate.getString("textfield.txtIDLibrit"));
-        txtIDStudentore1.setPromptText(translate.getString("textfield.txtIDStudentore1"));
-        txtIDLibrit1.setPromptText(translate.getString("textfield.txtIDLibrit1"));
+            btnFshij.setText(translate.getString("button.btnFshij"));
+            btnRuaj.setText(translate.getString("button.btnRuaj"));
+            btnFshij1.setText(translate.getString("button.btnFshij1"));
+            btnRuaj1.setText(translate.getString("button.btnRuaj1"));
 
-        Huazimi.setText(translate.getString("text.Huazimi"));
-        Kthelibra.setText(translate.getString("text.Kthelibra"));
+            txtIDStudentore.setPromptText(translate.getString("textfield.txtIDStudentore"));
+            txtIDLibrit.setPromptText(translate.getString("textfield.txtIDLibrit"));
+            txtIDStudentore1.setPromptText(translate.getString("textfield.txtIDStudentore1"));
+            txtIDLibrit1.setPromptText(translate.getString("textfield.txtIDLibrit1"));
+
+            Huazimi.setText(translate.getString("text.Huazimi"));
+            Kthelibra.setText(translate.getString("text.Kthelibra"));
+        }
     }
 
     @FXML
@@ -199,20 +211,25 @@ public class HuazoLibrinController {
         Locale currentLocale = new Locale("sq");
         ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
 
+        if (btnFshij != null && btnRuaj != null && btnFshij1 != null && btnRuaj1 != null &&
+                txtIDStudentore != null && txtIDLibrit != null && txtIDStudentore1 != null &&
+                txtIDLibrit1 != null && Huazimi != null && Kthelibra != null) {
 
-        btnFshij.setText(translate.getString("button.btnFshij"));
-        btnRuaj.setText(translate.getString("button.btnRuaj"));
-        btnFshij1.setText(translate.getString("button.btnFshij1"));
-        btnRuaj1.setText(translate.getString("button.btnRuaj1"));
+            btnFshij.setText(translate.getString("button.btnFshij"));
+            btnRuaj.setText(translate.getString("button.btnRuaj"));
+            btnFshij1.setText(translate.getString("button.btnFshij1"));
+            btnRuaj1.setText(translate.getString("button.btnRuaj1"));
 
-        txtIDStudentore.setPromptText(translate.getString("textfield.txtIDStudentore"));
-        txtIDLibrit.setPromptText(translate.getString("textfield.txtIDLibrit"));
-        txtIDStudentore1.setPromptText(translate.getString("textfield.txtIDStudentore1"));
-        txtIDLibrit1.setPromptText(translate.getString("textfield.txtIDLibrit1"));
+            txtIDStudentore.setPromptText(translate.getString("textfield.txtIDStudentore"));
+            txtIDLibrit.setPromptText(translate.getString("textfield.txtIDLibrit"));
+            txtIDStudentore1.setPromptText(translate.getString("textfield.txtIDStudentore1"));
+            txtIDLibrit1.setPromptText(translate.getString("textfield.txtIDLibrit1"));
 
-        Huazimi.setText(translate.getString("text.Huazimi"));
-        Kthelibra.setText(translate.getString("text.Kthelibra"));
-    };
+            Huazimi.setText(translate.getString("text.Huazimi"));
+            Kthelibra.setText(translate.getString("text.Kthelibra"));
+        }
     }
+
+}
 
 

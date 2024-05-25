@@ -121,28 +121,38 @@ public class LoginController {
             loginMessage.setText("Invalid username or password.");
         }
     }
-
     @FXML
     void translateEnglish() {
         Locale currentLocale = new Locale("en");
         ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
-        logIn.setText(translate.getString("button.logIn"));
-        bibliotekaText.setText(translate.getString("text.biblioteka"));
-        facultyText.setText(translate.getString("text.faculty"));
-        universityText.setText(translate.getString("text.university"));
-        cityText.setText(translate.getString("text.city"));
-        forgotPasswordLabel.setText(translate.getString("label.forgotPassword"));
+
+        if (logIn != null && bibliotekaText != null && facultyText != null && universityText != null &&
+                cityText != null && forgotPasswordLabel != null) {
+
+            logIn.setText(translate.getString("button.logIn"));
+            bibliotekaText.setText(translate.getString("text.biblioteka"));
+            facultyText.setText(translate.getString("text.faculty"));
+            universityText.setText(translate.getString("text.university"));
+            cityText.setText(translate.getString("text.city"));
+            forgotPasswordLabel.setText(translate.getString("label.forgotPassword"));
+        }
     }
 
     @FXML
     void translateAlbanian() {
         Locale currentLocale = new Locale("sq");
         ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
-        logIn.setText(translate.getString("button.logIn"));
-        bibliotekaText.setText(translate.getString("text.biblioteka"));
-        facultyText.setText(translate.getString("text.faculty"));
-        universityText.setText(translate.getString("text.university"));
-        cityText.setText(translate.getString("text.city"));
-        forgotPasswordLabel.setText(translate.getString("label.forgotPassword"));
+
+        if (logIn != null && bibliotekaText != null && facultyText != null && universityText != null &&
+                cityText != null && forgotPasswordLabel != null) {
+
+            logIn.setText(translate.getString("button.logIn"));
+            bibliotekaText.setText(translate.getString("text.biblioteka"));
+            facultyText.setText(translate.getString("text.faculty"));
+            universityText.setText(translate.getString("text.university"));
+            cityText.setText(translate.getString("text.city"));
+            forgotPasswordLabel.setText(translate.getString("label.forgotPassword"));
+        }
     }
+
 }

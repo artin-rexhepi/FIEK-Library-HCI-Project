@@ -96,14 +96,19 @@ public class HuazuarBooksController implements Initializable {
         Locale currentLocale = new Locale("en");
         ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
 
-        Tabela.setText(translate.getString("text.Tabela"));
-        isbnColumn.setText(translate.getString("column.isbn"));
-        titleColumn.setText(translate.getString("column.title"));
-        authorColumn.setText(translate.getString("column.author"));
-        publisherColumn.setText(translate.getString("column.publisher"));
-        pubDateColumn.setText(translate.getString("column.pubDate"));
-        borrowDateColumn.setText(translate.getString("column.borrowDate"));
-        dueDateColumn.setText(translate.getString("column.dueDate"));
+        if (Tabela != null && isbnColumn != null && titleColumn != null && authorColumn != null &&
+                publisherColumn != null && pubDateColumn != null && borrowDateColumn != null &&
+                dueDateColumn != null) {
+
+            Tabela.setText(translate.getString("text.Tabela"));
+            isbnColumn.setText(translate.getString("column.isbn"));
+            titleColumn.setText(translate.getString("column.title"));
+            authorColumn.setText(translate.getString("column.author"));
+            publisherColumn.setText(translate.getString("column.publisher"));
+            pubDateColumn.setText(translate.getString("column.pubDate"));
+            borrowDateColumn.setText(translate.getString("column.borrowDate"));
+            dueDateColumn.setText(translate.getString("column.dueDate"));
+        }
     }
 
     @FXML
@@ -111,13 +116,19 @@ public class HuazuarBooksController implements Initializable {
         Locale currentLocale = new Locale("sq");
         ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
 
-        Tabela.setText(translate.getString("text.Tabela"));
-        isbnColumn.setText(translate.getString("column.isbn"));
-        titleColumn.setText(translate.getString("column.title"));
-        authorColumn.setText(translate.getString("column.author"));
-        publisherColumn.setText(translate.getString("column.publisher"));
-        pubDateColumn.setText(translate.getString("column.pubDate"));
-        borrowDateColumn.setText(translate.getString("column.borrowDate"));
-        dueDateColumn.setText(translate.getString("column.dueDate"));
+        if (Tabela != null && isbnColumn != null && titleColumn != null && authorColumn != null &&
+                publisherColumn != null && pubDateColumn != null && borrowDateColumn != null &&
+                dueDateColumn != null) {
+
+            Tabela.setText(translate.getString("text.Tabela"));
+            isbnColumn.setText(translate.getString("column.isbn"));
+            titleColumn.setText(translate.getString("column.title"));
+            authorColumn.setText(translate.getString("column.author"));
+            publisherColumn.setText(translate.getString("column.publisher"));
+            pubDateColumn.setText(translate.getString("column.pubDate"));
+            borrowDateColumn.setText(translate.getString("column.borrowDate"));
+            dueDateColumn.setText(translate.getString("column.dueDate"));
+        }
     }
+
 }
