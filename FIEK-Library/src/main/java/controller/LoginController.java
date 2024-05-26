@@ -56,8 +56,6 @@ public class LoginController {
     @FXML
     private Text cityText;
 
-    @FXML
-    private Label forgotPasswordLabel;
 
     // Setter for userService, allows injection after FXML loading
     public void setUserService(UserService userService) {
@@ -77,6 +75,7 @@ public class LoginController {
         // Set flag click event handlers
         albanianFlag.setOnMouseClicked(e -> translateAlbanian());
         americanFlag.setOnMouseClicked(e -> translateEnglish());
+
     }
 
     private void handleUsernameKeyPressed(KeyEvent event) {
@@ -127,14 +126,14 @@ public class LoginController {
         ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
 
         if (logIn != null && bibliotekaText != null && facultyText != null && universityText != null &&
-                cityText != null && forgotPasswordLabel != null) {
+                cityText != null) {
 
             logIn.setText(translate.getString("button.logIn"));
-            bibliotekaText.setText(translate.getString("text.biblioteka"));
-            facultyText.setText(translate.getString("text.faculty"));
-            universityText.setText(translate.getString("text.university"));
-            cityText.setText(translate.getString("text.city"));
-            forgotPasswordLabel.setText(translate.getString("label.forgotPassword"));
+            bibliotekaText.setText(translate.getString("text.bibliotekaText"));
+            facultyText.setText(translate.getString("text.facultyText"));
+            universityText.setText(translate.getString("text.universityText"));
+            cityText.setText(translate.getString("text.cityText"));
+
         }
     }
 
@@ -144,14 +143,14 @@ public class LoginController {
         ResourceBundle translate = ResourceBundle.getBundle("translation.content", currentLocale);
 
         if (logIn != null && bibliotekaText != null && facultyText != null && universityText != null &&
-                cityText != null && forgotPasswordLabel != null) {
+                cityText != null) {
 
             logIn.setText(translate.getString("button.logIn"));
-            bibliotekaText.setText(translate.getString("text.biblioteka"));
-            facultyText.setText(translate.getString("text.faculty"));
-            universityText.setText(translate.getString("text.university"));
-            cityText.setText(translate.getString("text.city"));
-            forgotPasswordLabel.setText(translate.getString("label.forgotPassword"));
+            bibliotekaText.setText(translate.getString("text.bibliotekaText"));
+            facultyText.setText(translate.getString("text.facultyText"));
+            universityText.setText(translate.getString("text.universityText"));
+            cityText.setText(translate.getString("text.cityText"));
+
         }
     }
 
